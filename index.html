@@ -14,7 +14,7 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f7fa;color:#333;padd
 .header{background:linear-gradient(135deg,#6a11cb,#2575fc);color:white;padding:15px;border-radius:12px;margin-bottom:15px;box-shadow:0 4px 15px rgba(106,17,203,0.3)}
 .header h1{font-size:18px;margin-bottom:5px}
 .header p{font-size:11px;opacity:0.9}
-.main-tab{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-bottom:15px}
+.main-tab{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:15px}
 .main-tab-btn{padding:12px;background:white;border:2px solid #e0e0e0;border-radius:10px;font-weight:700;cursor:pointer;font-size:13px;transition:all 0.2s}
 .main-tab-btn.active{background:linear-gradient(135deg,#6a11cb,#2575fc);color:white;border-color:#6a11cb}
 .tab-page{display:none}
@@ -78,7 +78,8 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f7fa;color:#333;padd
 .checkbox-grid{display:grid;gap:10px;margin-bottom:15px}
 .checkbox-grid label{display:flex;align-items:center;padding:8px;background:#f8f9fa;border-radius:6px;cursor:pointer}
 .checkbox-grid input[type=checkbox]{margin-right:8px;width:18px;height:18px}
-.template-item{display:flex;gap:8px;margin-bottom:8px;align-items:center}
+.template
+    -item{display:flex;gap:8px;margin-bottom:8px;align-items:center}
 .template-input{flex:1;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px}
 .template-del{background:#dc3545;color:white;border:none;border-radius:6px;padding:8px 12px;cursor:pointer}
 .add-template-btn{width:100%;padding:10px;background:#28a745;color:white;border:none;border-radius:6px;font-weight:600;margin-top:10px;cursor:pointer}
@@ -152,7 +153,8 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f7fa;color:#333;padd
 #tab-monitor .btn-save { background:#0ea5e9; color:#fff; font-weight:800; }
 #tab-monitor .info-hlm { text-align:center; color:var(--accent); font-weight:700; margin:8px 0; font-size:12px; }
 #tab-monitor #tblWrapper { overflow:auto; max-height:75vh; border-radius:10px; }
-#tab-monitor .loading { text-align:center; padding:20px; color:var(--accent); font-weight:700; font-size:14px; }
+#tab-monitor .loading { text-align:center; padding:20px; color:var(-
+    -accent); font-weight:700; font-size:14px; }
 #tab-monitor .modal { display:none; position:fixed; z-index:99; left:0; top:0; width:100%; height:100%; background:#000a; }
 #tab-monitor .modal-content { background:var(--card); margin:5% auto; padding:14px; border-radius:12px; width:95%; max-width:500px; max-height:80vh; overflow:auto; font-size:12px; }
 #tab-monitor .modal-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
@@ -191,7 +193,7 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f7fa;color:#333;padd
 <div class="container">
     <div class="header">
         <h1>📈 QUICK ANALYZE SALES FOOD YCJ</h1>
-        <p>QUICK ANALYZE + FIND PLU + NAOS V51</p>
+        <p>QUICK ANALYZE + FIND PLU + NAOS V51 + ISC</p>
     </div>
 
     <div class="main-tab">
@@ -200,9 +202,7 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f7fa;color:#333;padd
         <button class="main-tab-btn" onclick="switchMainTab('naos')">📋 NAOS V51</button>
         <button class="main-tab-btn" onclick="switchMainTab('isc')">📊 ISC</button>
     </div>
-    <div class="tab-page" id="iscPage">
-        <div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.1)">
-        <iframe id="iscFrame" title="ISC" style="width:100%;height:calc(100vh - 140px);min-height:700px;border:0;display:block;background:#f3f4f6" srcdoc="<!DOCTYPE html>
+    <div class="tab-page" id="iscPage"><iframe id="iscFrame" srcdoc="<!DOCTYPE html>
 <html lang=&quot;id&quot;>
 <head>
 <meta charset=&quot;UTF-8&quot;>
@@ -211,8 +211,7 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f7fa;color:#333;padd
 <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
 <script src=&quot;https://cdn.jsdelivr.net/npm/chart.js&quot;></script>
 <style>
-.responsive-table{width:100% !important; min
--width:0 !important; table-layout:auto;}
+.responsive-table{width:100% !important; min-width:0 !important; table-layout:auto;}
 .responsive-table th, .responsive-table td{white-space:nowrap;}
 @media (max-width:768px){
   .responsive-table{font-size:13px !important;}
@@ -242,7 +241,8 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f7fa;color:#333;padd
   </div>
   <div class=&quot;bg-gradient-to-br from-blue-600 to-blue-500 border-2 border-blue-600 rounded-xl p-2 text-center text-white shadow-sm&quot;>
     <p class=&quot;text-[9px] font-extrabold opacity-90&quot;>📈 ACHIEVEMENT</p>
-    <p id=&quot;achvText&quot; class=&quot;font-extrabold text-[18px] leading-none mt-1&quot;>0%</p>
+    <p id=&quot;achvText&quot; class=&quot;font-extrabo
+                                           ld text-[18px] leading-none mt-1&quot;>0%</p>
     <p id=&quot;achvDetail&quot; class=&quot;text-[8px] opacity-80 mt-1 truncate&quot;>TO / Target</p>
   </div>
 </div>
@@ -302,7 +302,8 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f7fa;color:#333;padd
     <div class=&quot;bg-[#00B0F0] text-white p-3 flex justify-between items-center&quot;>
       <div><p id=&quot;modalTitle&quot; class=&quot;font-extrabold text-sm&quot;>Detail Produk Minus</p><p class=&quot;text-[11px] opacity-90&quot;>SU Description + NODE + STOK + SELISIH + % | (TO-LY)/LY</p></div>
       <button onclick=&quot;closeModal()&quot; class=&quot;bg-white text-black rounded-full w-8 h-8 font-bold&quot;>×</button>
-    </div>
+    </div
+                                           >
     <div id=&quot;modalBody&quot; class=&quot;p-3 max-h-[70vh] overflow-y-auto text-[12px]&quot;></div>
   </div>
 </div>
@@ -401,7 +402,8 @@ function renderMinusList(){
     if(currentSortDir==='besar') list.sort((a,b)=> (a.persen - b.persen));
     else list.sort((a,b)=> (b.persen - a.persen));
   }
-  if(list.length===0){ document.getElementById('minusList').innerHTML='<div class=&quot;text-center py-8 text-gray-400 text-[12px]&quot;>Tidak ada stok '+currentStokFilter+'</div>'; document.getElementById('countInfo').innerText='0 / '+currentMinusAll.length+' produk'; return; }
+  if(list.length===0){ document.getElementById('minusList').innerHTML='<div class=&quot;text-center py-8 text-gray-400 text-[12px]&quot;>Tidak ada stok '+currentStokFilter+'</div>'; document.getElementById('countInfo').innerText='
+                                           0 / '+currentMinusAll.length+' produk'; return; }
   let html=list.map(p=>{
     let stokColor = (p.stock<=0) ? 'bg-red-600 text-white' : 'bg-green-100 text-green-700 border border-green-200';
     let selisihColor = p.selisih<0 ? 'text-red-600' : 'text-green-600';
@@ -416,8 +418,7 @@ function showMinus(key){
   document.getElementById('modalTitle').innerText='Detail Minus - '+g.nama+' | '+g.brand;
   let prods=Object.values(g.products);
   let minus=prods.filter(p=> p.salesToLy>0 &amp;&amp; p.salesTo < p.salesToLy);
-  minus=minus.map(p=>{ let persen = p.salesToLy===0?0:((p.salesTo - p.sales
-  ToLy)/p.salesToLy*100); let selisih = p.salesTo - p.salesToLy; return {...p, persen, selisih}; });
+  minus=minus.map(p=>{ let persen = p.salesToLy===0?0:((p.salesTo - p.salesToLy)/p.salesToLy*100); let selisih = p.salesTo - p.salesToLy; return {...p, persen, selisih}; });
   if(minus.length===0){ document.getElementById('modalBody').innerHTML='<div class=&quot;text-center py-8&quot;><p class=&quot;font-bold text-green-600&quot;>Nggak ada produk minus!</p></div>'; return; }
   currentMinusAll=minus; currentStokFilter='all'; currentSortBy='selisih'; currentSortDir='besar';
   let cMerah=minus.filter(p=>getStokCat(p)==='merah').length;
@@ -439,40 +440,41 @@ function showMinus(key){
   html += '<div id=&quot;minusList&quot;></div>';
   document.getElementById('modalBody').innerHTML=html;
   renderMinusList();
-  }
-  function hitungAchv(){
+}
+function hitungAchv(){
   let targetEl=document.getElementById('targetInput');
   let achvEl=document.getElementById('achvText');
   let detailEl=document.getElementById('achvDetail');
   if(!targetEl||!achvEl) return;
   let target=parseFloat((targetEl.value||'').toString().replace(/[^0-9]/g,''))||0;
   if(target<=0){
-  achvEl.innerText='0%';
-  if(detailEl) detailEl.innerText='Masukkan target';
-  return;
+    achvEl.innerText='0%';
+    if(detailEl) detailEl.innerText='Masukkan target';
+    return;
   }
   let persen = totalSalesTo / target * 100;
   achvEl.innerText=persen.toFixed(2)+'%';
   if(detailEl) detailEl.innerText= totalSalesTo.toLocaleString()+' / '+target.toLocaleString();
   try{ localStorage.setItem('ycj_target', target); }catch(e){}
-  }
-  function render(){
-  const q=document.getElementById('q').value.toLowerCase();
-  const show={ NAMA: document.getElementById('cNama').checked, BRAND: document.getElementById('cBrand').checked, HARI: document.getElementById('cHari').checked, TO: document.getElementById('cTo').checked, TOLY: document.getElementById('cToLy').checked, GROWTH: document.getElementById('cGrowth').checked, KONT: document.getElementById('cKont').checked };
-  document.querySelectorAll('.col-NAMA').forEach(e=>e.classList.toggle('hidden',!show.NAMA));
-  document.querySelectorAll('.col-BRAND').forEach(e=>e.classList.toggle('hidden',!show.BRAND));
-  document.querySelectorAll('.col-HARI').forEach(e=>e.classList.toggle('hidden',!show.HARI));
-  document.querySelectorAll('.col-TO').forEach(e=>e.classList.toggle('hidden',!show.TO));
-  document.querySelectorAll('.col-TOLY').forEach(e=>e.classList.toggle('hidden',!show.TOLY));
-  document.querySelectorAll('.col-GROWTH').forEach(e=>e.classList.toggle('hidden',!show.GROWTH));
-  document.querySelectorAll('.col-KONT').forEach(e=>e.classList.toggle('hidden',!show.KONT));
-  document.getElementById('boxKont').classList.toggle('hidden',!show.KONT);
-  document.getElementById('boxGrowth').classList.toggle('hidden',!show.GROWTH);
-  let list=Object.values(grouped).map(g=>({key:g.nama+'|'+g.brand, nama:g.nama,brand:g.brand,hari:Array.from(g.hariSet).join(', '),salesTo:g.salesTo,salesToLy:g.salesToLy, growth: g.salesToLy===0?0:((g.salesTo-g.salesToLy)/g.salesToLy*100), kontribusi: totalSalesTo===0?0:(g.salesTo/totalSalesTo*100) }));
-  list=list.filter(d=>!q||d.nama.toLowerCase().includes(q)||d.brand.toLowerCase().includes(q)||d.hari.toLowerCase().includes(q));
-  if(growthFilter==='minus') list=list.filter(d=>d.growth<0);
-  if(growthFilter==='plus') list=list.filter(d=>d.growth>=0);
-  list.sort((a,b)=>{
+}
+function render(){
+ const q=document.getElementById('q').value.toLowerCase();
+ const show={ NAMA: document.getElementById('cNama').checked, BRAND: document.getElementById('cBrand').checked, HARI: document.getElementById('cHari').checked, TO: document.getElementById('cTo').checked, TOLY: document.getElementById('cToLy').checked, GROWTH: document.getElementById('cGrowth').checked, KONT: document.getElementById('cKont').checked };
+ document.querySelectorAll('.col-NAMA').forEach(e=>e.classList.toggle('hidden',!show.NAMA));
+ document.querySelectorAll('.col-BRAND').forEach(e=>e.classList.toggle('hidden',!show.BRAND));
+ document.querySelectorAll('.col-HARI').forEach(e=>e.classList.toggle('hidden',!show.HARI));
+ document.querySelectorAll('.col-TO').forEach(e=>e.classList.toggle('hidden',!show.TO));
+ document.querySelectorAll('.col-TOLY').forEach(e=>e.classList.toggle('hidden',!show.TOLY));
+ document.querySelectorAll('.col-GROWTH').forEach(e=>e.classList.toggle('hidden',!show.GROWTH));
+ document.querySelectorAll('.col-KONT').forEach(e=>e.classList.toggle('hidden',!show.KONT));
+ document.getElementById('boxKont').classList.toggle('hidden',!show.KONT);
+ document.getElementById('boxGrowth').classList.toggle('hidden',!show.GROWTH);
+ let list=Object.values(grouped).map(g=>({key:g.nama+'|'+g.brand, nama:g.nama,brand:g.brand,hari:Array.from(g.hariSet).j
+                                           oin(', '),salesTo:g.salesTo,salesToLy:g.salesToLy, growth: g.salesToLy===0?0:((g.salesTo-g.salesToLy)/g.salesToLy*100), kontribusi: totalSalesTo===0?0:(g.salesTo/totalSalesTo*100) }));
+ list=list.filter(d=>!q||d.nama.toLowerCase().includes(q)||d.brand.toLowerCase().includes(q)||d.hari.toLowerCase().includes(q));
+ if(growthFilter==='minus') list=list.filter(d=>d.growth<0);
+ if(growthFilter==='plus') list=list.filter(d=>d.growth>=0);
+ list.sort((a,b)=>{
   let field=currentSort.field; let dir = currentSort.dir==='asc'?1:-1;
   if(field==='nama') return a.nama.localeCompare(b.nama)*dir;
   if(field==='brand') return a.brand.localeCompare(b.brand)*dir;
@@ -482,1388 +484,1392 @@ function showMinus(key){
   if(field==='growth') return (a.growth-b.growth)*dir;
   if(field==='kontribusi') return (a.kontribusi-b.kontribusi)*dir;
   return 0;
-  });
-  document.getElementById('totNama').innerText=new Set(list.map(x=>x.nama)).size;
-  document.getElementById('totBrand').innerText=new Set(list.map(x=>x.brand)).size;
-  document.getElementById('totTo').innerText=list.reduce((s,x)=>s+x.salesTo,0).toLocaleString();
-  if(list.length===0){
-  document.getElementById('tbody').innerHTML='<tr><td colspan=&quot;8&quot; class=&quot;p-8 text-center text-gray-500&quot;>Data kosong</td></tr>';
-  } else {
-  document.getElementById('tbody').innerHTML=list.map((d,i)=>{
-  const growth=d.growth; const kont=d.kontribusi;
-  let hNama = show.NAMA ? '' : ' hidden';
-  let hBrand = show.BRAND ? '' : ' hidden';
-  let hHari = show.HARI ? '' : ' hidden';
-  let hTo = show.TO ? '' : ' hidden';
-  let hToLy = show.TOLY ? '' : ' hidden';
-  let hGrowth = show.GROWTH ? '' : ' hidden';
-  let hKont = show.KONT ? '' : ' hidden';
-  return '<tr class=&quot;border-b hover:bg-blue-50&quot;><td class=&quot;p-2 col-no'+'&quot;>'+(i+1)+'</td><td class=&quot;p-2 font-bold col-NAMA text-blue-600 underline cursor-pointer'+hNama+'&quot; onclick=&quot;showMinus(\''+d.key+'\')&quot;>'+d.nama+'</td><td class=&quot;p-2 col-BRAND'+hBrand+'&quot;><span class=&quot;bg-gray-100 px-2 py-1 rounded-full text-[11px]&quot;>'+(d.brand||'-')+'</span></td><td class=&quot;p-2 col-HARI text-[11px]'+hHari+'&quot;>'+(d.hari||'-')+'</td><td class=&quot;p-2 text-right col-TO'+hTo+'&quot;>'+d.salesTo.toLocaleString()+'</td><td class=&quot;p-2 text-right col-TOLY text-gray-500'+hToLy+'&quot;>'+d.salesToLy.toLocaleString()+'</td><td class=&quot;p-2 text-center col-GROWTH font-bold '+(growth>=0?'text-green-600':'text-red-600')+hGrowth+'&quot;>'+growth.toFixed(2)+'%</td><td class=&quot;p-2 text-center col-KONT font-bold text-blue-600'+hKont+'&quot;>'+kont.toFixed(2)+'%</td></tr>';
-  }).join('');
-  }
-  const labels=list.map(d=>d.nama+' ('+d.brand+')');
-  const dataKont=list.map(d=>d.kontribusi);
-  const dataGrowth=list.map(d=>d.growth);
-  if(show.KONT){
+ });
+ document.getElementById('totNama').innerText=new Set(list.map(x=>x.nama)).size;
+ document.getElementById('totBrand').innerText=new Set(list.map(x=>x.brand)).size;
+ document.getElementById('totTo').innerText=list.reduce((s,x)=>s+x.salesTo,0).toLocaleString();
+ if(list.length===0){
+   document.getElementById('tbody').innerHTML='<tr><td colspan=&quot;8&quot; class=&quot;p-8 text-center text-gray-500&quot;>Data kosong</td></tr>';
+ } else {
+   document.getElementById('tbody').innerHTML=list.map((d,i)=>{
+    const growth=d.growth; const kont=d.kontribusi;
+    let hNama = show.NAMA ? '' : ' hidden';
+    let hBrand = show.BRAND ? '' : ' hidden';
+    let hHari = show.HARI ? '' : ' hidden';
+    let hTo = show.TO ? '' : ' hidden';
+    let hToLy = show.TOLY ? '' : ' hidden';
+    let hGrowth = show.GROWTH ? '' : ' hidden';
+    let hKont = show.KONT ? '' : ' hidden';
+    return '<tr class=&quot;border-b hover:bg-blue-50&quot;><td class=&quot;p-2 col-no'+'&quot;>'+(i+1)+'</td><td class=&quot;p-2 font-bold col-NAMA text-blue-600 underline cursor-pointer'+hNama+'&quot; onclick=&quot;showMinus(\''+d.key+'\')&quot;>'+d.nama+'</td><td class=&quot;p-2 col-BRAND'+hBrand+'&quot;><span class=&quot;bg-gray-100 px-2 py-1 rounded-full text-[11px]&quot;>'+(d.brand||'-')+'</span></td><td class=&quot;p-2 col-HARI text-[11px]'+hHari+'&quot;>'+(d.hari||'-')+'</td><td class=&quot;p-2 text-right col-TO'+hTo+'&quot;>'+d.salesTo.toLocaleString()+'</td><td class=&quot;p-2 text-right col-TOLY text-gray-500'+hToLy+'&quot;>'+d.salesToLy.toLocaleString()+'</td><td class=&quot;p-2 text-center col-GROWTH font-bold '+(growth>=0?'text-green-600':'text-red-600')+hGrowth+'&quot;>'+growth.toFixed(2)+'%</td><td class=&quot;p-2 text-center col-KONT font-bold text-blue-600'+hKont+'&quot;>'+kont.toFixed(2)+'%</td></tr>';
+   }).join('');
+ }
+ const labels=list.map(d=>d.nama+' ('+d.brand+')');
+ const dataKont=list.map(d=>d.kontribusi);
+ const dataGrowth=list.map(d=>d.growth);
+ if(show.KONT){
   const ctxKont=document.getElementById('chartKont').getContext('2d');
   if(chartKontInstance) chartKontInstance.destroy();
   chartKontInstance=new Chart(ctxKont,{ type:'pie', data:{labels:labels, datasets:[{data:dataKont}]}, options:{plugins:{legend:{position:'bottom',labels:{font:{size:11}}}}}});
   let akum=0; document.getElementById('summaryKont').innerHTML=list.map((d,i)=>{ const kont=dataKont[i]; akum+=kont; return '<div class=&quot;flex justify-between py-1 border-b&quot;><span><b>'+d.nama+'</b> ('+d.salesTo.toLocaleString()+')</span><span class=&quot;text-blue-600 font-bold&quot;>'+kont.toFixed(1)+'% (Akum '+akum.toFixed(1)+'%)</span></div>'; }).join('');
-  }
-  if(show.GROWTH){
+ }
+ if(show.GROWTH){
   const ctxGrowth=document.getElementById('chartGrowth').getContext('2d');
   if(chartGrowthInstance) chartGrowthInstance.destroy();
   chartGrowthInstance=new Chart(ctxGrowth,{ type:'bar', data:{labels:labels, datasets:[{label:'Growth %',data:dataGrowth}]}, options:{plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>v+'%'}}}}});
   // === UBAHAN SESUAI REQUEST: MERAH JADI SELISIH TO - TOLY ===
   document.getElementById('summaryGrowth').innerHTML=list.map((d,i)=>{ const growth=dataGrowth[i]; const selisih = d.salesTo - d.salesToLy; const selisihTxt = (selisih>0?'+':'')+selisih.toLocaleString(); return '<div class=&quot;flex justify-between py-1 border-b&quot;><span><b>'+d.nama+'</b></span><span class=&quot;'+(growth>=0?'text-green-600':'text-red-600')+' font-bold&quot;>'+growth.toFixed(1)+'% | '+selisihTxt+'</span></div>'; }).join('');
-  }
-  }
-  document.addEventListener('DOMContentLoaded', ()=>{ try{ let saved=localStorage.getItem('ycj_target'); if(saved){ document.getElementById('targetInput').value=saved; } }catch(e){} setTimeout(()=>load(false), 500); });
-  </script>
-  </body>
-  </html>"></iframe>
-  </div>
-  </div>
-  <div class="tab-page active" id="analyzePage">
-  <div class="upload-section">
-  <div class="file-input-wrapper">
-  <input type="file" id="fileInput" accept=".xlsx,.xls">
-  <label for="fileInput" class="file-input-label">📁 Pilih File Excel Sales</label>
-  </div>
-  <div class="file-info" id="fileInfo">Belum ada file dipilih</div>
-  <div class="btn-row">
-  <button class="btn btn-primary" onclick="loadFromDB()">📂 Load Data Lama</button>
-  <button class="btn btn-success" onclick="exportToExcel()">💾 Export Excel</button>
-  <button class="btn btn-warning" onclick="clearData()">🗑️ Hapus Data</button>
-  <button class="btn kolom-btn" onclick="openColumnModal()">⚙️ Atur Kolom</button>
-  <button class="btn komentar-btn" onclick="hapusSemuaKomentar()">💬 Hapus Komentar</button>
-  <button class="btn template-btn" onclick="openTemplateModal()">⚡ Template</button>
-  <button class="btn belum-pajang-btn" onclick="resetSemuaPajang()">🔄 Reset Pajang</button>
-  </div>
-  </div>
-  
-  <div class="card">
-  <div class="card-title">🔗 Import Langsung dari Google Sheet</div>
-  <input type="text" id="sheetUrl" class="search-box" placeholder="Link udah kesimpen otomatis" style="margin-bottom:10px" readonly>
-  <div class="btn-row">
-  <button class="btn btn-primary" onclick="importFromSheet()">📥 Tarik Data Sheet</button>
-  <button class="btn btn-success" onclick="showToast('Link udah nempel permanen bang')">💾 Link Permanen</button>
-  </div>
-  <div id="sheetInfo" class="file-info">Link master udah aktif</div>
-  <div class="tips">
-  <strong>Pencet "Tarik Data Sheet" kalo lu abis edit Google Sheet</strong><br>
-  Data ke-refresh otomatis, ga usah upload Excel lagi
-  </div>
-  </div>
-  <div class="summary" id="summary" style="display:none">
-  <div class="summary-card">
-  <h3>Total Item</h3>
-  <div class="value" id="totalItem">0</div>
-  </div>
-  <div class="summary-card">
-  <h3>Total Sales Qty</h3>
-  <div class="value" id="totalSales">0</div>
-  </div>
-  <div class="summary-card">
-  <h3>Item OOS</h3>
-  <div class="value" id="totalOOS">0</div>
-  </div>
-  <div class="summary-card">
-  <h3>Item NAOS</h3>
-  <div class="value" id="totalNAOS">0</div>
-  </div>
-  <div class="summary-card">
-  <h3>Sales LY Qty</h3>
-  <div class="value" id="totalSalesLY">0</div>
-  </div>
-  <div class="summary-card">
-  <h3>Sales Growth Rp</h3>
-  <div class="value" id="totalPersenSelisih">0%</div>
-  </div>
-  <div class="summary-card">
-  <h3>Selisih Total TO</h3>
-  <div class="value" id="totalSelisihTo">0</div>
-  </div>
-  </div>
-  
-  <div class="card" id="summaryKategoriCard" style="display:none">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-  <div class="card-title" style="margin-bottom:0">📊 SUMMARY PER KATEGORI - NODE</div>
-  <button class="toggle-summary-btn" onclick="toggleSummaryKategori()">👁️ Hide</button>
-  </div>
-  <div id="summaryKategori" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;"></div>
-  </div>
-  <div class="card" id="searchCard" style="display:none">
-  <div class="hari-input-wrap">
-  <label>📅 Hari Berjalan:</label>
-  <input type="number" id="hariBerjalan" value="30" min="1" onchange="updateHari()">
-  <span>Buat hitung SKP = stok : sales × hari berjalan</span>
-  </div>
-  <input type="text" class="search-box" id="searchBox" placeholder="🔍 Cari barang..." oninput="handleSearch()">
-  <div class="filter-row">
-  <select class="sort-select" id="kategoriFilter" onchange="handleKategoriFilter()">
-  <option value="">Sort per Kategori - Semua</option>
-  </select>
-  <select class="sort-select" id="sortBy" onchange="handleSort()">
-  <option value="">Urutkan...</option>
-  <option value="komentar_dulu">Komentar Dulu</option>
-  <option value="nama_az">Nama A-Z</option>
-  <option value="nama_za">Nama Z-A</option>
-  <option value="stok_besar">Stok Terbesar</option>
-  <option value="stok_kecil">Stok Terkecil</option>
-  <option value="skp_besar">SKP Terbesar</option>
-  <option value="skp_kecil">SKP Terkecil</option>
-  <option value="sales_besar">Sales Qty Terbesar</option>
-  <option value="sales_kecil">Sales Qty Terkecil</option>
-  <option value="selisih_besar">Selisih Qty Terbesar</option>
-  <option value="selisih_kecil">Selisih Qty Terkecil</option>
-  <option value="selisih_to_besar">Selisih Rp Terbesar</option>
-  <option value="selisih_to_kecil">Selisih Rp Terkecil</option>
-  </select>
-  <button class="btn kolom-btn" id="komenFilterBtn" onclick="toggleKomentarFilter()">💬 Ada Komentar</button>
-  </div>
-  <div class="btn-row">
-  <button class="btn kolom-btn" onclick="showAll()">📋 Semua Data</button>
-  <button class="btn kolom-btn" style="background:#dc3545" onclick="showNoSales()">🚫 NAOS</button>
-  <button class="btn belum-pajang-btn" onclick="showBelumPajang()">📌 Belum Terpajang</button>
-  <button class="btn oos-btn" onclick="showOOS()">⛔ OOS</button>
-  </div>
-  <div class="stats">
-  <span>Menampilkan: <strong id="rowCount">0</strong></span>
-  <span id="filterInfo"></span>
-  </div>
-  </div>
-  
-  <div class="pagination-info" id="paginationInfo" style="display:none"></div>
-  
-  <div class="table-container" id="tableContainer">
-  <div class="no-data">Pencet "📥 Tarik Data Sheet" buat mulai</div>
-  </div>
-  
-  <div class="pagination-controls" id="paginationControls" style="display:none">
-  <button class="btn btn-primary" id="prevBtn" onclick="prevPage()">⬅️ 500 Sebelumnya</button>
-  <button class="btn btn-primary" id="nextBtn" onclick="nextPage()">500 Berikutnya ➡️</button>
-  </div>
-  </div>
-  <div class="tab-page" id="findpluPage">
-  <div class="upload-section">
-  <div class="file-input-wrapper">
-  <input type="file" id="pluFileInput" accept=".xlsx,.xls">
-  <label for="pluFileInput" class="file-input-label">📁 Upload Master Data PLU</label>
-  </div>
-  <div class="file-info" id="pluFileInfo">Belum ada file dipilih</div>
-  <div class="tips">
-  <strong>Syarat file Excel PLU:</strong><br>
-  1. Harus ada kolom PLU / Kode Barang / Article<br>
-  2. Harus ada kolom Nama Barang / Description<br>
-  3. Tap hasil pencarian buat copy PLU otomatis
-  </div>
-          </div>
-  
-          <div class="card" id="pluSearchCard" style="display:none">
-  <input type="text" class="search-box" id="pluSearchBox" placeholder="🔍 Ketik nama barang...">
-  <div class="stats">
-      <span>Hasil: <strong id="pluRowCount">0</strong></span>
-      <span>Tap card buat copy PLU</span>
-  </div>
-  <div id="pluResultList"></div>
-          </div>
-      </div>
-      <div class="tab-page" id="naosPage">
-        <div id="tab-monitor">
-          <h1>NAOS V51</h1>
-  
-          <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab('monitor')">📋 Monitor</button>
-            <button class="tab-btn" onclick="switchTab('report')">📊 Laporan</button>
-          </div>
-  
-          <div id="tab-monitor" class="tab-content active">
-          <div class="card">
-            <button class="btn-refresh" id="btnRefresh">🔄 Tarik Data Dari Google Sheet</button>
-            <div class="controls">
-  <select id="sortSelect"><option value="">Sort</option><option value="replen_desc">Replen Tertinggi</option><option value="node_asc">Node A-Z</option></select>
-  <div class="multi-select">
-    <button class="multi-select-btn" id="btnFilterKat" onclick="toggleDropdown()">📂 Semua Kategori ▼</button>
-    <div class="multi-dropdown" id="dropdownKat"></div>
-  </div>
-  <select id="checkFilter">
-    <option value="all">Tampilkan Semua</option>
-    <option value="area">Area Saja ☑️</option>
-    <option value="gudang">Gudang Saja ☑️</option>
-  </select>
+ }
+}
+document.addEventListener('DOMContentLoaded', ()=>{ try{ let saved=localStorage.getItem('ycj_target'); if(saved){ document.getElementById('targetInput').value=saved; } }catch(e){} setTimeout(()=>load(false), 500); });
+</script>
+<script>
+(function(){ var _origSwitchMainTab = window.switchMainTab; window.switchMainTab = function(tab){ if(tab==='isc'){ document.querySelectorAll('.main-tab-btn').forEach(function(b){b.classList.remove('active')}); document.querySelectorAll('.tab-page').forEach(function(p){p.classList.remove('active')}); document.querySelector('.main-tab-btn:nth-child(4)').classList.add('active'); document.getElementById('iscPage').classList.add('active'); return; } return _origSwitchMainTab(tab); }; })();
+</script>
+</body>
+</html>" style="width:100%;height:85vh;border:0;border-radius:12px;background:#fff"></iframe></div>
+    <div class="tab-page active" id="analyzePage">
+        <div class="upload-section">
+            <div class="file-input-wrapper">
+                <input type="file" id="fileInput" accept=".xlsx,.xls">
+                <label for="fileInput" class="file-input-label">📁 Pilih File Excel Sales</label>
             </div>
-            <div class="controls">
-  <button class="btn-atur" onclick="openModal()">⚙️ Kolom</button>
-  <button class="btn-reset-check" onclick="resetCeklis()">🧹 Reset Ceklis</button>
-  <button class="btn-hapus" onclick="hapusData()">🗑️ Hapus Data</button>
-  <button id="resetBtn">Reset Filter</button>
+            <div class="file-info" id="fileInfo">Belum ada file dipilih</div>
+            <div class="btn-row">
+                <button class="btn btn-primary" onclick="loadFromDB()">📂 Load Data Lama</button>
+                <button class="btn btn-success" onclick="exportToExcel()">💾 Export Excel</button>
+                <button class="btn btn-warning" onclick="clearData()">🗑️ Hapus Data</button>
+                <button class="btn kolom-btn" onclick="openColumnModal()">⚙️ Atur Kolom</button>
+                <button class="btn komentar-btn" onclick="hapusSemuaKomentar()">💬 Hapus Komentar</button>
+                <button class="btn template-btn" onclick="openTemplateModal()">⚡ Template</button>
+                <button class="btn belum-pajang-btn" onclick="resetSemuaPajang()">🔄 Reset Pajang</button>
             </div>
-            <div class="grid" style="margin-top:10px;">
-  <div>Total<br><div class="stat" id="totalProduk">0</div></div>
-  <div>NAOS<br><div class="stat" id="totalNAOS">0</div></div>
-  <div>%NAOS<br><div class="stat" id="pctNAOS">0%</div></div>
-  <div>OOS<br><div class="stat" id="totalOOS">0</div></div>
-  <div>%OOS<br><div class="stat" id="pctOOS">0%</div></div>
-  <div>Terpajang<br><div class="stat green" id="totalTerpajang">0</div></div>
-  <div>Belum<br><div class="stat purple" id="totalBelum">0</div></div>
-  <div>Data<br><div class="stat" id="totalData">0</div></div>
+    </div>
+
+        <div class="card">
+            <div class="card-title">🔗 Import Langsung dari Google Sheet</div>
+            <input type="text" id="sheetUrl" class="search-box" placeholder="Link udah kesimpen otomatis" style="margin-bottom:10px" readonly>
+            <div class="btn-row">
+                <button class="btn btn-primary" onclick="importFromSheet()">📥 Tarik Data Sheet</button>
+                <button class="btn btn-success" onclick="showToast('Link udah nempel permanen bang')">💾 Link Permanen</button>
             </div>
-          </div>
-  
-          <div class="card" id="summaryCard">
-            <div class="summary-header">
-  <h3>📊 SUMMARY PER NODE</h3>
-  <div style="display:flex; gap:6px;">
-    <button class="btn-ss" onclick="screenshotSummary()">📸 Screenshot</button>
-    <button class="btn-hide" id="btnHideSummary" onclick="toggleSummary()">👁️ Hide</button>
-  </div>
+            <div id="sheetInfo" class="file-info">Link master udah aktif</div>
+            <div class="tips">
+                <strong>Pencet "Tarik Data Sheet" kalo lu abis edit Google Sheet</strong><br>
+                Data ke-refresh otomatis, ga usah upload Excel lagi
             </div>
-            <div class="summary-grid" id="summaryGrid"></div>
-          </div>
-  
-          <div class="card">
-            <div class="filter-btns">
-  <button class="btn-semua" onclick="showTab('all')">📋 Semua</button>
-  <button class="btn-naos" onclick="showTab('naos')">🟡 NAOS</button>
-  <button class="btn-oos" onclick="showTab('oos')">🔴 OOS</button>
-  <button class="btn-export" onclick="exportExcel()">📊 Export Excel</button>
-            </div>
-            <div class="info-hlm" id="infoHlm"></div>
-            <div id="tblWrapper"><div class="loading" id="loadingText">Auto load data...</div><table id="tblMain" style="display:none;"></table></div>
-            <div class="pager" id="pagerMain"></div>
-          </div>
-          <div id="colModal" class="modal">
-            <div class="modal-content">
-  <div class="modal-header"><h3>Atur Kolom</h3><span class="modal-close" onclick="closeModal()">&times;</span></div>
-  <div class="col-list" id="colList"></div>
-            </div>
-          </div>
-          </div>
-  
-          <div id="tab-report" class="tab-content">
-            <div class="card">
-  <h3 style="margin:0 0 8px 0; font-size:14px;">📅 REKAP PERSENTASE HARIAN</h3>
-  <div class="controls-2">
-    <input type="date" id="dateStart">
-    <input type="date" id="dateEnd">
-  </div>
-  <div class="controls-2" style="margin-top:8px;">
-    <button class="btn-save" onclick="saveReport()">💾 Simpan Laporan Hari Ini</button>
-    <button class="btn-export" onclick="loadReport()">
-  Lihat Akumulasi</button>
-  </div>
-            </div>
-            <div class="card">
-  <h3 style="margin:0 0 8px 0; font-size:14px;">📈 Tabel Rekap Harian %</h3>
-  <div id="tblWrapper"><table id="tblReport"></table></div>
-            </div>
-            <div class="card" id="summaryReportCard">
-  <div class="summary-header">
-    <h3 id="summaryReportTitle">📊 AKUMULASI PER NODE</h3>
-    <button class="btn-ss" onclick="screenshotReport()">📸 Screenshot</button>
-  </div>
-  <div class="summary-grid" id="summaryReportGrid"></div>
-            </div>
-          </div>
-  
         </div>
-      </div>
-  </div>
-  
-  <div class="modal" id="columnModal">
-      <div class="modal-content">
-          <div class="modal-header">
-  Atur Kolom Tabel
-  <span class="modal-close" onclick="closeColumnModal()">&times;</span>
+        <div class="summary" id="summary" style="display:none">
+            <div class="summary-card">
+                <h3>Total Item</h3>
+                <div class="value" id="totalItem">0</div>
+            </div>
+            <div class="summary-card">
+                <h3>Total Sales Qty</h3>
+                <div class="value" id="totalSales">0</div>
+            </div>
+            <div class="summary-card">
+                <h3>Item OOS</h3>
+                <div class="value" id="totalOOS">0</div>
+            </div>
+            <div class="summary-card">
+                <h3>Item NAOS</h3>
+                <div class="value" id="totalNAOS">0</div>
+            </div>
+            <div class="summary-card">
+                <h3>Sales LY Qty</h3>
+                <div class="value" id="totalSalesLY">0</div>
+            </div>
+            <div class="summary-card">
+                <h3>Sales Growth Rp</h3>
+                <div class="value" id="totalPersenSelisih">0%</div>
+            </div>
+            <div class="summary-card">
+                <h3>Selisih Total TO</h3>
+                <div class="value" id="totalSelisihTo">0</div>
+            </div>
+        </div>
+
+        <div class="card" id="summaryKategoriCard" style="display:none">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+                <div class="card-title" style="margin-bottom:0">📊 SUMMARY PER KATEGORI - NODE</div>
+                <button class="toggle-summary-btn" onclick="toggleSummaryKategori()">👁️ Hide</button>
+            </div>
+            <div id="summaryKategori" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;"></div>
+        </div>
+        <div class="card" id="searchCard" style="display:none">
+            <div class="hari-input-wrap">
+                <label>📅 Hari Berjalan:</label>
+                <input type="number" id="hariBerjalan" value="30" min="1" onchange="updateHari()">
+                <span>Buat hitung SKP = stok : sales × hari berjalan</span>
+            </div>
+            <input type="text" class="search-box" id="searchBox" placeholder="🔍 Cari barang..." oninput="handleSearch()">
+            <div class="filter-row">
+                <select class="sort-select" id="kategoriFilter" onchange="handleKategoriFilter()">
+                    <option value="">Sort per Kategori - Semua</option>
+                </select>
+                <select class="sort-select" id="sortBy" onchange="handleSort()">
+                    <option value="">Urutkan...</option>
+                    <option value="komentar_dulu">Komentar Dulu</option>
+                    <option value="nama_az">Nama A-Z</option>
+                    <option value="nama_za">Nama Z-A</option>
+                    <option value="stok_besar">Stok Terbesar</option>
+                    <option value="stok_kecil">Stok Terkecil</option>
+                    <option value="skp_besar">SKP Terbesar</option>
+                    <option value="skp_kecil">SKP Terkecil</option>
+                    <option value="sales_besar">Sales Qty Terbesar</option>
+                    <option value="sales_kecil">Sales Qty Terkecil</option>
+                    <option value="selisih_besar">Selisih Qty Terbesar</option>
+                    <option value="selisih_kecil">Selisih Qty Terkecil</option>
+                    <option value="selisih_to_besar">Selisih Rp Terbesar</option>
+                    <option value="selisih_to_kecil">Selisih Rp Terkecil</option>
+                </select>
+                <button class="btn kolom-btn" id="komenFilterBtn" onclick="toggleKomentarFilter()">💬 Ada Komentar</button>
+            </div>
+            <div class="btn-row">
+                <button class="btn kolom-btn" onclick="showAll()">📋 Semua Data</button>
+                <button class="btn kolom-btn" style="background:#dc3545" onclick="showNoSales()">🚫 NAOS</button>
+                <button class="btn belum-pajang-btn" onclick="showBelumPajang()">📌 Belum Terpajang</button>
+                <button class="btn oos-btn" onclick="showOOS()">⛔ OOS</button>
+            </div>
+            <div class="stats">
+                <span>Menampilkan: <strong id="rowCount">0</strong></span>
+                <span id="filterInfo"></span>
+            </div>
+        </div>
+
+        <div class="pagination-info" id="paginationInfo" style="display:none"></div>
+
+        <div class="table-container" id="tableContainer">
+            <div class="no-data">Pencet "📥 Tarik Data Sheet" buat mulai</div>
+        </div>
+
+        <div class="pagination-controls" id="paginationControls" style="display:none">
+            <button class="btn btn-primary" id="prevBtn" onclick="prevPage()">⬅️ 500 Sebelumnya</button>
+            <button class="btn btn-primary" id="nextBtn" onclick="nextPage()">500 Berikutnya ➡️</button>
+        </div>
+    </div>
+    <div class="tab-page" id="findpluPage">
+        <div class="upload-section">
+            <div class="file-input-wrapper">
+                <input type="file" id="pluFileInput" accept=".xlsx,.xls">
+                <label for="pluFileInput" class="file-input-label">📁 Upload Master Data PLU</label>
+            </div>
+            <div class="file-info" id="pluFileInfo">Belum ada file dipilih</div>
+            <div class="tips">
+                <strong>Syarat file Excel PLU:</strong><br>
+                1. Harus ada kolom PLU / Kode Barang / Article<br>
+                2. Harus ada kolom Nama Barang / Description<br>
+                3. Tap hasil pencarian buat copy PLU otomatis
+            </div>
+        </div>
+
+        <div class="card" id="pluSearchCard" style="display:none">
+
+               <input type="text" class="search-box" id="pluSearchBox" placeholder="🔍 Ketik nama barang...">
+            <div class="stats">
+                <span>Hasil: <strong id="pluRowCount">0</strong></span>
+                <span>Tap card buat copy PLU</span>
+            </div>
+            <div id="pluResultList"></div>
+        </div>
+    </div>
+    <div class="tab-page" id="naosPage">
+      <div id="tab-monitor">
+        <h1>NAOS V51</h1>
+
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab('monitor')">📋 Monitor</button>
+          <button class="tab-btn" onclick="switchTab('report')">📊 Laporan</button>
+        </div>
+
+        <div id="tab-monitor" class="tab-content active">
+        <div class="card">
+          <button class="btn-refresh" id="btnRefresh">🔄 Tarik Data Dari Google Sheet</button>
+          <div class="controls">
+            <select id="sortSelect"><option value="">Sort</option><option value="replen_desc">Replen Tertinggi</option><option value="node_asc">Node A-Z</option></select>
+            <div class="multi-select">
+              <button class="multi-select-btn" id="btnFilterKat" onclick="toggleDropdown()">📂 Semua Kategori ▼</button>
+              <div class="multi-dropdown" id="dropdownKat"></div>
+            </div>
+            <select id="checkFilter">
+              <option value="all">Tampilkan Semua</option>
+              <option value="area">Area Saja ☑️</option>
+              <option value="gudang">Gudang Saja ☑️</option>
+            </select>
           </div>
-          <div class="checkbox-grid" id="columnCheckboxes"></div>
-          <button class="btn btn-primary" style="width:100%" onclick="applyColumns()">Terapkan</button>
-      </div>
-  </div>
-  
-  <div class="modal" id="templateModal">
-      <div class="modal-content">
-          <div class="modal-header">
-  Template Komentar Cepat
-  <span class="modal-close" onclick="closeTemplateModal()">&times;</span>
+          <div class="controls">
+            <button class="btn-atur" onclick="openModal()">⚙️ Kolom</button>
+            <button class="btn-reset-check" onclick="resetCeklis()">🧹 Reset Ceklis</button>
+            <button class="btn-hapus" onclick="hapusData()">🗑️ Hapus Data</button>
+            <button id="resetBtn">Reset Filter</button>
           </div>
-          <div id="templateList"></div>
-          <button class="add-template-btn" onclick="addTemplate()">+ Tambah Template</button>
-          <button class="btn btn-primary" style="width:100%;margin-top:10px" onclick="saveTemplatesAndClose()">Simpan</button>
+          <div class="grid" style="margin-top:10px;">
+            <div>Total<br><div class="stat" id="totalProduk">0</div></div>
+            <div>NAOS<br><div class="stat" id="totalNAOS">0</div></div>
+            <div>%NAOS<br><div class="stat" id="pctNAOS">0%</div></div>
+            <div>OOS<br><div class="stat" id="totalOOS">0</div></div>
+            <div>%OOS<br><div class="stat" id="pctOOS">0%</div></div>
+            <div>Terpajang<br><div class="stat green" id="totalTerpajang">0</div></div>
+            <div>Belum<br><div class="stat purple" id="totalBelum">0</div></div>
+            <div>Data<br><div class="stat" id="totalData">0</div></div>
+          </div>
+        </div>
+
+        <div class="card" id="summaryCard">
+          <div class="summary-header">
+            <h3>📊 SUMMARY PER NODE</h3>
+            <div style="display:flex; gap:6px;">
+              <button class="btn-ss" onclick="screenshotSummary()">📸 Screenshot</button>
+              <button class="btn-hide" id="btnHideSummary" onclick="toggleSummary()">👁️ Hide</button>
+            </div>
+          </div>
+          <div class="summary-grid" id="summaryGrid"></div>
+        </div>
+
+        <div class="card">
+          <div class="filter-btns">
+            <button class="btn-semua" onclick="showTab('all')">📋 Semua</button>
+            <button class="btn-naos" onclick="showTab('naos')">🟡 NAOS</button>
+            <button class="btn-oos" onclick="showTab('oos')">🔴 OOS</button>
+            <button class="btn-export" onclick="exportExcel()">📊 Export Excel</button>
+          </div>
+          <div class="info-hlm" id="infoHlm"></div>
+          <div id="tblWrapper"><div class="loading" id="loadingText">Auto load data...</div><table id="tblMain" style="display:none;"></table></div>
+          <div class="pager" id="pagerMain"></div>
+        </div>
+        <div id="colModal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header"><h3>Atur Kolom</h3><span class="modal-close" onclick="closeModal()">&times;</span></div>
+            <div class="col-list" id="colList"></div>
+          </div>
+        </div>
+        </div>
+
+        <div id="tab-report" class="tab-content">
+          <div class="card">
+            <h3 style="margin:0 0 8px 0; font-size:14px;">📅 REKAP PERSENTASE HARIAN</h3>
+            <div class="controls-2">
+              <input type="date" id="dateStart">
+              <input type="date" id="dateEnd">
+            </div>
+            <div class="controls-2" style="margin-top:8px;">
+              <button class="btn-save" onclick="saveReport()">💾 Simpan Laporan Hari Ini</button>
+              <button class="btn-export" onclick="loadReport()">
+Lihat Akumulasi</button>
+            </div>
+          </div>
+          <div class="card">
+            <h3 style="margin:0 0 8px 0; font-size:14px;">📈 Tabel Rekap Harian %</h3>
+            <div id="tblWrapper"><table id="tblReport"></table></div>
+          </div>
+          <div class="card" id="summaryReportCard">
+            <div class="summary-header">
+              <h3 id="summaryReportTitle">📊 AKUMULASI PER NODE</h3>
+              <button class="btn-ss" onclick="screenshotReport()">📸 Screenshot</button>
+            </div>
+            <div class="summary-grid" id="summaryReportGrid"></div>
+          </div>
+        </div>
+
       </div>
-  </div>
-  
-  <div class="copy-toast" id="copyToast">✅ PLU udah di-copy!</div>
-  <script>
-  /* ====== SCRIPT KODE 1 MULAI - GA GUA UBAH ====== */
-  const MASTER_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQcw_VWQ9-Z2JU87wyKKSruf5p6ZDZgfk3IDTFjt0p-r_NI0h9zcOjx8IQDy9c-UlLUN5JmTm-ggKDi/pub?output=csv';
-  const ROWS_PER_PAGE = 500;
-  const DB_NAME = 'YogyaToolsDB_v32';
-  const STORE_NAME = 'excelData';
-  const KOMENTAR_STORE = 'komentarData';
-  const TEMPLATE_STORE = 'templateData';
-  const TERPAJANG_STORE = 'terpajangData';
-  const PLU_STORE = 'pluData';
-  let db, allData = [], filteredData = [], komentarData = {}, terpajangData = {};
-  let komentarTemplates = ['Display ulang', 'Cek SO', 'Barang slow', 'Obrak', 'Rusak', 'Expired'];
-  let columnMap = {}, visibleColumns = [], isNoSalesMode = false, isKomentarMode = false;
-  let isBelumPajangMode = false, isOOSMode = false, currentFileName = '', currentPage = 0;
-  let hariBerjalan = 30, pluData = [], pluColMap = { plu: null, nama: null };
-  let selectedKategori = '';
-  
-  const KOMENTAR_COLUMN_NAME = 'Komentar', TERPAJANG_COLUMN_NAME = 'Belum Terpajang';
-  const SALES_COLUMN = 'Sales', SALES_LY_COLUMN = 'Sales LY', SELISIH_COLUMN = 'Selisih Sales';
-  const SALES_TO_COLUMN = 'Sales To', SALES_TO_LY_COLUMN = 'Sales To LY';
-  const SELISIH_TO_COLUMN = 'Selisih To', SKP_COLUMN = 'SKP', STATUS_COLUMN = 'Status';
-  const REPLEN_QTY_COLUMN = 'Replen. qty';
-  const ignoreExcelKomentar = true;
-  
-  function normalizeHeader(h) { return h.toLowerCase().replace(/[\s_\.]+/g, ''); }
-  function switchMainTab(tab) {
-      document.querySelectorAll('.main-tab-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.tab-page').forEach(page => page.classList.remove('active'));
-      if (tab === 'analyze') {
-          document.querySelector('.main-tab-btn:nth-child(1)').classList.add('active');
-          document.getElementById('analyzePage').classList.add('active');
-      } else if (tab === 'plu') {
-          document.querySelector('.main-tab-btn:nth-child(2)').classList.add('active');
-          document.getElementById('findpluPage').classList.add('active');
-      } else if (tab === 'naos') {
-          document.querySelector('.main-tab-btn:nth-child(3)').classList.add('active');
-          document.getElementById('naosPage').classList.add('active');
-      } else if (tab === 'isc') {
-          document.querySelector('.main-tab-btn:nth-child(4)').classList.add('active');
-          document.getElementById('iscPage').classList.add('active');
-      }
-  }
-  function showToast(msg) {
-      const toast = document.getElementById('copyToast');
-      toast.textContent = msg;
-      toast.style.display = 'block';
-      setTimeout(() => { toast.style.display = 'none'; }, 2000);
-  }
-  function copyPLU(plu) {
-      navigator.clipboard.writeText(String(plu)).then(() => {
-          showToast(`✅ PLU ${plu} udah di-copy!`);
-      });
-  }
-  function getNamaBarang(row) {
-      const keys = ['namabarang', 'nama', 'barang', 'item', 'produk', 'description', 'sudescription'];
-      for (let k of keys) if (columnMap[k]) return row[columnMap[k]] || '';
-      return '';
-  }
-  function getStok(row) {
-      const keys = ['replenqty', 'replen. qty', 'stok', 'stock', 'qty', 'quantity', 'sisa'];
-      for (let k of keys) if (columnMap[k]) return Number(String(row[columnMap[k]]).replace(/,/g, '')) || 0;
-      return 0;
-  }
-  function getSKP(row) {
-      const stok = getStok(row), sales = getSales(row);
-      if (sales === 0) return '-';
-      return (stok / sales * hariBerjalan).toFixed(1);
-  }
-  function getSales(row) {
-      if (columnMap['sales']) return Number(String(row[columnMap['sales']]).replace(/,/g, '')) || 0;
-      return 0;
-  }
-  function getSalesLY(row) {
-      const keys = ['salesly', 'sales ly'];
-      for (let k of keys) if (columnMap[k]) return Number(String(row[columnMap[k]]).replace(/,/g, '')) || 0;
-      return 0;
-  }
-  function getSalesTo(row) {
-      const keys = ['salesto', 'sales to'];
-      for (let k of keys) if (columnMap[k]) return Number(String(row[columnMap[k]]).replace(/,/g, '')) || 0;
-      return 0;
-  }
-  function getSalesToLY(row) {
-      const keys = ['salestoly', 'sales to ly'];
-      for (let k of keys) if (columnMap[k]) return Number(String(row[columnMap[k]]).replace(/,/g, '')) || 0;
-      return 0;
-  }
-  function getSelisihSales(row) { return getSales(row) - getSalesLY(row); }
-  function getSelisihTo(row) { return getSalesTo(row) - getSalesToLY(row); }
-  function getStatus(row) {
-      const stok = getStok(row), sales = getSales(row);
-      if (stok === 0) return 'OOS';
-      if (stok > 1 && sales === 0) return 'NAOS';
-      return 'Tersedia';
-  }
-  function getItemKey(row) { return row._uid || getNamaBarang(row) || JSON.stringify(row); }
-  function isNoSalesItem(row) {
-      const stok = getStok(row), sales = getSales(row);
-      return (stok > 1 && sales === 0) || stok === 0;
-  }
-  function isOOSItem(row) { return getStok(row) === 0; }
-  function hasKomentar(row) {
-      const key = getItemKey(row);
-      return komentarData[key] && komentarData[key].trim()!== '';
-  }
-  function isBelumTerpajang(row) { return terpajangData[getItemKey(row)] === true; }
-  function findColumn(headers, keywords) {
-      for (let k of keywords) {
-          const found = headers.find(h => normalizeHeader(h).includes(k));
-          if (found) return found;
-      }
-      return null;
-  }
-  async function initDB() {
-      return new Promise((resolve, reject) => {
-          const req = indexedDB.open(DB_NAME, 7);
-          req.onerror = () => reject(req.error);
-          req.onsuccess = () => { db = req.result; resolve(db); };
-          req.onupgradeneeded = (e) => {
-  db = e.target.result;
-  if (!db.objectStoreNames.contains(STORE_NAME)) db.createObjectStore(STORE_NAME, {keyPath: 'id'});
-  if (!db.objectStoreNames.contains(KOMENTAR_STORE)) db.createObjectStore(KOMENTAR_STORE, {keyPath: 'id'});
-  if (!db.objectStoreNames.contains(TEMPLATE_STORE)) db.createObjectStore(TEMPLATE_STORE, {keyPath: 'id'});
-  if (!db.objectStoreNames.contains(TERPAJANG_STORE)) db.createObjectStore(TERPAJANG_STORE, {keyPath: 'id'});
-  if (!db.objectStoreNames.contains(PLU_STORE)) db.createObjectStore(PLU_STORE, {keyPath: 'id'});
-          };
-      });
-  }
-  window.addEventListener('load', async () => {
-      await initDB();
-      await loadFromDB();
-      await loadPLUFromDB();
-      document.getElementById('sheetUrl').value = MASTER_SHEET_URL;
-      document.getElementById('hariBerjalan').value = hariBerjalan;
-  });
-  document.getElementById('fileInput').addEventListener('change', handleFile);
-  document.getElementById('pluFileInput').addEventListener('change', handlePLUFile);
-  function updateHari() {
-      hariBerjalan = Number(document.getElementById('hariBerjalan').value) || 1;
-      renderTable();
-      updateSummary();
-      loadSummaryKategori();
-  }
-  function toggleSummaryKategori() {
-      const summaryDiv = document.getElementById('summaryKategori');
-      const btn = document.querySelector('.toggle-summary-btn');
-      if (summaryDiv.style.display === 'none') {
-          summaryDiv.style.display = 'grid';
-          btn.textContent = '👁️ Hide';
-      } else {
-          summaryDiv.style.display = 'none';
-          btn.textContent = '👁️ Unhide';
-      }
-  }
-  function populateKategoriDropdown() {
-      if (allData.length === 0) return;
-      const headers = Object.keys(allData[0]);
-      const katCol = headers.find(h => {
-          const nh = normalizeHeader(h);
-          return nh === 'node' || nh === 'kategori' || nh === 'category';
-      });
-      if (!katCol) return;
-      const kategoriSet = new Set();
-      allData.forEach(row => {
-          const kat = String(row[katCol] || '').trim();
-          if (kat) kategoriSet.add(kat.toUpperCase());
-      });
-      const select = document.getElementById('kategoriFilter');
-      select.innerHTML = '<option value="">Sort per Kategori - Semua</option>';
-      [...kategoriSet].sort().forEach(kat => {
-          select.innerHTML += `<option value="${kat}">${kat}</option>`;
-      });
-  }
-  function handleKategoriFilter() {
-      selectedKategori = document.getElementById('kategoriFilter').value;
-      handleSearch();
-  }
-  async function loadSummaryKategori() {
-      try {
-          const res = await fetch(MASTER_SHEET_URL + '&t=' + Date.now());
-          const csvText = await res.text();
-          const workbook = XLSX.read(csvText, {type: 'string'});
-          const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-          const jsonData = XLSX.utils.sheet_to_json(firstSheet);
-          if (jsonData.length === 0) return;
-          const headers = Object.keys(jsonData[0]);
-          const katCol = headers.find(h => normalizeHeader(h) === 'node');
-          const salesToCol = headers.find(h => {
-  const nh = normalizeHeader(h);
-  return nh === 'salesto' || nh === 'sales to';
-          });
-          const salesToLYCol = headers.find(h => {
-  const nh = normalizeHeader(h);
-  return nh === 'salestoly' || nh === 'sales to ly' || nh === 'salestoly';
-          });
-          const salesCol = headers.find(h => {
-  const nh = normalizeHeader(h);
-  return nh === 'sales';
-          });
-          const stokCol = headers.find(h => {
-  const nh = normalizeHeader(h);
-  return nh === 'replenqty' || nh === 'replen. qty' || nh === 'stok' || nh === 'stock';
-          });
-          if (!katCol ||!salesToCol ||!salesToLYCol) {
-  console.log('Kolom node/sales to tidak ketemu di Sheet');
-  return;
-          }
-          const katSummary = {};
-          let grandTotalTo = 0;
-          jsonData.forEach(row => {
-  const kat = String(row[katCol] || 'LAINNYA').trim().toUpperCase();
-  const to = Number(String(row[salesToCol]).replace(/,/g, '')) || 0;
-  const toLY = Number(String(row[salesToLYCol]).replace(/,/g, '')) || 0;
-  const sales = salesCol? Number(String(row[salesCol]).replace(/,/g, '')) || 0 : 0;
-  const stok = stokCol? Number(String(row[stokCol]).replace(/,/g, '')) || 0 : 0;
-  if (!katSummary[kat]) {
-      katSummary[kat] = { totalTo: 0, totalToLY: 0, totalSales: 0, totalStok: 0 };
-  }
-  katSummary[kat].totalTo += to;
-  katSummary[kat].totalToLY += toLY;
-  katSummary[kat].totalSales += sales;
-  katSummary[kat].totalStok += stok;
-  grandTotalTo += to;
-          });
-          let html = '';
-          const sortedKat = Object.keys(katSummary).sort();
-          sortedKat.forEach(kat => {
-  const data = katSummary[kat];
-  const selisihTo = data.totalTo - data.totalToLY;
-  const growth = data.totalToLY === 0? 0 : (selisihTo / data.totalToLY * 100);
-  const growthClass = growth > 0? 'plus' : growth < 0? 'minus' : '';
-  const selisihClass = selisihTo > 0? 'plus' : selis
-  ihTo < 0? 'minus' : '';
-  const kontribusi = grandTotalTo === 0? 0 : (data.totalTo / grandTotalTo * 100);
-  const skpKat = data.totalSales === 0? '-' : (data.totalStok / data.totalSales * hariBerjalan).toFixed(1);
-  html += `<div class="kategori-card">
-  <h4>${kat}</h4>
-  <div class="kat-value ${selisihClass}">${selisihTo.toLocaleString('id-ID')}</div>
-  <div class="kat-row" style="margin-top:4px">
-  <span style="font-size:10px;color:#666">Growth:</span>
-  <span class="kat-value ${growthClass}" style="font-size:14px">${growth.toFixed(2)}%</span>
-  </div>
-  <div class="kat-row">
-  <span style="font-size:10px;color:#666">Kontribusi:</span>
-  <span class="kat-value" style="font-size:14px">${kontribusi.toFixed(2)}%</span>
-  </div>
-  <div class="kat-row">
-  <span style="font-size:10px;color:#666">SKP Kat:</span>
-  <span class="kat-value" style="font-size:14px">${skpKat}</span>
-  </div>
-  </div>`;
-  });
-  document.getElementById('summaryKategori').innerHTML = html;
-  document.getElementById('summaryKategoriCard').style.display = 'block';
-  } catch (err) {
-  console.log('Gagal load summary kategori:', err);
-  }
-  }
-  async function importFromSheet() {
-  const url = MASTER_SHEET_URL;
-  document.getElementById('sheetInfo').textContent = '⏳ Lagi narik data dari Sheet...';
-  document.getElementById('tableContainer').innerHTML = '<div class="loading">⏳ Narik data dari Google Sheet...</div>';
-  try {
-  const res = await fetch(url + '&t=' + Date.now());
-  if (!res.ok) throw new Error('Link salah / belum di-publish');
-  const csvText = await res.text();
-  const workbook = XLSX.read(csvText, {type: 'string'});
-  const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-  const jsonData = XLSX.utils.sheet_to_json(firstSheet);
-  if (jsonData.length === 0) throw new Error('Sheet kosong');
-  allData = jsonData.map((row, index) => { row._uid = `row_${index}_${Date.now()}`; return row; });
-  currentFileName = 'Google Sheet Live';
-  currentPage = 0;
-  const headers = Object.keys(jsonData[0]);
-  columnMap = {};
-  headers.forEach(h => {
-  if (ignoreExcelKomentar && normalizeHeader(h) === 'komentar') return;
-  columnMap[normalizeHeader(h)] = h;
-  });
-  if (visibleColumns.length === 0) {
-  let defaultCols = headers.filter(h => normalizeHeader(h)!== 'komentar').slice(0, 3);
-  defaultCols.push(REPLEN_QTY_COLUMN, SALES_LY_COLUMN, SELISIH_COLUMN, SKP_COLUMN, STATUS_COLUMN, KOMENTAR_COLUMN_NAME);
-  visibleColumns = [...new Set(defaultCols.filter(Boolean))];
-  }
-  await saveToDB('Google Sheet Live');
-  document.getElementById('sheetInfo').textContent = `✅ Berhasil tarik ${allData.length} data`;
-  document.getElementById('fileInfo').textContent = `Source: Google Sheet Live - ${new Date().toLocaleTimeString('id-ID')}`;
-  await loadKomentar();
-  await loadTerpajang();
-  await loadTemplates();
-  showData();
-  loadSummaryKategori();
-  } catch (err) {
-  alert('Gagal tarik data: ' + err.message);
-  document.getElementById('sheetInfo').textContent = '❌ Gagal narik data';
-  document.getElementById('tableContainer').innerHTML = '<div class="no-data">Error: ' + err.message + '</div>';
-  }
-  }
-  async function handleFile(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  document.getElementById('tableContainer').innerHTML = '<div class="loading">⏳ Memproses file...</div>';
-  const reader = new FileReader();
-  reader.onload = async function(e) {
-  try {
-  const data = new Uint8Array(e.target.result);
-  const workbook = XLSX.read(data, {type: 'array'});
-  let jsonData = [];
-  for (let sheetName of workbook.SheetNames) {
-  const ws = workbook.Sheets[sheetName];
-  const temp = XLSX.utils.sheet_to_json(ws, {defval: '', raw: false});
-  if (temp.length > 0) { jsonData = temp; break; }
-  }
-  if (jsonData.length === 0) throw new Error('File Excel kosong!');
-  allData = jsonData.map((row, index) => { row._uid = `row_${index}_${Date.now()}`; return row; });
-  currentFileName = file.name;
-  currentPage = 0;
-  const headers = Object.keys(jsonData[0]);
-  columnMap = {};
-  headers.forEach(h => {
-  if (ignoreExcelKomentar && normalizeHeader(h) === 'komentar') return;
-  columnMap[normalizeHeader(h)] = h;
-  });
-  if (visibleColumns.length === 0) {
-  let defaultCols = headers.filter(h => normalizeHeader(h)!== 'komentar').slice(0, 3);
-  defaultCols.push(REPLEN_QTY_COLUMN, SALES_LY_COLUMN, SELISIH_COLUMN, SKP_COLUMN, STATUS_COLUMN, KOMENTAR_COLUMN_NAME);
-  visibleColumns = [...new Set(defaultCols.filter(Boolean))];
-  }
-  await saveToDB(file.name);
-  await loadKomentar();
-  await loadTerpajang();
-  await loadTemplates();
-  showData();
-  document.getElementById('searchBox').focus();
-  } catch (err) {
-  alert('Error baca file: ' + err.message);
-  document.getElementById('tableContainer').innerHTML = '<div class="no-data">Error: ' + err.message + '</div>';
-  }
-  };
-  reader.readAsArrayBuffer(file);
-  }
-  async function handlePLUFile(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  document.getElementById('pluFileInfo').textContent = '⏳ Lagi baca file...';
-  document.getElementById('pluSearchCard').style.display = 'none';
-  const reader = new FileReader();
-  reader.onload = async function(e) {
-  try {
-  const data = new Uint8Array(e.target.result);
-  const workbook = XLSX.read(data, {type: 'array'});
-  const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-  const jsonData = XLSX.utils.sheet_to_json(firstSheet);
-  if (jsonData.length === 0) throw new Error('File kosong');
-  const headers = Object.keys(jsonData[0]);
-  pluColMap.plu = findColumn(headers, ['plu', 'kode', 'kodebarang', 'article', 'sku', 'barcode']);
-  pluColMap.nama = findColumn(headers, ['nama', 'barang', 'item', 'produk', 'description', 'desc']);
-  if (!pluColMap.plu) throw new Error('Kolom PLU/Kode Barang ga ketemu');
-  if (!pluColMap.nama) throw new Error('Kolom Nama Barang ga ketemu');
-  pluData = jsonData.filter(row => row[pluColMap.plu] && row[pluColMap.nama]);
-  await savePLUToDB(file.name);
-  document.getElementById('pluFileInfo').textContent = `✅ Berhasil load ${pluData.length} data PLU`;
-  document.getElementById('pluSearchCard').style.display = 'block';
-  document.getElementById('pluSearchBox').focus();
-  } catch (err) {
-  alert('Error baca file PLU: ' + err.message);
-  document.getElementById('pluFileInfo').textContent = '❌ Gagal baca file';
-  }
-  };
-  reader.readAsArrayBuffer(file);
-  }
-  async function savePLUToDB(fileName) {
-  if (!db) return;
-  return new Promise((resolve, reject) => {
-  const tx = db.transaction(PLU_STORE, 'readwrite');
-  tx.objectStore(PLU_STORE).put({id: 1, data: pluData, fileName: fileName, time: new Date().toLocaleString('id-ID'), columns: pluColMap});
-  tx.oncomplete = resolve;
-  tx.onerror = () => reject(tx.error);
-  });
-  }
-  async function loadPLUFromDB() {
-  if (!db) return;
-  return new Promise((resolve) => {
-  const tx = db.transaction(PLU_STORE, 'readonly');
-  const req = tx.objectStore(PLU_STORE).get(1);
-  req.onsuccess = () => {
-  if (req.result) {
-  pluData = req.result.data;
-  pluColMap = req.result.columns || { plu: null, nama: null };
-  document.getElementById('pluFileInfo').textContent = `File: ${req.result.fileName} (${pluData.length} data)`;
-  document.getElementById('pluSearchCard').style.display = 'block';
-  }
-  resolve();
-  };
-  req.onerror = () => resolve();
-  });
-  }
-  document.getElementById('pluSearchBox').addEventListener('input', function(e) {
-  const keyword = e.target.value.trim().toLowerCase();
-  const resultList = document.getElementById('pluResultList');
-  const resultCount = document.getElementById('pluRowCount');
-  if (keyword.length < 2) {
-  resultList.innerHTML = '';
-  resultCount.textContent = '0';
-  return;
-  }
-  const results = pluData.filter(row => {
-  const nama = String(row[pluColMap.nama] || '').toLowerCase();
-  return nama.includes(keyword);
-  }).slice(0, 50);
-  if (results.length === 0) {
-  resultList.innerHTML = '<div class="no-data">😢 Barang ga ketemu<br><small>Coba kata kunci lain</small></div>';
-  resultCount.textContent = '0';
-  } else {
-  let html = '';
-  results.forEach(row => {
-  const plu = row[pluColMap.plu];
-  html += `<div class="plu-result-card" onclick="copyPLU('${plu}')">
-  <div class="plu">PLU: ${plu}</div>
-  <div class="nama">${row[pluColMap.nama]}</div>
-  </div>`;
-  });
-  resultList.innerHTML = html;
-  resultCount.textContent = `${results.length}`;
-  }
-  });
-  function getPaginatedData() {
-  const start = currentPage * ROWS_PER_PAGE;
-  const end = start + ROWS_PER_PAGE;
-  return filteredData.slice(start, end);
-  }
-  function nextPage() {
-  const maxPage = Math.ceil(filteredData.length / ROWS_PER_PAGE) - 1;
-  if (currentPage < maxPage) {
-  currentPage++;
-  renderTable();
-  window.scrollTo(0, document.getElementById('tableContainer').offsetTop - 100);
-  }
-  }
-  function prevPage() {
-  if (currentPage > 0) {
-  currentPage--;
-  renderTable();
-  window.scrollTo(0, document.getElementById('tableContainer').offsetTop - 100);
-  }
-  }
-  function updatePaginationControls() {
-  const totalPages = Math.ceil(filteredData.length / ROWS_PER_PAGE);
-  const infoEl = document.getElementById('paginationInfo');
-  const controlsEl = document.getElementById('paginationControls');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  if (filteredData.length <= ROWS_PER_PAGE) {
-  infoEl.style.display = 'none';
-  controlsEl.style.display = 'none';
-  return;
-  }
-  infoEl.style.display = 'block';
-  controlsEl.style.display = 'grid';
-  const start = currentPage * ROWS_PER_PAGE + 1;
-  const end = Math.min((currentPage + 1) * ROWS_PER_PAGE, filteredData.length);
-  infoEl.textContent = `Halaman ${currentPage + 1} dari ${totalPages} | Data ${start}-${end} dari ${filteredData.length}`;
-  prevBtn.disabled = currentPage === 0;
-  nextBtn.disabled = currentPage >= totalPages - 1;
-  }
-  async function saveToDB(fileName) {
-  if (!db) throw new Error('DB belum ready');
-  return new Promise((resolve, reject) => {
-  const tx = db.transaction(STORE_NAME, 'readwrite');
-  tx.objectStore(STORE_NAME).put({id: 1, data: allData, fileName: fileName, time: new Date().toLocaleString('id-ID'), columns: visibleColumns});
-  tx.oncomplete = resolve;
-  tx.onerror = () => reject(tx.error);
-  });
-  }
-  async function saveKomentar() {
-  if (!db) return;
-  const tx = db.transaction(KOMENTAR_STORE, 'readwrite');
-  tx.objectStore(KOMENTAR_STORE).put({id: 1, data: komentarData});
-  }
-  async function loadKomentar() {
-  if (!db) return;
-  return new Promise((resolve) => {
-  const tx = db.transaction(KOMENTAR_STORE, 'readonly');
-  const req = tx.objectStore(KOMENTAR_STORE).get(1);
-  req.onsuccess = () => { if (req.result) komentarData = req.result.data || {}; resolve(); };
-  req.onerror = () => resolve();
-  });
-  }
-  async function saveTerpajang() {
-  if (!db) return;
-  const tx = db.transaction(TERPAJANG_STORE, 'readwrite');
-  tx.objectStore(TERPAJANG_STORE).put({id: 1, data: terpajangData});
-  }
-  async function loadTerpajang() {
-  if (!db) return;
-  return new Promise((resolve) => {
-  const tx = db.transaction(TERPAJANG_STORE, 'readonly');
-  const req = tx.objectStore(TERPAJANG_STORE).get(1);
-  req.onsuccess = () => { if (req.result) terpajangData = req.result.data || {}; resolve(); };
-  req.onerror = () => resolve();
-  });
-  }
-  async function saveTemplates() {
-  if (!db) return;
-  const tx = db.transaction(TEMPLATE_STORE, 'readwrite');
-  tx.objectStore(TEMPLATE_STORE).put({id: 1, data: komentarTemplates});
-  }
-  async function loadTemplates() {
-  if (!db) return;
-  return new Promise((resolve) => {
-  const tx = db.transaction(TEMPLATE_STORE, 'readonly');
-  const req = tx.objectStore(TEMPLATE_STORE).get(1);
-  req.onsuccess = () => { if (req.result && req.result.data) komentarTemplates = req.result.data; resolve(); };
-  req.onerror = () => resolve();
-  });
-  }
-  async function loadFromDB() {
-  if (!db) return;
-  const tx = db.transaction(STORE_NAME, 'readonly');
-  const req = tx.objectStore(STORE_NAME).get(1);
-  req.onsuccess = async () => {
-  if (req.result) {
-  allData = req.result.data;
-  currentFileName = req.result.fileName;
-  const headers = Object.keys(allData[0]);
-  columnMap = {};
-  headers.forEach(h => {
-  if (ignoreExcelKomentar && normalizeHeader(h) === 'komentar') return;
-  columnMap[normalizeHeader(h)] = h;
-  });
-  visibleColumns = req.result.columns || [];
-  if (visibleColumns.length === 0) {
-  let defaultCols = headers.filter(h => normalizeHeader(h)!== 'komentar').slice(0, 3);
-  defaultCols.push(REPLEN_QTY_COLUMN, SALES_LY_COLUMN, SELISIH_COLUMN, SKP_COLUMN, STATUS_COLUMN, KOMENTAR_COLUMN_NAME);
-  visibleColumns = [...new Set(defaultCols.filter(Boolean))];
-  }
-  document.getElementById('fileInfo').textContent = `File: ${req.result.fileName}`;
-  await loadKomentar();
-  await loadTerpajang();
-  await loadTemplates();
-  showData();
-  loadSummaryKategori();
-  }
-  };
-  }
-  function showData() {
-  document.getElementById('summary').style.display = 'grid';
-  document.getElementById('searchCard').style.display = 'block';
-  filteredData = [...allData];
-  currentPage = 0;
-  updateSummary();
-  renderTable();
-  populateKategoriDropdown();
-  }
-  function updateSummary() {
-  const totalSales = filteredData.reduce((sum, row) => sum + getSales(row), 0);
-  const totalOOS = filteredData.filter(row => isOOSItem(row)).length;
-  const totalNAOS = filteredData.filter(row => isNoSalesItem(row)).length;
-  const totalSalesLY = filteredData.reduce((sum, row) => sum + getSalesLY(row), 0);
-  const totalSalesTo = filteredData.reduce((sum, row) => sum + getSalesTo(row), 0);
-  const totalSalesToLY = filteredData.reduce((sum, row) => sum + getSalesToLY(row), 0);
-  const salesGrowth = totalSalesToLY === 0? 0 : ((totalSalesTo - totalSalesToLY) / totalSalesToLY * 100);
-  document.getElementById('totalItem').textContent = filteredData.length.toLocaleString('id-ID');
-  document.getElementById('totalSales').textContent = totalSales.toLocaleString('id-ID', {minimumFractionDigits: 0, maximumFractionDigits: 2});
-  document.getElementById('totalOOS').textContent = totalOOS.toLocaleString('id-ID');
-  document.getElementById('totalNAOS').textContent = totalNAOS.toLocaleString('id-ID');
-  document.getElementById('totalSalesLY').textContent = totalSalesLY.toLocaleString('id-ID', {minimumFractionDigits: 0, maximumFractionDigits: 2});
-  const persenEl = document.getElementById('totalPersenSelisih');
-  persenEl.textContent = salesGrowth.toFixed(2) + '%';
-  persenEl.style.color = salesGrowth > 0? '#28a745' : salesGrowth < 0? '#dc3545' : '#2575fc';
-  const selisihTotalTo = totalSalesTo - totalSalesToLY;
-  document.getElementById('totalSelisihTo').textContent = selisihTotalTo.toLocaleString('id-ID');
-  document.getElementById('totalSelisihTo').style.color = selisihTotalTo > 0? '#28a745' : selisihTotalTo < 0? '#dc3545' : '#2575fc';
-  }
-  function showNoSales() {
-  isNoSalesMode = true; isKomentarMode = false; isBelumPajangMode = false; isOOSMode = false; currentPage = 0;
-  document.getElementById('sortBy').value = '';
-  document.getElementById('komenFilterBtn').classList.remove('active');
-  document.querySelector('.belum-pajang-btn').classList.remove('active');
-  document.querySelec
-  tor('.oos-btn').classList.remove('active');
-  filteredData = allData.filter(row => isNoSalesItem(row));
-  document.getElementById('searchBox').value = '';
-  document.getElementById('searchBox').placeholder = '🔍 Filter NAOS aktif...';
-  updateSummary();
-  renderTable();
-  }
-  function showOOS() {
-  isOOSMode =!isOOSMode; isNoSalesMode = false; isKomentarMode = false; isBelumPajangMode = false; currentPage = 0;
-  document.getElementById('sortBy').value = '';
-  document.getElementById('komenFilterBtn').classList.remove('active');
-  document.querySelector('.belum-pajang-btn').classList.remove('active');
-  const btn = document.querySelector('.oos-btn');
-  btn.classList.toggle('active', isOOSMode);
-  if (isOOSMode) {
-  filteredData = allData.filter(row => isOOSItem(row));
-  document.getElementById('searchBox').value = '';
-  document.getElementById('searchBox').placeholder = '🔍 Filter OOS aktif...';
-  } else {
-  filteredData = [...allData];
-  document.getElementById('searchBox').placeholder = '🔍 Cari barang...';
-  }
-  updateSummary();
-  renderTable();
-  }
-  function toggleKomentarFilter() {
-  isKomentarMode =!isKomentarMode; isNoSalesMode = false; isBelumPajangMode = false; isOOSMode = false; currentPage = 0;
-  document.getElementById('sortBy').value = '';
-  document.getElementById('komenFilterBtn').classList.toggle('active', isKomentarMode);
-  document.querySelector
-  ('.belum-pajang-btn').classList.remove('active');
-  document.querySelector('.oos-btn').classList.remove('active');
-  if (isKomentarMode) {
-  filteredData = allData.filter(row => hasKomentar(row));
-  document.getElementById('searchBox').value = '';
-  document.getElementById('searchBox').placeholder = '🔍 Filter Komentar aktif...';
-  } else {
-  filteredData = [...allData];
-  document.getElementById('searchBox').placeholder = '🔍 Cari barang...';
-  }
-  updateSummary();
-  renderTable();
-  }
-  function showBelumPajang() {
-  isBelumPajangMode =!isBelumPajangMode; isNoSalesMode = false; isKomentarMode = false; isOOSMode = false; currentPage = 0;
-  document.getElementById('sortBy').value = '';
-  document.getElementById('komenFilterBtn').classList.remove('active');
-  document.querySelector('.oos-btn').classList.remove('active');
-  const btn = document.querySelector('.belum-pajang-btn');
-  btn.classList.toggle('active', isBelumPajangMode);
-  if (isBelumPajangMode) {
-  filteredData = allData.filter(row => isBelumTerpajang(row));
-  document.getElementById('searchBox').value = '';
-  document.getElementById('searchBox').placeholder = '🔍 Filter Belum Terpajang aktif...';
-  } else {
-  filteredData = [...allData];
-  document.getElementById('searchBox').placeholder = '🔍 Cari barang...';
-  }
-  updateSummary();
-  renderTable();
-  }
-  function showAll() {
-  isNoSalesMode = false; isKomentarMode = false; isBelumPajangMode = false; isOOSMode = false; currentPage = 0;
-  document.getElementById('sortBy').value = '';
-  document.getElementById('kategoriFilter').value = '';
-  selectedKategori = '';
-  document.getElementById('komenFilterBtn').classList.remove('active');
-  document.querySelector('.belum-pajang-btn').classList.remove('active');
-  document.querySelector('.oos-btn').classList.remove('active');
-  filteredData = [...allData];
-  document.getElementById('searchBox').placeholder = '🔍 Cari barang...';
-  handleSearch();
-  }
-  function handleSearch() {
-  const val = document.getElementById('searchBox').value.toLowerCase().trim();
-  currentPage = 0;
-  let baseData = [...allData];
-  if (selectedKategori) {
-  const headers = Object.keys(allData[0]);
-  const katCol = headers.find(h => {
-  const nh = normalizeHeader(h);
-  return nh === 'node' || nh === 'kategori' || nh === 'category';
-  });
-  if (katCol) {
-  baseData = baseData.filter(row =>
-  String(row[katCol] || '').trim().toUpperCase() === selectedKategori
-  );
-  }
-  }
-  
-  if (isNoSalesMode) baseData = baseData.filter(row => isNoSalesItem(row));
-  else if (isKomentarMode) baseData = baseData.filter(row => hasKomentar(row));
-  else if (isBelumPajangMode) baseData = baseData.filter(row => isBelumTerpajang(row));
-  else if (isOOSMode) baseData = baseData.filter(row => isOOSItem(row));
-  
-  if (val.length < 2) {
-  filteredData = baseData;
-  } else {
-  filteredData = baseData.filter(row => Object.values(row).some(v => String(v).toLowerCase().includes(val)));
-  }
-  handleSort();
-  }
-  function handleSort() {
-  const sortType = document.getElementById('sortBy').value;
-  if (sortType === 'komentar_dulu') {
-  filteredData.sort((a, b) => {
-  const aHas = hasKomentar(a)? 0 : 1;
-  const bHas = hasKomentar(b)? 0 : 1;
-  if (aHas!== bHas) return aHas - bHas;
-  return getNamaBarang(a).localeCompare(getNamaBarang(b));
-  });
-  } else if (sortType === 'nama_az') filteredData.sort((a, b) => getNamaBarang(a).localeCompare(getNamaBarang(b)));
-  else if (sortType === 'nama_za') filteredData.sort((a, b) => getNamaBarang(b).localeCompare(getNamaBarang(a)));
-  else if (sortType === 'stok_besar') filteredData.sort((a, b) => getStok(b) - getStok(a));
-  else if (sortType === 'stok_kecil') filteredData.sort((a, b) => getStok(a) - getStok(b));
-  else if (sortType === 'skp_besar') filteredData.sort((a, b) => parseFloat(getSKP(b)) - parseFloat(getSKP(a)));
-  else if (sortType === 'skp_kecil') filteredData.sort((a, b) => parseFloat(getSKP(a)) - parseFloat(getSKP(b)));
-  else if (sortType === 'sales_besar') filteredData.sort((a, b) => getSales(b) - getSales(a));
-  else if (sortType === 'sales_kecil') filteredData.sort((a, b) => getSales(a) - getSales(b));
-  else if (sortType === 'selisih_besar') filteredData.sort((a, b) => getSelisihSales(b) - getSelisihSales(a));
-  else if (sortType === 'selisih_kecil') filteredData.sort((a, b) => getSelisihSales(a) - getSelisihSales(b));
-  else if (sortType === 'selisih_to_besar') filteredData.sort((a, b) => getSelisihTo(b) - getSelisihTo(a));
-  else if (sortType === 'selisih_to_kecil') filteredData.sort((a, b) => getSelisihTo(a) - getSelisihTo(b));
-  updateSummary();
-  renderTable();
-  document.getElementById('rowCount').textContent = `${filteredData.length}/${allData.length}`;
-  }
-  async function updateKomentar(key, value) {
-  komentarData[key] = value;
-  await saveKomentar();
-  }
-  async function toggleTerpajang(key, checked) {
-  terpajangData[key] = checked;
-  await saveTerpajang();
-  renderTable();
-  }
-  async function hapusKomentar(key) {
-  delete komentarData[key];
-  await saveKomentar();
-  renderTable();
-  }
-  async function hapusSemuaKomentar() {
-  if (confirm('Hapus SEMUA komentar? Data tidak bisa dikembalikan!')) {
-  komentarData = {};
-  await saveKomentar();
-  renderTable();
-  alert('Semua komentar berhasil dihapus!');
-  }
-  }
-  async function resetSemuaPajang() {
-  if (confirm('Reset SEMUA ceklis Belum Terpajang? Data tidak bisa dikembalikan!')) {
-  terpajangData = {};
-  await saveTerpajang();
-  renderTable();
-  alert('Semua ceklis berhasil direset!');
-  }
-  }
-  function autoResizeTextarea(el) {
-  el.style.height = 'auto';
-  el.style.height = el.scrollHeight + 'px';
-  }
-  function getGridTemplate(colCount) {
-  if (colCount <= 4) return `repeat(${colCount}, 1fr)`;
-  if (colCount === 5) return '25% 15% 15% 15% 30%';
-  if (colCount === 6) return '20% 12% 12% 12% 12% 32%';
-  if (colCount === 7) return '18% 10% 10% 10% 10% 10% 32%';
-  if (colCount === 8) return '16% 9% 9% 9% 9% 9% 9% 30%';
-  if (colCount === 9) return '15% 8% 8% 8% 8% 8% 8% 8% 29%';
-  const firstCols = colCount - 1;
-  return `repeat(${firstCols}, 1fr) 200px`;
-  }
-  async function applyTemplateToRow(itemKey, templateText) {
-  await updateKomentar(itemKey, templateText);
-  renderTable();
-  }
-  function renderTable() {
-  if (filteredData.length === 0) {
-  document.getElementById('tableContainer').innerHTML = '<div class="no-data">Tidak ada data ditemukan</div>';
-  updatePaginationControls();
-  return;
-  }
-  const displayColumns = [...visibleColumns];
-  const colCount = displayColumns.length;
-  const gridTemplate = getGridTemplate(colCount);
-  const dataToShow = getPaginatedData();
-  let html = `<div class="table-header" style="grid-template-columns: ${gridTemplate}">`;
-  displayColumns.forEach(h => { html += `<div>${h}</div>`; });
-  html += '</div><div class="table-body">';
-  dataToShow.forEach((row) => {
-  const status = getStatus(row);
-  const hasKomen = hasKomentar(row);
-  const isOOS = isOOSItem(row);
-  const itemKey = getItemKey(row);
-  const komentarVal = komentarData[itemKey] || '';
-  let rowClass = '';
-  if (status === 'OOS') rowClass = 'oos-row';
-  else if (status === 'NAOS') rowClass = 'naos-row';
-  else if (isBelumTerpajang(row)) rowClass = 'belum-pajang-row';
-  else if (hasKomen) rowClass = 'komentar-row';
-  html += `<div class="table-row ${rowClass}" style="grid-template-columns: ${gridTemplate}">`;
-  displayColumns.forEach(h => {
-  if (h === KOMENTAR_COLUMN_NAME) {
-  const isEmpty = komentarVal.trim() === '';
-  let templateDropdown = '';
-  if (komentarTemplates.length > 0) {
-  templateDropdown = `<select class="template-dropdown" onchange="if(this.value){applyTemplateToRow('${itemKey}', this.value); this.value='';}">
-  <option value="">⚡ Pilih Template</option>`;
-  komentarTemplates.forEach(t => {
-  templateDropdown += `<option value="${t}">${t}</option>`;
-  });
-  templateDropdown += `</select>`;
-  }
-  html += `<div class="table-cell">
-  ${templateDropdown}
-  <div class="komentar-wrap">
-  <textarea class="komentar-textarea ${isEmpty? 'empty' : ''}"
-  oninput="autoResizeTextarea(this)"
-  onblur="updateKomentar('${itemKey}', this.value)"
-  onfocus="if(this.classList.contains('empty')){this.value='';this.classList.remove('empty')}"
-  placeholder="Klik untuk isi...">${komentarVal}</textarea>
-  ${komentarVal? `<button class="hapus-komen-x" onclick="hapusKomentar('${itemKey}')">×</button>` : ''}
-  </div>
-  </div>`;
-  } else if (h === TERPAJANG_COLUMN_NAME) {
-  const isChecked = terpajangData[itemKey] === true;
-  html += `<div class="table-cell" style="text-align:center;">
-  <input type="checkbox" class="checkbox-pajang"
-  ${isChecked? 'checked' : ''}
-  onchange="toggleTerpajang('${itemKey}', this.checked)">
-  </div>`;
-  } else {
-  let val = row[h] || '';
-  if (h === REPLEN_QTY_COLUMN || h === SALES_COLUMN || h === SALES_LY_COLUMN) {
-  val = Number(String(val).replace(/,/g, '')).toLocaleString('id-ID');
-  } else if (h === SALES_TO_COLUMN || h === SALES_TO_LY_COLUMN) {
-  val = getSalesTo(row).toLocaleString('id-ID');
-  if (h === SALES_TO_LY_COLUMN) val = getSalesToLY(row).toLocaleString('id-ID');
-  } else if (h === SELISIH_COLUMN) {
-  val = getSelisihSales(row).toLocaleString('id-ID');
-  } else if (h === SELISIH_TO_COLUMN) {
-  val = getSelisihTo(row).toLocaleString('id-ID');
-  } else if (h === SKP_COLUMN) {
-  val = getSKP(row);
-  } else if (h === STATUS_COLUMN) {
-  val = getStatus(row);
-  }
-  const isStok = normalizeHeader(h).includes('replen') || normalizeHeader(h).includes('stok') || normalizeHeader(h).includes('qty');
-  const isDesc = normalizeHeader(h).includes('description') || normalizeHeader(h).includes('desc') || normalizeHeader(h).includes('nama');
-  const numVal = Number(String(row[h]).replace(/[,%]/g, ''));
-  const isNumeric =!isNaN(numVal) && String(row[h]).trim()!== '' &&!isDesc;
-  let colorClass = '';
-  if (h === SELISIH_COLUMN || h === SELISIH_TO_COLUMN) {
-  const realVal = h === SELISIH_TO_COLUMN? getSelisihTo(row) : getSelisihSales(row);
-  if (realVal > 0) colorClass = 'style="color:#28a745;font-weight:700"';
-  else if (realVal < 0) colorClass = 'style="color:#dc3545;font-weight:700"';
-  }
-  if (h === STATUS_COLUMN) {
-  if (val === 'OOS') colorClass = 'style="color:#dc3545;font-weight:700"';
-  else if (val === 'NAOS') colorClass = 'style="color:#6f42c1;font-weight:700"';
-  else colorClass = 'style="color:#28a745;font-weight:700"';
-  }
-  const cellClass = `table-cell ${isStok? 'stok-col' : ''} ${isDesc? 'wraptext' : ''} ${isStok && getStok(row) === 0? 'naos' : ''} ${isNumeric? 'numeric' : ''}`;
-  html += `<div class="${cellClass}" ${colorClass}>${val}</div>`;
-  }
-  });
-  html += '</div>';
-  });
-  html += '</div>';
-  document.getElementById('tableContainer').innerHTML = html;
-  setTimeout(() => {
-  document.querySelectorAll('.komentar-textarea').forEach(autoResizeTextarea);
-  }, 0);
-  document.getElementById('rowCount').textContent = `${filteredData.length}/${allData.length}`;
-  updatePaginationControls();
-  }
-  function openColumnModal() {
-  const headers = Object.keys(allData[0] || {}).filter(h => h!== '_uid');
-  const uniqueHeaders = [...new Set(headers.filter(h => normalizeHeader(h)!== 'komentar'))];
-  const allColumns = [...uniqueHeaders, REPLEN_QTY_COLUMN, SALES_COLUMN, SALES_LY_COLUMN, SALES_TO_COLUMN, SALES_TO_LY_COLUMN, SELISIH_COLUMN, SELISIH_TO_COLUMN, SKP_COLUMN, STATUS_COLUMN, KOMENTAR_COLUMN_NAME, TERPAJANG_COLUMN_NAME];
-  const dedupedColumns = [...new Set(allColumns.filter(Boolean))];
-  let html = '';
-  dedupedColumns.forEach(h => {
-  const checked = visibleColumns.includes(h)? 'checked' : '';
-  html += `<label><input type="checkbox" value="${h}" ${checked}> ${h}</label>`;
-  });
-  document.getElementById('columnCheckboxes').innerHTML = html;
-  document.getElementById('columnModal').style.display = 'flex';
-  }
-  function closeColumnModal() {
-  document.getElementById('columnModal').style.display = 'none';
-  }
-  async function applyColumns() {
-  const checkboxes = document.querySelectorAll('#columnCheckboxes input:checked');
-  visibleColumns = Array.from(checkboxes).map(cb => cb.value);
-  if (visibleColumns.length === 0) {
-  alert('Minimal pilih 1 kolom!');
-  return;
-  }
-  await saveToDB(document.getElementById('fileInfo').textContent.replace('File: ', ''));
-  closeColumnModal();
-  renderTable();
-  }
-  function openTemplateModal() {
-  let html = '';
-  komentarTemplates.forEach((t, i) => {
-  html += `<div class="template-item">
-  <input type="text" class="template-input" value="${t}" data-index="${i}">
-  <button class="template-del" onclick="deleteTemplate(${i})">🗑️</button>
-  </div>`;
-  });
-  document.getElementById('templateList').innerHTML = html;
-  document.getElementById('templateModal').style.display = 'flex';
-  }
-  function closeTemplateModal() {
-  document.getElementById('templateModal').style.display = 'none';
-  }
-  function addTemplate() {
-  komentarTemplates.push('');
-  openTemplateModal();
-  }
-  function deleteTemplate(index) {
-  komentarTemplates.splice(index, 1);
-  openTemplateModal();
-  }
-  async function saveTemplatesAndClose() {
-  const inputs = document.querySelectorAll('.template-input');
-  komentarTemplates = Array.from(inputs).map(i => i.value.trim()).filter(v => v!== '');
-  await saveTemplates();
-  closeTemplateModal();
-  alert('Template berhasil disimpan! Sekarang muncul di tiap baris komentar.');
-  }
-  function exportToExcel() {
-  const dataToExport = filteredData.map((row) => {
-  let newRow = {};
-  visibleColumns.forEach(col => {
-  if (col === KOMENTAR_COLUMN_NAME) {
-  newRow[col] = komentarData[getItemKey(row)] || '';
-  } else if (col === REPLEN_QTY_COLUMN) {
-  newRow[col] = getStok(row);
-  } else if (col === SALES_COLUMN) {
-  newRow[col] = getSales(row);
-  } else if (col === SALES_LY_COLUMN) {
-  newRow[col] = getSalesLY(row);
-  } else if (col === S
-  ALES_TO_COLUMN) {
-  newRow[col] = getSalesTo(row);
-  } else if (col === SALES_TO_LY_COLUMN) {
-  newRow[col] = getSalesToLY(row);
-  } else if (col === SELISIH_COLUMN) {
-  newRow[col] = getSelisihSales(row);
-  } else if (col === SELISIH_TO_COLUMN) {
-  newRow[col] = getSelisihTo(row);
-  } else if (col === SKP_COLUMN) {
-  newRow[col] = getSKP(row);
-  } else if (col === STATUS_COLUMN) {
-  newRow[col] = getStatus(row);
-  } else if (col!== '_uid') {
-  newRow[col] = row[col];
-  }
-  });
-  if (visibleColumns.includes(TERPAJANG_COLUMN_NAME)) {
-  newRow[TERPAJANG_COLUMN_NAME] = terpajangData[getItemKey(row)]? 'Ya' : 'Tidak';
-  }
-  return newRow;
-  });
-  const ws = XLSX.utils.json_to_sheet(dataToExport);
-  const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, "Hasil Filter");
-  XLSX.writeFile(wb, `Export_YOGYA_${new Date().toISOString().slice(0,10)}.xlsx`);
-  }
-  async function clearData() {
-  if (confirm('Hapus semua data & ganti file baru?')) {
-  if (!db) await initDB();
-  const tx = db.transaction([STORE_NAME, KOMENTAR_STORE, TEMPLATE_STORE, TERPAJANG_STORE], 'readwrite');
-  tx.objectStore(STORE_NAME).clear();
-  tx.objectStore(KOMENTAR_STORE).clear();
-  tx.objectStore(TERPAJANG_STORE).clear();
-  tx.oncomplete = () => location.reload();
-  }
-  }
-  document.getElementById('columnModal').addEventListener('click', function(e) {
-  if (e.target === this) closeColumnModal();
-  });
-  document.getElementById('templateModal').addEventListener('click', function(e) {
-  if (e.target === this) closeTemplateModal();
-  });
-  document.addEventListener('keydown', function(e) {
-  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
-  if (allData.length === 0) return;
-  if (e.ctrlKey || e.metaKey) {
-  switch(e.key.toLowerCase()) {
-  case 's':
-  e.preventDefault();
-  exportToExcel();
-  break;
-  case 'f':
-  e.preventDefault();
-  document.getElementById('searchBox').focus();
-  break;
-  case 'k':
-  e.preventDefault();
-  toggleKomentarFilter();
-  break;
-  case 'a':
-  e.preventDefault();
-  showAll();
-  break;
-  case 'n':
-  e.preventDefault();
-  showNoSales();
-  break;
-  case 'o':
-  e.preventDefault();
-  showOOS();
-  break;
-  case 'b':
-  e.preventDefault();
-  showBelumPajang();
-  break;
-  case 'h':
-  e.preventDefault();
-  openColumnModal();
-  break;
-  case 't':
-  e.preventDefault();
-  openTemplateModal();
-  break;
-  }
-  return;
-  }
-  switch(e.key) {
-  case '1':
-  showAll();
-  break;
-  case '2':
-  showNoSales();
-  break;
-  case '3':
-  showOOS();
-  break;
-  case '4':
-  showBelumPajang();
-  break;
-  case '5':
-  toggleKomentarFilter();
-  break;
-  case 'Escape':
-  showAll();
-  break;
-  case 'ArrowLeft':
-  prevPage();
-  break;
-  case 'ArrowRight':
-  nextPage();
-  break;
-  }
-  });
-  /* ====== SCRIPT KODE 1 SELESAI ====== */
-  
-  /* ====== SCRIPT KODE 2 MULAI - GA GUA UBAH ====== */
-  let rawData = [], dataNAOS=[], dataOOS=[];
-  const PAGE_SIZE = 500;
-  let page = 1, currentTab='all', currentSort='', currentCheck='all';
-  let visibleCols = ['node','article','desc','replen','sales'];
-  let summaryHidden = false;
-  let selectedNodes = [];
-  
-  const LS_DATA = 'naos_data_final';
-  const LS_CHECKS = 'naos_checks_final';
-  const LS_NODES = 'naos_nodes_final';
-  const LS_HIDE = 'naos_hide_final';
-  const LS_REPORTS = 'naos_reports_v51';
-  
-  const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQcw_VWQ9-Z2JU87wyKKSruf5p6ZDZgfk3IDTFjt0p-r_NI0h9zcOjx8IQDy9c-UlLUN5JmTm-ggKDi/pub?output=csv';
-  const ALL_COLS = {
+    </div>
+</div>
+
+<div class="modal" id="columnModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            Atur Kolom Tabel
+            <span class="modal-close" onclick="closeColumnModal()">&times;</span>
+        </div>
+        <div class="checkbox-grid" id="columnCheckboxes"></div>
+        <button class="btn btn-primary" style="width:100%" onclick="applyColumns()">Terapkan</button>
+    </div>
+</div>
+
+<div class="modal" id="templateModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            Template Komentar Cepat
+            <span class="modal-close" onclick="closeTemplateModal()">&times;</span>
+        </div>
+        <div id="templateList"></div>
+        <button class="add-template-btn" onclick="addTemplate()">+ Tambah Template</button>
+        <button class="btn btn-primary" style="width:100%;margin-top:10px" onclick="saveTemplatesAndClose()">Simpan</button>
+    </div>
+</div>
+
+<div class="copy-toast" id="copyToast">✅ PLU udah di-copy!</div>
+<script>
+/* ====== SCRIPT KODE 1 MULAI - GA GUA UBAH ====== */
+const MASTER_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQcw_VWQ9-Z2JU87wyKKSruf5p6ZDZgfk3IDTFjt0p-r_NI0h9zcOjx8IQDy9c-UlLUN5JmTm-ggKDi/pub?output=csv';
+const ROWS_PER_PAGE = 500;
+con
+    st DB_NAME = 'YogyaToolsDB_v32';
+const STORE_NAME = 'excelData';
+const KOMENTAR_STORE = 'komentarData';
+const TEMPLATE_STORE = 'templateData';
+const TERPAJANG_STORE = 'terpajangData';
+const PLU_STORE = 'pluData';
+let db, allData = [], filteredData = [], komentarData = {}, terpajangData = {};
+let komentarTemplates = ['Display ulang', 'Cek SO', 'Barang slow', 'Obrak', 'Rusak', 'Expired'];
+let columnMap = {}, visibleColumns = [], isNoSalesMode = false, isKomentarMode = false;
+let isBelumPajangMode = false, isOOSMode = false, currentFileName = '', currentPage = 0;
+let hariBerjalan = 30, pluData = [], pluColMap = { plu: null, nama: null };
+let selectedKategori = '';
+
+const KOMENTAR_COLUMN_NAME = 'Komentar', TERPAJANG_COLUMN_NAME = 'Belum Terpajang';
+const SALES_COLUMN = 'Sales', SALES_LY_COLUMN = 'Sales LY', SELISIH_COLUMN = 'Selisih Sales';
+const SALES_TO_COLUMN = 'Sales To', SALES_TO_LY_COLUMN = 'Sales To LY';
+const SELISIH_TO_COLUMN = 'Selisih To', SKP_COLUMN = 'SKP', STATUS_COLUMN = 'Status';
+const REPLEN_QTY_COLUMN = 'Replen. qty';
+const ignoreExcelKomentar = true;
+
+function normalizeHeader(h) { return h.toLowerCase().replace(/[\s_\.]+/g, ''); }
+function switchMainTab(tab) {
+    document.querySelectorAll('.main-tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-page').forEach(page => page.classList.remove('active'));
+    if (tab === 'analyze') {
+        document.querySelector('.main-tab-btn:nth-child(1)').classList.add('active');
+        document.getElementById('analyzePage').classList.add('active');
+    } else if (tab === 'plu') {
+        document.querySelector('.main-tab-btn:nth-child(2)').classList.add('active');
+        document.getElementById('findpluPage').classList.add('active');
+    } else {
+        document.querySelector('.main-tab-btn:nth-child(3)').classList.add('active');
+        document.getElementById('naosPage').classList.add('active');
+    }
+}
+function showToast(msg) {
+    const toast = document.getElementById('copyToast');
+    toast.textContent = msg;
+    toast.style.display = 'block';
+    setTimeout(() => { toast.style.display = 'none'; }, 2000);
+}
+function copyPLU(plu) {
+    navigator.clipboard.writeText(String(plu)).then(() => {
+        showToast(`✅ PLU ${plu} udah di-copy!`);
+    });
+}
+function getNamaBarang(row) {
+    const keys = ['namabarang', 'nama', 'barang', 'item', 'produk', 'description', 'sudescription'];
+    for (let k of keys) if (columnMap[k]) return row[columnMap[k]] || '';
+    return '';
+}
+function getStok(row) {
+    const keys = ['replenqty', 'replen. qty', 'stok', 'stock', 'qty', 'quantity', 'sisa'];
+    for (let k of keys) if (columnMap[k]) return Number(String(row[columnMap[k]]).replace(/,/g, '')) || 0;
+    return 0;
+}
+function getSKP(row) {
+    const stok = getStok(row), sales = getSales(row);
+    if (sales === 0) return '-';
+    return (stok / sales * hariBerjalan).toFixed(1);
+}
+function getSales(row) {
+    if (columnMap['sales']) return Number(String(row[columnMap['sales']]).replace(/,/g, '')) || 0;
+    return 0;
+}
+function getSalesLY(row) {
+    const keys = ['salesly', 'sales ly'];
+    for (let k of keys) if (columnMap[k]) return Number(String(row[columnMap[k]]).replace(/,/g, '')) || 0;
+    return 0;
+}
+function getSalesTo(row) {
+    const keys = ['salesto', 'sales to'];
+    for (let k of keys) if (columnMap[k]) return Number(String(row[columnMap[k]]).replace(/,/g, '')) || 0;
+    return 0;
+}
+function getSalesToLY(row) {
+    const keys = ['salestoly', 'sales to ly'];
+    for (let k of keys) if (columnMap[k]) return Number(String(row[columnMap[k]]).replace(/,/g, '')) || 0;
+    return 0;
+}
+function getSelisihSales(row) { return getSales(row) - getSalesLY(row); }
+function getSelisihTo(row) { return getSalesTo(row) - getSalesToLY(row); }
+function getStatus(row) {
+    const stok = getStok(row), sales = getSales(row);
+    if (stok === 0) return 'OOS';
+    if (stok > 1 && sales === 0) return 'NAOS';
+    return 'Tersedia';
+}
+function getItemKey(row) { return row._uid || getNamaBarang(row) || JSON.stringify(row); }
+function isNoSalesItem(row) {
+    const stok = getStok(row), sales = getSales(row);
+    return (stok > 1 && sales === 0) || stok === 0;
+}
+function isOOSItem(row) { return getStok(row) === 0; }
+function hasKomentar(row) {
+    const key = getItemKey(row);
+    return komentarData[key] && komentarData[key].trim()!== '';
+}
+function isBelumTerpajang(row) { return terpajangData[getItemKey(row)] === true; }
+function findColumn(headers, keywords) {
+    for (let k of keywords) {
+        const found = headers.find(h => normalizeHeader(h).includes(k));
+        if (found) return found;
+    }
+    return null;
+}
+async function initDB() {
+    return new Promise((resolve, reject) => {
+        const req = indexedDB.open(DB_NAME, 7);
+        req.onerror = () => reject(req.error);
+        req.onsuccess = () => { db = req.result; resolve(db); }
+        req.onupgradeneeded = (e) => {
+            db = e.target.result;
+            if (!db.objectStoreNames.contains(STORE_NAME)) db.createObjectStore(STORE_NAME, {keyPath: 'id'});
+            if (!db.objectStoreNames.contains(KOMENTAR_STORE)) db.createObjectStore(KOMENTAR_STORE, {keyPath: 'id'});
+            if (!db.objectStoreNames.contains(TEMPLATE_STORE)) db.createObjectStore(TEMPLATE_STORE, {keyPath: 'id'});
+            if (!db.objectStoreNames.contains(TERPAJANG_STORE)) db.createObjectStore(TERPAJANG_STORE, {keyPath: 'id'});
+            if (!db.objectStoreNames.contains(PLU_STORE)) db.createObjectStore(PLU_STORE, {keyPath: 'id'});
+        };
+    });
+}
+window.addEventListener('load', async () => {
+    await initDB();
+    await loadFromDB();
+    await loadPLUFromDB();
+    document.getElementById('sheetUrl').value = MASTER_SHEET_URL;
+    document.getElementById('hariBerjalan').value = hariBerjalan;
+});
+document.getElementById('fileInput').addEventListener('change', handleFile);
+document.getElementById('pluFileInput').addEventListener('change', handlePLUFile);
+function updateHari() {
+    hariBerjalan = Number(document.getElementById('hariBerjalan').value) || 1;
+    renderTable();
+    updateSummary();
+    loadSummaryKategori();
+}
+function toggleSummaryKategori() {
+    const summaryDiv = document.getElementById('summaryKategori');
+    const btn = document.querySelector('.toggle-summary-btn');
+    if (summaryDiv.style.display === 'none') {
+        summaryDiv.style.display = 'grid';
+        btn.textContent = '👁️ Hide';
+    } else {
+        summaryDiv.style.display = 'none'
+        ;
+        btn.textContent = '👁️ Unhide';
+    }
+}
+function populateKategoriDropdown() {
+    if (allData.length === 0) return;
+    const headers = Object.keys(allData[0]);
+    const katCol = headers.find(h => {
+        const nh = normalizeHeader(h);
+        return nh === 'node' || nh === 'kategori' || nh === 'category';
+    });
+    if (!katCol) return;
+    const kategoriSet = new Set();
+    allData.forEach(row => {
+        const kat = String(row[katCol] || '').trim();
+        if (kat) kategoriSet.add(kat.toUpperCase());
+    });
+    const select = document.getElementById('kategoriFilter');
+    select.innerHTML = '<option value="">Sort per Kategori - Semua</option>';
+    [...kategoriSet].sort().forEach(kat => {
+        select.innerHTML += `<option value="${kat}">${kat}</option>`;
+    });
+}
+function handleKategoriFilter() {
+    selectedKategori = document.getElementById('kategoriFilter').value;
+    handleSearch();
+}
+async function loadSummaryKategori() {
+    try {
+        const res = await fetch(MASTER_SHEET_URL + '&t=' + Date.now());
+        const csvText = await res.text();
+        const workbook = XLSX.read(csvText, {type: 'string'});
+        const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+        const jsonData = XLSX.utils.sheet_to_json(firstSheet);
+        if (jsonData.length === 0) return;
+        const headers = Object.keys(jsonData[0]);
+        const katCol = headers.find(h => normalizeHeader(h) === 'node');
+        const salesToCol = headers.find(h => {
+            const nh = normalizeHeader(h);
+            return nh === 'salesto' || nh === 'sales to';
+        });
+        const salesToLYCol = headers.find(h => {
+            const nh = normalizeHeader(h);
+            return nh === 'salestoly' || nh === 'sales to ly' || nh === 'salestoly';
+        });
+        const salesCol = headers.find(h => {
+            const nh = normalizeHeader(h);
+            return nh === 'sales';
+        });
+        const stokCol = headers.find(h => {
+            const nh = normalizeHeader(h);
+            return nh === 'replenqty' || nh === 'replen. qty' || nh === 'stok' || nh === 'stock';
+        });
+        if (!katCol ||!salesToCol ||!salesToLYCol) {
+            console.log('Kolom node/sales to tidak ketemu di Sheet');
+            return;
+        }
+        const katSummary = {};
+        let grandTotalTo = 0;
+        jsonData.forEach(row => {
+            const kat = String(row[katCol] || 'LAINNYA').trim().toUpperCase();
+            const to = Number(String(row[salesToCol]).replace(/,/g, '')) || 0;
+            const toLY = Number(String(row[salesToLYCol]).replace(/,/g, '')) || 0;
+            const sales = salesCol? Number(String(row[salesCol]).replace(/,/g, '')) || 0 : 0;
+            const stok = stokCol? Number(String(row[stokCol]).replace(/,/g, '')) || 0 : 0;
+            if (!katSummary[kat]) {
+                katSummary[kat] = { totalTo: 0, totalToLY: 0, totalSales: 0, totalStok: 0 };
+            }
+            katSummary[kat].totalTo += to;
+            katSummary[kat].totalToLY += toLY;
+            katSummary[kat].totalSales += sales;
+            katSummary[kat].totalStok += stok;
+            grandTotalTo += to;
+        });
+        let html = '';
+        const sortedKat = Object.keys(katSummary).sort();
+        sortedKat.forEach(kat => {
+            const data = katSummary[kat];
+            const selisihTo = data.totalTo - data.totalToLY;
+            const growth = data.totalToLY === 0? 0 : (selisihTo / data.totalToLY * 100);
+            const growthClass = growth > 0? 'plus' : growth < 0? 'minus' : '';
+            const selisihClass = selisihTo > 0? 'plus' : selisihTo < 0? 'minus' : '';
+            const kontribusi = grandTotalTo === 0? 0 : (data.totalTo / grandTotalTo * 100);
+            const skpKat = data.totalSales === 0? '-' : (data.totalStok / data.totalSales * hariBerjalan).toFixed(1);
+            html += `<div class="kategori-card">
+                <h4>${kat}</h4>
+                <div class="kat-value ${selisihClass}">${selisihTo.toLocaleString('id-ID')}</div>
+                <div class="kat-row" style="margin-top:4px">
+                    <span style="font-size:10px;color:#666">Growth:</span>
+                    <span class="kat-value ${growthClass}" style="font-size:14px">${growth.toFixed(2)}%</span>
+                </div>
+                <div class="kat-row">
+                    <span style="font-size:10px;color:#666">Kontribusi:</span>
+                    <span class="kat-value" style="font-size:14px">${kontribusi.toFixed(2)}%</span>
+                </div>
+                <div class="kat-row">
+                    <span style="font-size:10px;color:#666">SKP Kat:</span>
+                    <span class="kat-value" style="font-size:14px">${skpKat}</span>
+                </div>
+            </div>`;
+        });
+        document.getElementById('summaryKategori').innerHTML = html;
+        document.getElementById('summaryKategoriCard').style.display = 'block';
+    } catch (err) {
+        console.log('Gagal load summary kategori:', err);
+    }
+}
+async function importFromSheet() {
+    const url = MASTER_SHEET_URL;
+    document.getElementById('sheetInfo').textContent = '⏳ Lagi narik data dari Sheet...';
+    document.getElementById('tableContainer').innerHTML = '<div class="loading">⏳ Narik data dari Google Sheet...</div>';
+    try {
+        const res = await fetch(url + '&t=' + Date.now());
+        if (!res.ok) throw new Error('Link salah / belum di-publish');
+        const csvText = await res.text();
+        const workbook = XLSX.read(csvText, {type: 'string'});
+        const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+        const jsonData = XLSX.utils.sheet_to_json(firstSheet);
+        if (jsonData.length === 0) throw new Error('Sheet kosong');
+        allData = jsonData.map((row, index) => { row._uid = `row_${index}_${Date.now()}`; return row; });
+        currentFileName = 'Google Sheet Live';
+        currentPage = 0;
+        const headers = Object.keys(jsonData[0]);
+        columnMap = {};
+        headers.forEach(h => {
+            if (ignoreExcelKomentar && normalizeHeader(h) === 'komentar') return;
+            columnMap[normalizeHeader(h)] = h;
+        });
+        if (visibleColumns.length === 0) {
+            let defaultCols = headers.filter(h => normalizeHeader(h)!== 'komentar').slice(0, 3);
+            defaultCols.push(REPLEN_QTY_COLUMN, SALES_LY_COLUMN, SELISIH_COLUMN, SKP_COLUMN, STATUS_COLUMN, KOMENTAR_COLUMN_NAME);
+            visibleColumns = [...new Set(de
+                                         faultCols.filter(Boolean))];
+        }
+        await saveToDB('Google Sheet Live');
+        document.getElementById('sheetInfo').textContent = `✅ Berhasil tarik ${allData.length} data`;
+        document.getElementById('fileInfo').textContent = `Source: Google Sheet Live - ${new Date().toLocaleTimeString('id-ID')}`;
+        await loadKomentar();
+        await loadTerpajang();
+        await loadTemplates();
+        showData();
+        loadSummaryKategori();
+    } catch (err) {
+        alert('Gagal tarik data: ' + err.message);
+        document.getElementById('sheetInfo').textContent = '❌ Gagal narik data';
+        document.getElementById('tableContainer').innerHTML = '<div class="no-data">Error: ' + err.message + '</div>';
+    }
+}
+async function handleFile(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    document.getElementById('tableContainer').innerHTML = '<div class="loading">⏳ Memproses file...</div>';
+    const reader = new FileReader();
+    reader.onload = async function(e) {
+        try {
+            const data = new Uint8Array(e.target.result);
+            const workbook = XLSX.read(data, {type: 'array'});
+            let jsonData = [];
+            for (let sheetName of workbook.SheetNames) {
+                const ws = workbook.Sheets[sheetName];
+                const temp = XLSX.utils.sheet_to_json(ws, {defval: '', raw: false});
+                if (temp.length > 0) { jsonData = temp; break; }
+            }
+            if (jsonData.length === 0) throw new Error('File Excel kosong!');
+            allData = jsonData.map((row, index) => { row._uid = `row_${index}_${Date.now()}`; return row; });
+            currentFileName = file.name;
+            currentPage = 0;
+            const headers = Object.keys(jsonData[0]);
+            columnMap = {};
+            headers.forEach(h => {
+                if (ignoreExcelKomentar && normalizeHeader(h) === 'komentar') return;
+                columnMap[normalizeHeader(h)] = h;
+            });
+            if (visibleColumns.length === 0) {
+                let defaultCols = headers.filter(h => normalizeHeader(h)!== 'komentar').slice(0, 3);
+                defaultCols.push(REPLEN_QTY_COLUMN, SALES_LY_COLUMN, SELISIH_COLUMN, SKP_COLUMN, STATUS_COLUMN, KOMENTAR_COLUMN_NAME);
+                visibleColumns = [...new Set(defaultCols.filter(Boolean))];
+            }
+            await saveToDB(file.name);
+            await loadKomentar();
+            await loadTerpajang();
+            await loadTemplates();
+            showData();
+            document.getElementById('searchBox').focus();
+        } catch (err) {
+            alert('Error baca file: ' + err.message);
+            document.getElementById('tableContainer').innerHTML = '<div class="no-data">Error: ' + err.message + '</div>';
+        }
+    };
+    reader.readAsArrayBuffer(file);
+}
+async function handlePLUFile(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    document.getElementById('pluFileInfo').textContent = '⏳ Lagi baca file...';
+    document.getElementById('pluSearchCard').style.display = 'none';
+    const reader = new FileReader();
+    reader.onload = async function(e) {
+        try {
+            const data = new Uint8Array(e.target.result);
+            const workbook = XLSX.read(data, {type: 'array'});
+            const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+            const jsonData = XLSX.utils.sheet_to_json(firstSheet);
+            if (jsonData.length === 0) throw new Error('File kosong');
+            const headers = Object.keys(jsonData[0]);
+            pluColMap.plu = findColumn(headers, ['plu', 'kode', 'kodebarang', 'article', 'sku', 'barcode']);
+            pluColMap.nama = findColumn(headers, ['nama', 'barang', 'item', 'produk', 'description', 'desc']);
+            if (!pluColMap.plu) throw new Error('Kolom PLU/Kode Barang ga ketemu');
+            if (!pluColMap.nama) throw new Error('Kolom Nama Barang ga ketemu');
+            pluData = jsonData.filter(row => row[pluColMap.plu] && row[pluColMap.nama]);
+            await savePLUToDB(file.name);
+            document.getElementById('pluFileInfo').textContent = `✅ Berhasil load ${pluData.length} data PLU`;
+            document.getElementById('pluSearchCard').style.display = 'block';
+            document.getElementById('pluSearchBox').focus();
+        } catch (err) {
+            alert('Error baca file PLU: ' + err.message);
+            document.getElementById('pluFileInfo').textContent = '❌ Gagal baca file';
+        }
+    };
+    reader.readAsArrayBuffer(file);
+}
+async function savePLUToDB(fileName) {
+    if (!db) return;
+    return new Promise((resolve, reject) => {
+        const tx = db.transaction(PLU_STORE, 'readwrite');
+        tx.objectStore(PLU_STORE).put({id: 1, data: pluData, fileName: fileName, time: new Date().toLocaleString('id-ID'), columns: pluColMap});
+        tx.oncomplete = resolve;
+        tx.onerror = () => reject(tx.error);
+    });
+}
+async function loadPLUFromDB() {
+    if (!db) return;
+    return new Promise((resolve) => {
+        const tx = db.transaction(PLU_STORE, 'readonly');
+        const req = tx.objectStore(PLU_STORE).get(1);
+        req.onsuccess = () => {
+            if (req.result) {
+                pluData = req.result.data;
+                pluColMap = req.result.columns || { plu: null, nama: null };
+                document.getElementById('pluFileInfo').textContent = `File: ${req.result.fileName} (${pluData.length} data)`;
+                document.getElementById('pluSearchCard').style.display = 'block';
+            }
+            resolve();
+        };
+        req.onerror = () => resolve();
+    });
+}
+document.getElementById('pluSearchBox').addEventListener('input', function(e) {
+    const keyword = e.target.value.trim().toLowerCase();
+    const resultList = document.getElementById('pluResultList');
+    const resultCount = document.getElementById('pluRowCount');
+    if (keyword.length < 2) {
+        resultList.innerHTML = '';
+        resultCount.textContent = '0';
+        return;
+    }
+    const results = pluData.filter(row => {
+        const nama = String(row[pluColMap.nama] || '').toLowerCase();
+        return nama.includes(keyword);
+    }).slice(0, 50);
+    if (results.length === 0) {
+        resultList.innerHTML = '<div class="no-data">😢 Barang ga ketemu<br><small>Coba kata kunci lain</small></div>';
+        resultCount.textContent = '0';
+    } else {
+        let html = '';
+        results.forEach(row => {
+            const plu = row[pluColMap.plu
+                ];
+            html += `<div class="plu-result-card" onclick="copyPLU('${plu}')">
+                <div class="plu">PLU: ${plu}</div>
+                <div class="nama">${row[pluColMap.nama]}</div>
+            </div>`;
+        });
+        resultList.innerHTML = html;
+        resultCount.textContent = `${results.length}`;
+    }
+});
+function getPaginatedData() {
+    const start = currentPage * ROWS_PER_PAGE;
+    const end = start + ROWS_PER_PAGE;
+    return filteredData.slice(start, end);
+}
+function nextPage() {
+    const maxPage = Math.ceil(filteredData.length / ROWS_PER_PAGE) - 1;
+    if (currentPage < maxPage) {
+        currentPage++;
+        renderTable();
+        window.scrollTo(0, document.getElementById('tableContainer').offsetTop - 100);
+    }
+}
+function prevPage() {
+    if (currentPage > 0) {
+        currentPage--;
+        renderTable();
+        window.scrollTo(0, document.getElementById('tableContainer').offsetTop - 100);
+    }
+}
+function updatePaginationControls() {
+    const totalPages = Math.ceil(filteredData.length / ROWS_PER_PAGE);
+    const infoEl = document.getElementById('paginationInfo');
+    const controlsEl = document.getElementById('paginationControls');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    if (filteredData.length <= ROWS_PER_PAGE) {
+        infoEl.style.display = 'none';
+        controlsEl.style.display = 'none';
+        return;
+    }
+    infoEl.style.display = 'block';
+    controlsEl.style.display = 'grid';
+    const start = currentPage * ROWS_PER_PAGE + 1;
+    const end = Math.min((currentPage + 1) * ROWS_PER_PAGE, filteredData.length);
+    infoEl.textContent = `Halaman ${currentPage + 1} dari ${totalPages} | Data ${start}-${end} dari ${filteredData.length}`;
+    prevBtn.disabled = currentPage === 0;
+    nextBtn.disabled = currentPage >= totalPages - 1;
+}
+async function saveToDB(fileName) {
+    if (!db) throw new Error('DB belum ready');
+    return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, 'readwrite');
+        tx.objectStore(STORE_NAME).put({id: 1, data: allData, fileName: fileName, time: new Date().toLocaleString('id-ID'), columns: visibleColumns});
+        tx.oncomplete = resolve;
+        tx.onerror = () => reject(tx.error);
+    });
+}
+async function saveKomentar() {
+    if (!db) return;
+    const tx = db.transaction(KOMENTAR_STORE, 'readwrite');
+    tx.objectStore(KOMENTAR_STORE).put({id: 1, data: komentarData});
+}
+async function loadKomentar() {
+    if (!db) return;
+    return new Promise((resolve) => {
+        const tx = db.transaction(KOMENTAR_STORE, 'readonly');
+        const req = tx.objectStore(KOMENTAR_STORE).get(1);
+        req.onsuccess = () => { if (req.result) komentarData = req.result.data || {}; resolve(); };
+        req.onerror = () => resolve();
+    });
+}
+async function saveTerpajang() {
+    if (!db) return;
+    const tx = db.transaction(TERPAJANG_STORE, 'readwrite');
+    tx.objectStore(TERPAJANG_STORE).put({id: 1, data: terpajangData});
+}
+async function loadTerpajang() {
+    if (!db) return;
+    return new Promise((resolve) => {
+        const tx = db.transaction(TERPAJANG_STORE, 'readonly');
+        const req = tx.objectStore(TERPAJANG_STORE).get(1);
+        req.onsuccess = () => { if (req.result) terpajangData = req.result.data || {}; resolve(); };
+        req.onerror = () => resolve();
+    });
+}
+async function saveTemplates() {
+    if (!db) return;
+    const tx = db.transaction(TEMPLATE_STORE, 'readwrite');
+    tx.objectStore(TEMPLATE_STORE).put({id: 1, data: komentarTemplates});
+}
+async function loadTemplates() {
+    if (!db) return;
+    return new Promise((resolve) => {
+        const tx = db.transaction(TEMPLATE_STORE, 'readonly');
+        const req = tx.objectStore(TEMPLATE_STORE).get(1);
+        req.onsuccess = () => { if (req.result && req.result.data) komentarTemplates = req.result.data; resolve(); };
+        req.onerror = () => resolve();
+    });
+}
+async function loadFromDB() {
+    if (!db) return;
+    const tx = db.transaction(STORE_NAME, 'readonly');
+    const req = tx.objectStore(STORE_NAME).get(1);
+    req.onsuccess = async () => {
+        if (req.result) {
+            allData = req.result.data;
+            currentFileName = req.result.fileName;
+            const headers = Object.keys(allData[0]);
+            columnMap = {};
+            headers.forEach(h => {
+                if (ignoreExcelKomentar && normalizeHeader(h) === 'komentar') return;
+                columnMap[normalizeHeader(h)] = h;
+            });
+            visibleColumns = req.result.columns || [];
+            if (visibleColumns.length === 0) {
+                let defaultCols = headers.filter(h => normalizeHeader(h)!== 'komentar').slice(0, 3);
+                defaultCols.push(REPLEN_QTY_COLUMN, SALES_LY_COLUMN, SELISIH_COLUMN, SKP_COLUMN, STATUS_COLUMN, KOMENTAR_COLUMN_NAME);
+                visibleColumns = [...new Set(defaultCols.filter(Boolean))];
+            }
+            document.getElementById('fileInfo').textContent = `File: ${req.result.fileName}`;
+            await loadKomentar();
+            await loadTerpajang();
+            await loadTemplates();
+            showData();
+            loadSummaryKategori();
+        }
+    };
+}
+function showData() {
+    document.getElementById('summary').style.display = 'grid';
+    document.getElementById('searchCard').style.display = 'block';
+    filteredData = [...allData];
+    currentPage = 0;
+    updateSummary();
+    renderTable();
+    populateKategoriDropdown();
+}
+function updateSummary() {
+    const totalSales = filteredData.reduce((sum, row) => sum + getSales(row), 0);
+    const totalOOS = filteredData.filter(row => isOOSItem(row)).length;
+    const totalNAOS = filteredData.filter(row => isNoSalesItem(row)).length;
+    const totalSalesLY = filteredData.reduce((sum, row) => sum + getSalesLY(row), 0);
+    const totalSalesTo = filteredData.reduce((sum, row) => sum + getSalesTo(row), 0);
+    const totalSalesToLY = filteredData.reduce((sum, row) => sum + getSalesToLY(row), 0);
+    const salesGrowth = totalSalesToLY === 0? 0 : ((totalSalesTo - totalSalesToLY) / totalSalesToLY * 100);
+    document.getElementById('totalItem').textContent = filteredData.length.toLocaleString('id-ID');
+    document.getElementById('totalSales').textContent = totalSales.toLocaleString('id-ID', {minimumFractionDigits: 0, maximumFractionDigits: 2});
+    document.getElementById('totalOOS').textContent = totalOOS.toLocaleString('i
+                                                                              d-ID');
+    document.getElementById('totalNAOS').textContent = totalNAOS.toLocaleString('id-ID');
+    document.getElementById('totalSalesLY').textContent = totalSalesLY.toLocaleString('id-ID', {minimumFractionDigits: 0, maximumFractionDigits: 2});
+    const persenEl = document.getElementById('totalPersenSelisih');
+    persenEl.textContent = salesGrowth.toFixed(2) + '%';
+    persenEl.style.color = salesGrowth > 0? '#28a745' : salesGrowth < 0? '#dc3545' : '#2575fc';
+    const selisihTotalTo = totalSalesTo - totalSalesToLY;
+    document.getElementById('totalSelisihTo').textContent = selisihTotalTo.toLocaleString('id-ID');
+    document.getElementById('totalSelisihTo').style.color = selisihTotalTo > 0? '#28a745' : selisihTotalTo < 0? '#dc3545' : '#2575fc';
+}
+function showNoSales() {
+    isNoSalesMode = true; isKomentarMode = false; isBelumPajangMode = false; isOOSMode = false; currentPage = 0;
+    document.getElementById('sortBy').value = '';
+    document.getElementById('komenFilterBtn').classList.remove('active');
+    document.querySelector('.belum-pajang-btn').classList.remove('active');
+    document.querySelector('.oos-btn').classList.remove('active');
+    filteredData = allData.filter(row => isNoSalesItem(row));
+    document.getElementById('searchBox').value = '';
+    document.getElementById('searchBox').placeholder = '🔍 Filter NAOS aktif...';
+    updateSummary();
+    renderTable();
+}
+function showOOS() {
+    isOOSMode =!isOOSMode; isNoSalesMode = false; isKomentarMode = false; isBelumPajangMode = false; currentPage = 0;
+    document.getElementById('sortBy').value = '';
+    document.getElementById('komenFilterBtn').classList.remove('active');
+    document.querySelector('.belum-pajang-btn').classList.remove('active');
+    const btn = document.querySelector('.oos-btn');
+    btn.classList.toggle('active', isOOSMode);
+    if (isOOSMode) {
+        filteredData = allData.filter(row => isOOSItem(row));
+        document.getElementById('searchBox').value = '';
+        document.getElementById('searchBox').placeholder = '🔍 Filter OOS aktif...';
+    } else {
+        filteredData = [...allData];
+        document.getElementById('searchBox').placeholder = '🔍 Cari barang...';
+    }
+    updateSummary();
+    renderTable();
+}
+function toggleKomentarFilter() {
+    isKomentarMode =!isKomentarMode; isNoSalesMode = false; isBelumPajangMode = false; isOOSMode = false; currentPage = 0;
+    document.getElementById('sortBy').value = '';
+    document.getElementById('komenFilterBtn').classList.toggle('active', isKomentarMode);
+    document.querySelector
+('.belum-pajang-btn').classList.remove('active');
+    document.querySelector('.oos-btn').classList.remove('active');
+    if (isKomentarMode) {
+        filteredData = allData.filter(row => hasKomentar(row));
+        document.getElementById('searchBox').value = '';
+        document.getElementById('searchBox').placeholder = '🔍 Filter Komentar aktif...';
+    } else {
+        filteredData = [...allData];
+        document.getElementById('searchBox').placeholder = '🔍 Cari barang...';
+    }
+    updateSummary();
+    renderTable();
+}
+function showBelumPajang() {
+    isBelumPajangMode =!isBelumPajangMode; isNoSalesMode = false; isKomentarMode = false; isOOSMode = false; currentPage = 0;
+    document.getElementById('sortBy').value = '';
+    document.getElementById('komenFilterBtn').classList.remove('active');
+    document.querySelector('.oos-btn').classList.remove('active');
+    const btn = document.querySelector('.belum-pajang-btn');
+    btn.classList.toggle('active', isBelumPajangMode);
+    if (isBelumPajangMode) {
+        filteredData = allData.filter(row => isBelumTerpajang(row));
+        document.getElementById('searchBox').value = '';
+        document.getElementById('searchBox').placeholder = '🔍 Filter Belum Terpajang aktif...';
+    } else {
+        filteredData = [...allData];
+        document.getElementById('searchBox').placeholder = '🔍 Cari barang...';
+    }
+    updateSummary();
+    renderTable();
+}
+function showAll() {
+    isNoSalesMode = false; isKomentarMode = false; isBelumPajangMode = false; isOOSMode = false; currentPage = 0;
+    document.getElementById('sortBy').value = '';
+    document.getElementById('kategoriFilter').value = '';
+    selectedKategori = '';
+    document.getElementById('komenFilterBtn').classList.remove('active');
+    document.querySelector('.belum-pajang-btn').classList.remove('active');
+    document.querySelector('.oos-btn').classList.remove('active');
+    filteredData = [...allData];
+    document.getElementById('searchBox').placeholder = '🔍 Cari barang...';
+    handleSearch();
+}
+function handleSearch() {
+    const val = document.getElementById('searchBox').value.toLowerCase().trim();
+    currentPage = 0;
+    let baseData = [...allData];
+    if (selectedKategori) {
+        const headers = Object.keys(allData[0]);
+        const katCol = headers.find(h => {
+            const nh = normalizeHeader(h);
+            return nh === 'node' || nh === 'kategori' || nh === 'category';
+        });
+        if (katCol) {
+            baseData = baseData.filter(row =>
+                String(row[katCol] || '').trim().toUpperCase() === selectedKategori
+            );
+        }
+    }
+
+    if (isNoSalesMode) baseData = baseData.filter(row => isNoSalesItem(row));
+    else if (isKomentarMode) baseData = baseData.filter(row => hasKomentar(row));
+    else if (isBelumPajangMode) baseData = baseData.filter(row => isBelumTerpajang(row));
+    else if (isOOSMode) baseData = baseData.filter(row => isOOSItem(row));
+
+    if (val.length < 2) {
+        filteredData = baseData;
+    } else {
+        filteredData = baseData.filter(row => Object.values(row).some(v => String(v).toLowerCase().includes(val)));
+    }
+    handleSort();
+}
+function handleSort() {
+    const sortType = document.getElementById('sortBy').value;
+    if (sortType === 'komentar_dulu') {
+        filteredData.sort((a, b) => {
+            const aHas = hasKomentar(a)? 0 : 1;
+            const bHas = hasKomentar(b)? 0 : 1;
+            if (aHas!== bHas) return aHas - bHas;
+            return getNamaBarang(a).localeCompare(getNamaBarang(b));
+        });
+    } else if (sortType === 'nama_az') filteredData.sort((a, b) => getNamaBarang(a).localeCompare(getNamaBarang(b)));
+    else if (sortType === 'nama_za') filteredData.sort((a, b) => getNamaBarang(b).localeCompare(getNamaBarang(a)));
+    else if (sortType === 'stok_besar') filteredData.sort((a, b) => getStok(b) - getStok(a));
+    else if (sortType === 'stok_kecil'
+             ) filteredData.sort((a, b) => getStok(a) - getStok(b));
+    else if (sortType === 'skp_besar') filteredData.sort((a, b) => parseFloat(getSKP(b)) - parseFloat(getSKP(a)));
+    else if (sortType === 'skp_kecil') filteredData.sort((a, b) => parseFloat(getSKP(a)) - parseFloat(getSKP(b)));
+    else if (sortType === 'sales_besar') filteredData.sort((a, b) => getSales(b) - getSales(a));
+    else if (sortType === 'sales_kecil') filteredData.sort((a, b) => getSales(a) - getSales(b));
+    else if (sortType === 'selisih_besar') filteredData.sort((a, b) => getSelisihSales(b) - getSelisihSales(a));
+    else if (sortType === 'selisih_kecil') filteredData.sort((a, b) => getSelisihSales(a) - getSelisihSales(b));
+    else if (sortType === 'selisih_to_besar') filteredData.sort((a, b) => getSelisihTo(b) - getSelisihTo(a));
+    else if (sortType === 'selisih_to_kecil') filteredData.sort((a, b) => getSelisihTo(a) - getSelisihTo(b));
+    updateSummary();
+    renderTable();
+    document.getElementById('rowCount').textContent = `${filteredData.length}/${allData.length}`;
+}
+async function updateKomentar(key, value) {
+    komentarData[key] = value;
+    await saveKomentar();
+}
+async function toggleTerpajang(key, checked) {
+    terpajangData[key] = checked;
+    await saveTerpajang();
+    renderTable();
+}
+async function hapusKomentar(key) {
+    delete komentarData[key];
+    await saveKomentar();
+    renderTable();
+}
+async function hapusSemuaKomentar() {
+    if (confirm('Hapus SEMUA komentar? Data tidak bisa dikembalikan!')) {
+        komentarData = {};
+        await saveKomentar();
+        renderTable();
+        alert('Semua komentar berhasil dihapus!');
+    }
+}
+async function resetSemuaPajang() {
+    if (confirm('Reset SEMUA ceklis Belum Terpajang? Data tidak bisa dikembalikan!')) {
+        terpajangData = {};
+        await saveTerpajang();
+        renderTable();
+        alert('Semua ceklis berhasil direset!');
+    }
+}
+function autoResizeTextarea(el) {
+    el.style.height = 'auto';
+    el.style.height = el.scrollHeight + 'px';
+}
+function getGridTemplate(colCount) {
+    if (colCount <= 4) return `repeat(${colCount}, 1fr)`;
+    if (colCount === 5) return '25% 15% 15% 15% 30%';
+    if (colCount === 6) return '20% 12% 12% 12% 12% 32%';
+    if (colCount === 7) return '18% 10% 10% 10% 10% 10% 32%';
+    if (colCount === 8) return '16% 9% 9% 9% 9% 9% 9% 30%';
+    if (colCount === 9) return '15% 8% 8% 8% 8% 8% 8% 8% 29%';
+    const firstCols = colCount - 1;
+    return `repeat(${firstCols}, 1fr) 200px`;
+}
+async function applyTemplateToRow(itemKey, templateText) {
+    await updateKomentar(itemKey, templateText);
+    renderTable();
+}
+function renderTable() {
+    if (filteredData.length === 0) {
+        document.getElementById('tableContainer').innerHTML = '<div class="no-data">Tidak ada data ditemukan</div>';
+        updatePaginationControls();
+        return;
+    }
+    const displayColumns = [...visibleColumns];
+    const colCount = displayColumns.length;
+    const gridTemplate = getGridTemplate(colCount);
+    const dataToShow = getPaginatedData();
+    let html = `<div class="table-header" style="grid-template-columns: ${gridTemplate}">`;
+    displayColumns.forEach(h => { html += `<div>${h}</div>`; });
+    html += '</div><div class="table-body">';
+    dataToShow.forEach((row) => {
+        const status = getStatus(row);
+        const hasKomen = hasKomentar(row);
+        const isOOS = isOOSItem(row);
+        const itemKey = getItemKey(row);
+        const komentarVal = komentarData[itemKey] || '';
+        let rowClass = '';
+        if (status === 'OOS') rowClass = 'oos-row';
+        else if (status === 'NAOS') rowClass = 'naos-row';
+        else if (isBelumTerpajang(row)) rowClass = 'belum-pajang-row';
+        else if (hasKomen) rowClass = 'komentar-row';
+        html += `<div class="table-row ${rowClass}" style="grid-template-columns: ${gridTemplate}">`;
+        displayColumns.forEach(h => {
+            if (h === KOMENTAR_COLUMN_NAME) {
+                const isEmpty = komentarVal.trim() === '';
+                let templateDropdown = '';
+                if (komentarTemplates.length > 0) {
+                    templateDropdown = `<select class="template-dropdown" onchange="if(this.value){applyTemplateToRow('${itemKey}', this.value); this.value='';}">
+                        <option value="">⚡ Pilih Template</option>`;
+                    komentarTemplates.forEach(t => {
+                        templateDropdown += `<option value="${t}">${t}</option>`;
+                    });
+                    templateDropdown += `</select>`;
+                }
+                html += `<div class="table-cell">
+                    ${templateDropdown}
+                    <div class="komentar-wrap">
+                        <textarea class="komentar-textarea ${isEmpty? 'empty' : ''}"
+                                  oninput="autoResizeTextarea(this)"
+                                  onblur="updateKomentar('${itemKey}', this.value)"
+                                  onfocus="if(this.classList.contains('empty')){this.value='';this.classList.remove('empty')}"
+                                  placeholder="Klik untuk isi...">${komentarVal}</textarea>
+                        ${komentarVal? `<button class="hapus-komen-x" onclick="hapusKomentar('${itemKey}')">×</button>` : ''}
+                    </div>
+                </div>`;
+            } else if (h === TERPAJANG_COLUMN_NAME) {
+                const isChecked = terpajangData[itemKey] === true;
+                html += `<div class="table-cell" style="text-align:center;">
+                    <input type="checkbox" class="checkbox-pajang"
+                           ${isChecked? 'checked' : ''}
+                           onchange="toggleTerpajang('${itemKey}', this.checked)">
+                </div>`;
+            } else {
+                let val = row[h] || '';
+                if (h === REPLEN_QTY_COLUMN || h === SALES_COLUMN || h === SALES_LY_COLUMN) {
+                    val = Number(String(val).replace(/,/g, '')).toLocaleString('id-ID');
+                } else if (h === SALES_TO_COLUMN || h === SALES_TO_LY_COLUMN) {
+                    val = getSalesTo(row).toLocaleString('id-ID');
+                    if (h === SALES_TO_LY_COLUMN) val = getSalesToLY(row).toLocaleString('id-ID');
+                } else if (h === SELISIH_COLUMN) {
+                    val = getSelisihSales(row).toLocaleString('id-ID');
+                } else if (h === SELISIH_TO_COLUMN) {
+                    val = getSelisihTo(row).t
+                    oLocaleString('id-ID');
+                } else if (h === SKP_COLUMN) {
+                    val = getSKP(row);
+                } else if (h === STATUS_COLUMN) {
+                    val = getStatus(row);
+                }
+                const isStok = normalizeHeader(h).includes('replen') || normalizeHeader(h).includes('stok') || normalizeHeader(h).includes('qty');
+                const isDesc = normalizeHeader(h).includes('description') || normalizeHeader(h).includes('desc') || normalizeHeader(h).includes('nama');
+                const numVal = Number(String(row[h]).replace(/[,%]/g, ''));
+                const isNumeric =!isNaN(numVal) && String(row[h]).trim()!== '' &&!isDesc;
+                let colorClass = '';
+                if (h === SELISIH_COLUMN || h === SELISIH_TO_COLUMN) {
+                    const realVal = h === SELISIH_TO_COLUMN? getSelisihTo(row) : getSelisihSales(row);
+                    if (realVal > 0) colorClass = 'style="color:#28a745;font-weight:700"';
+                    else if (realVal < 0) colorClass = 'style="color:#dc3545;font-weight:700"';
+                }
+                if (h === STATUS_COLUMN) {
+                    if (val === 'OOS') colorClass = 'style="color:#dc3545;font-weight:700"';
+                    else if (val === 'NAOS') colorClass = 'style="color:#6f42c1;font-weight:700"';
+                    else colorClass = 'style="color:#28a745;font-weight:700"';
+                }
+                const cellClass = `table-cell ${isStok? 'stok-col' : ''} ${isDesc? 'wraptext' : ''} ${isStok && getStok(row) === 0? 'naos' : ''} ${isNumeric? 'numeric' : ''}`;
+                html += `<div class="${cellClass}" ${colorClass}>${val}</div>`;
+            }
+        });
+        html += '</div>';
+    });
+    html += '</div>';
+    document.getElementById('tableContainer').innerHTML = html;
+    setTimeout(() => {
+        document.querySelectorAll('.komentar-textarea').forEach(autoResizeTextarea);
+    }, 0);
+    document.getElementById('rowCount').textContent = `${filteredData.length}/${allData.length}`;
+    updatePaginationControls();
+}
+function openColumnModal() {
+    const headers = Object.keys(allData[0] || {}).filter(h => h!== '_uid');
+    const uniqueHeaders = [...new Set(headers.filter(h => normalizeHeader(h)!== 'komentar'))];
+    const allColumns = [...uniqueHeaders, REPLEN_QTY_COLUMN, SALES_COLUMN, SALES_LY_COLUMN, SALES_TO_COLUMN, SALES_TO_LY_COLUMN, SELISIH_COLUMN, SELISIH_TO_COLUMN, SKP_COLUMN, STATUS_COLUMN, KOMENTAR_COLUMN_NAME, TERPAJANG_COLUMN_NAME];
+    const dedupedColumns = [...new Set(allColumns.filter(Boolean))];
+    let html = '';
+    dedupedColumns.forEach(h => {
+        const checked = visibleColumns.includes(h)? 'checked' : '';
+        html += `<label><input type="checkbox" value="${h}" ${checked}> ${h}</label>`;
+    });
+    document.getElementById('columnCheckboxes').innerHTML = html;
+    document.getElementById('columnModal').style.display = 'flex';
+}
+function closeColumnModal() {
+    document.getElementById('columnModal').style.display = 'none';
+}
+async function applyColumns() {
+    const checkboxes = document.querySelectorAll('#columnCheckboxes input:checked');
+    visibleColumns = Array.from(checkboxes).map(cb => cb.value);
+    if (visibleColumns.length === 0) {
+        alert('Minimal pilih 1 kolom!');
+        return;
+    }
+    await saveToDB(document.getElementById('fileInfo').textContent.replace('File: ', ''));
+    closeColumnModal();
+    renderTable();
+}
+function openTemplateModal() {
+    let html = '';
+    komentarTemplates.forEach((t, i) => {
+        html += `<div class="template-item">
+            <input type="text" class="template-input" value="${t}" data-index="${i}">
+            <button class="template-del" onclick="deleteTemplate(${i})">🗑️</button>
+        </div>`;
+    });
+    document.getElementById('templateList').innerHTML = html;
+    document.getElementById('templateModal').style.display = 'flex';
+}
+function closeTemplateModal() {
+    document.getElementById('templateModal').style.display = 'none';
+}
+function addTemplate() {
+    komentarTemplates.push('');
+    openTemplateModal();
+}
+function deleteTemplate(index) {
+    komentarTemplates.splice(index, 1);
+    openTemplateModal();
+}
+async function saveTemplatesAndClose() {
+    const inputs = document.querySelectorAll('.template-input');
+    komentarTemplates = Array.from(inputs).map(i => i.value.trim()).filter(v => v!== '');
+    await saveTemplates();
+    closeTemplateModal();
+    alert('Template berhasil disimpan! Sekarang muncul di tiap baris komentar.');
+}
+function exportToExcel() {
+    const dataToExport = filteredData.map((row) => {
+        let newRow = {};
+        visibleColumns.forEach(col => {
+            if (col === KOMENTAR_COLUMN_NAME) {
+                newRow[col] = komentarData[getItemKey(row)] || '';
+            } else if (col === REPLEN_QTY_COLUMN) {
+                newRow[col] = getStok(row);
+            } else if (col === SALES_COLUMN) {
+                newRow[col] = getSales(row);
+            } else if (col === SALES_LY_COLUMN) {
+                newRow[col] = getSalesLY(row);
+            } else if (col === SALES_TO_COLUMN) {
+                newRow[col] = getSalesTo(row);
+            } else if (col === SALES_TO_LY_COLUMN) {
+                newRow[col] = getSalesToLY(row);
+            } else if (col === SELISIH_COLUMN) {
+                newRow[col] = getSelisihSales(row);
+            } else if (col === SELISIH_TO_COLUMN) {
+                newRow[col] = getSelisihTo(row);
+            } else if (col === SKP_COLUMN) {
+                newRow[col] = getSKP(row);
+            } else if (col === STATUS_COLUMN) {
+                newRow[col] = getStatus(row);
+            } else if (col!== '_uid') {
+                newRow[col] = row[col];
+            }
+        });
+        if (visibleColumns.includes(TERPAJANG_COLUMN_NAME)) {
+            newRow[TERPAJANG_COLUMN_NAME] = terpajangData[getItemKey(row)]? 'Ya' : 'Tidak';
+        }
+        return newRow;
+    });
+    const ws = XLSX.utils.json_to_sheet(dataToExport);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Hasil Filter");
+    XLSX.writeFile(wb, `Export_YOGYA_${new Date().toISOString().slice(0,10)}.xlsx`);
+}
+async function clearData() {
+    if (confirm('Hapus semua data & ganti file baru?')) {
+        if (!db) await initDB();
+        const tx = db.transaction([STORE_NAME, KOMENTAR_STORE, TEMPLATE_STORE, TERPAJANG_STORE], 'readwrite');
+        tx.objectStore(STORE_NAME).clear();
+        tx
+        .objectStore(KOMENTAR_STORE).clear();
+        tx.objectStore(TERPAJANG_STORE).clear();
+        tx.oncomplete = () => location.reload();
+    }
+}
+document.getElementById('columnModal').addEventListener('click', function(e) {
+    if (e.target === this) closeColumnModal();
+});
+document.getElementById('templateModal').addEventListener('click', function(e) {
+    if (e.target === this) closeTemplateModal();
+});
+document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
+    if (allData.length === 0) return;
+    if (e.ctrlKey || e.metaKey) {
+        switch(e.key.toLowerCase()) {
+            case 's':
+                e.preventDefault();
+                exportToExcel();
+                break;
+            case 'f':
+                e.preventDefault();
+                document.getElementById('searchBox').focus();
+                break;
+            case 'k':
+                e.preventDefault();
+                toggleKomentarFilter();
+                break;
+            case 'a':
+                e.preventDefault();
+                showAll();
+                break;
+            case 'n':
+                e.preventDefault();
+                showNoSales();
+                break;
+            case 'o':
+                e.preventDefault();
+                showOOS();
+                break;
+            case 'b':
+                e.preventDefault();
+                showBelumPajang();
+                break;
+            case 'h':
+                e.preventDefault();
+                openColumnModal();
+                break;
+            case 't':
+                e.preventDefault();
+                openTemplateModal();
+                break;
+        }
+        return;
+    }
+    switch(e.key) {
+        case '1':
+            showAll();
+            break;
+        case '2':
+            showNoSales();
+            break;
+        case '3':
+            showOOS();
+            break;
+        case '4':
+            showBelumPajang();
+            break;
+        case '5':
+            toggleKomentarFilter();
+            break;
+        case 'Escape':
+                showAll();
+                break;
+            case 'ArrowLeft':
+                prevPage();
+                break;
+            case 'ArrowRight':
+                nextPage();
+                break;
+        }
+    });
+/* ====== SCRIPT KODE 1 SELESAI ====== */
+
+/* ====== SCRIPT KODE 2 MULAI - GA GUA UBAH ====== */
+let rawData = [], dataNAOS=[], dataOOS=[];
+const PAGE_SIZE = 500;
+let page = 1, currentTab='all', currentSort='', currentCheck='all';
+let visibleCols = ['node','article','desc','replen','sales'];
+let summaryHidden = false;
+let selectedNodes = [];
+
+const LS_DATA = 'naos_data_final';
+const LS_CHECKS = 'naos_checks_final';
+const LS_NODES = 'naos_nodes_final';
+const LS_HIDE = 'naos_hide_final';
+const LS_REPORTS = 'naos_reports_v51';
+
+const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQcw_VWQ9-Z2JU87wyKKSruf5p6ZDZgfk3IDTFjt0p-r_NI0h9zcOjx8IQDy9c-UlLUN5JmTm-ggKDi/pub?output=csv';
+const ALL_COLS = {
   node:'Node', article:'Article', desc:'Deskripsi', replen:'Replen',
   qoo:'QOO', sales:'Sales', sales_ly:'Sales LY', sales_to:'Sales TO',
   sales_to_ly:'Sales TO LY', skp:'SKP'
-  };
-  
-  function switchTab(tab){
+};
+
+function switchTab(tab){
   document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('tab-'+tab).classList.add('active');
   document.querySelector(`.tab-btn[onclick="switchTab('${tab}')"]`).classList.add('active');
   if(tab==='report'){ renderReportTable(); }
-  }
-  
-  window.addEventListener('load', async () => {
+}
+
+window.addEventListener('load', async () => {
   dateStart.value = new Date().toISOString().slice(0,10);
   dateEnd.value = new Date().toISOString().slice(0,10);
   const savedData = localStorage.getItem(LS_DATA);
@@ -1873,117 +1879,118 @@ function showMinus(key){
   summaryHidden = savedHide;
   if(savedHide){ summaryGrid.style.display='none'; btnHideSummary.innerHTML='👁️ Show'; }
   if(savedData){
-  const data = JSON.parse(savedData);
-  initData(data, false);
-  loadingText.style.display='none';
-  tblMain.style.display='table';
+    const data = JSON.parse(savedData);
+    initData(data, false);
+    loadingText.style.display='none';
+    tblMain.style.display='table';
   } else {
-  await btnRefresh.click();
+    await btnRefresh.click();
   }
   document.addEventListener('click', e => {
-  if(!e.target.closest('.multi-select')){ dropdownKat.style.display='none'; }
+    if(!e.target.closest('.multi-select')){ dropdownKat.style.display='none'; }
   });
-  });
-  
-  btnRefresh.onclick = async () => {
+});
+
+btnRefresh.onclick = async () => {
   loadingText.style.display='block';
   tblMain.style.display='none';
   loadingText.innerHTML = '🔄 Lagi narik data dari Sheet...';
   try{
-  const res = await fetch(SHEET_URL + '&t=' + Date.now());
-  const txt = await res.text();
-  const data = parseCSV_Rusak(txt);
-  if(data.length===0) throw new Error('Data 0');
-  if(!localStorage.getItem(LS_DATA)){ alert('SUKSES: Kebaca '+data.length+' baris dari Sheet'); }
-  initData(data, true);
-  loadingText.style.display='none';
-  tblMain.style.display='table';
+    const res = await fetch(SHEET_URL + '&t=' + Date.now());
+    const txt = await res.text();
+    const data = parseCSV_Rusak(txt);
+    if(data.length===0) throw new Error('Data 0');
+    if(!localStorage.getItem(LS_DATA)){ alert('SUKSES: Kebaca '+data.length+' baris dari Sheet'); }
+    initData(data, true);
+    loadingText.style.display='none';
+    tblMain.style.display='table';
   }catch(e){
-  loadingText.innerHTML = '❌ GAGAL: Cek koneksi / Link Sheet';
-  console.error(e);
+    loadingText.innerHTML = '❌ GAGAL: Cek koneksi / Link Sheet';
+    console.error(e);
   }
-  };
-  
-  sortSelect.onchange = e => { currentSort = e.target.value; page=1; renderAll(); };
-  checkFilter.onchange = e => { currentCheck = e.target.value; page=1; renderAll(); };
-  resetBtn.onclick = () => {
+};
+
+sortSelect.onchange = e => { currentSort = e.target.value; page=1; renderAll(); };
+checkFilter.onchange = e => { currentCheck = e.target.value; page=1; renderAll(); };
+resetBtn.onclick = () => {
   currentSort=''; currentCheck='all'; selectedNodes=[];
   sortSelect.value=''; checkFilter.value='all';
   updateNodeBtnText(); buildNodeDropdown();
   page=1; renderAll(); renderSummary();
-  };
-  
-  function hapusData(){
+};
+
+function hapusData(){
   if(confirm('Yakin hapus semua data & ceklis?')){
-  localStorage.removeItem(LS_DATA);
-  localStorage.removeItem(LS_CHECKS);
-  localStorage.removeItem(LS_NODES);
-  rawData = []; dataNAOS=[]; dataOOS=[]; selectedNodes=[];
-  renderAll(); renderSummary(); updateNodeBtnText();
-  loadingText.style.display='block';
-  tblMain.style.display='none';
-  loadingText.innerHTML = 'Klik `Tarik Data` dulu bang 👆';
+    localStorage.removeItem(LS_DATA);
+    localStorage.removeItem(LS_CHECKS);
+    localStorage.removeItem(LS_NODES);
+    rawData = []; dataNAOS=[]; dataOOS=[];
+    renderAll(); renderSummary(); updateNodeBtnText();
+    loadingText.style.display='block';
+    tblMain.style.display='none';
+    loadingText.innerHTML = 'Klik `Tarik Data` dulu bang 👆';
   }
-  }
-  
-  function resetCeklis(){
+}
+
+function resetCeklis(){
   if(confirm('Yakin reset semua centang Area & Gudang? Data ga kehapus.')){
-  rawData.forEach(r => { r.area_chk = false; r.gudang_chk = false; });
-  localStorage.removeItem(LS_CHECKS);
-  renderAll(); renderSummary();
-  alert('Semua centang udah direset ✅');
+    rawData.forEach(r => { r.area_chk = false; r.gudang_chk = false; });
+    localStorage.removeItem(LS_CHECKS);
+    renderAll(); renderSummary();
+    alert('Semua centang udah direset ✅');
   }
-  }
-  
-  function saveReport(){
+}
+
+function saveReport(){
   if(rawData.length===0){ alert('Tarik data dulu bang'); return; }
   const today = new Date().toISOString().slice(0,10);
-  const reports = JSON.parse(localStorage.getItem(LS_REPORTS) || '{}');
+  const reports = JSON.parse(localStorage.getItem(LS_REPORTS) || '{}
+                             ');
   const total = rawData.length;
   const terpajang = rawData.filter(r => r.area_chk).length;
   const belum = rawData.filter(r => r.gudang_chk).length;
   const grouped = new Map();
   rawData.forEach(r=>{
-  const node = r.node || 'Tanpa Node';
-  if(!grouped.has(node)){ grouped.set(node, {total:0, terpajang:0, belum:0}); }
-  const g = grouped.get(node);
-  g.total++;
-  if(r.area_chk) g.terpajang++;
-  if(r.gudang_chk) g.belum++;
+    const node = r.node || 'Tanpa Node';
+    if(!grouped.has(node)){ grouped.set(node, {total:0, terpajang:0, belum:0}); }
+    const g = grouped.get(node);
+    g.total++;
+    if(r.area_chk) g.terpajang++;
+    if(r.gudang_chk) g.belum++;
   });
   reports[today] = {
-  total: total,
-  pctTerpajang: total > 0? (terpajang/total*100).toFixed(1) : 0,
-  pctBelum: total > 0? (belum/total*100).toFixed(1) : 0,
-  nodes: Object.fromEntries(grouped)
+    total: total,
+    pctTerpajang: total > 0? (terpajang/total*100).toFixed(1) : 0,
+    pctBelum: total > 0? (belum/total*100).toFixed(1) : 0,
+    nodes: Object.fromEntries(grouped)
   };
   localStorage.setItem(LS_REPORTS, JSON.stringify(reports));
   alert(`Laporan ${today} berhasil disimpan ✅`);
   renderReportTable();
-  }
-  
-  function renderReportTable(){
+}
+
+function renderReportTable(){
   const reports = JSON.parse(localStorage.getItem(LS_REPORTS) || '{}');
   const dates = Object.keys(reports).sort().reverse();
   if(dates.length === 0){
-  tblReport.innerHTML = '<tr><td style="padding:20px;">Belum ada laporan. Klik Simpan Laporan dulu.</td></tr>';
-  return;
+    tblReport.innerHTML = '<tr><td style="padding:20px;">Belum ada laporan. Klik Simpan Laporan dulu.</td></tr>';
+    return;
   }
   const head = '<tr><th>Tanggal</th><th>Total SKU</th><th>%Terpajang</th><th>%Belum</th></tr>';
   const body = dates.map(d=>{
-  const r = reports[d];
-  return `<tr>
-  <td>${d}</td>
-  <td>${fmtNum(r.total)}</td>
-  <td class="green">${r.pctTerpajang}%</td>
-  <td class="purple">${r.pctBelum}%</td>
-  </tr>`;
+    const r = reports[d];
+    return `<tr>
+      <td>${d}</td>
+      <td>${fmtNum(r.total)}</td>
+      <td class="green">${r.pctTerpajang}%</td>
+      <td class="purple">${r.pctBelum}%</td>
+    </tr>`;
   }).join('');
   tblReport.innerHTML = head + body;
-  }
-  
-  function loadReport(){
-  const start = dateStart.value;
+}
+
+function loadReport(){
+const start = dateStart.value;
   const end = dateEnd.value;
   if(!start ||!end){ alert('Pilih tanggal dulu'); return; }
   if(start > end){ alert('Tanggal awal > akhir'); return; }
@@ -1995,187 +2002,187 @@ function showMinus(key){
   let grandTotalT = 0;
   let grandTotalB = 0;
   dates.forEach(d => {
-  const dayData = reports[d];
-  grandTotalSKU += dayData.total;
-  grandTotalT += dayData.total * (dayData.pctTerpajang/100);
-  grandTotalB += dayData.total * (dayData.pctBelum/100);
-  Object.keys(dayData.nodes).forEach(node => {
-  if(!totalAkumulasi.has(node)){ totalAkumulasi.set(node, {total:0, terpajang:0, belum:0}); }
-  const g = totalAkumulasi.get(node);
-  g.total += dayData.nodes[node].total;
-  g.terpajang += dayData.nodes[node].terpajang;
-  g.belum += dayData.nodes[node].belum;
-  });
+    const dayData = reports[d];
+    grandTotalSKU += dayData.total;
+    grandTotalT += dayData.total * (dayData.pctTerpajang/100);
+    grandTotalB += dayData.total * (dayData.pctBelum/100);
+    Object.keys(dayData.nodes).forEach(node => {
+      if(!totalAkumulasi.has(node)){ totalAkumulasi.set(node, {total:0, terpajang:0, belum:0}); }
+      const g = totalAkumulasi.get(node);
+      g.total += dayData.nodes[node].total;
+      g.terpajang += dayData.nodes[node].terpajang;
+      g.belum += dayData.nodes[node].belum;
+    });
   });
   summaryReportTitle.innerHTML = `📊 AKUMULASI ${start} s/d ${end} | ${dates.length} Hari`;
   const cards = Array.from(totalAkumulasi.keys()).sort().map(node=>{
-  const g = totalAkumulasi.get(node);
-  const pctT = g.total > 0? (g.terpajang/g.total*100).toFixed(1) : 0;
-  const pctB = g.total > 0? (g.belum/g.total*100).toFixed(1) : 0;
-  return `
-  <div class="summary-card">
-  <div class="kat">${node}</div>
-  <div class="total blue">${fmtNum(g.total)} SKU</div>
-  <div class="row"><span>%Terpajang:</span><span class="green">${pctT}%</span></div>
-  <div class="row"><span>%Belum:</span><span class="purple">${pctB}%</span></div>
-  </div>
-  `;
+    const g = totalAkumulasi.get(node);
+    const pctT = g.total > 0? (g.terpajang/g.total*100).toFixed(1) : 0;
+    const pctB = g.total > 0? (g.belum/g.total*100).toFixed(1) : 0;
+    return `
+      <div class="summary-card">
+        <div class="kat">${node}</div>
+        <div class="total blue">${fmtNum(g.total)} SKU</div>
+        <div class="row"><span>%Terpajang:</span><span class="green">${pctT}%</span></div>
+        <div class="row"><span>%Belum:</span><span class="purple">${pctB}%</span></div>
+      </div>
+    `;
   }).join('');
   const pctGrandT = grandTotalSKU > 0? (grandTotalT/grandTotalSKU*100).toFixed(1) : 0;
   const pctGrandB = grandTotalSKU > 0? (grandTotalB/grandTotalSKU*100).toFixed(1) : 0;
   const totalCard = `
-  <div class="summary-card" style="border:2px solid var(--accent);">
-  <div class="kat">TOTAL KESELURUHAN</div>
-  <div class="total blue">${fmtNum(grandTotalSKU)} SKU</div>
-  <div class="row"><span>%Terpajang:</span><span class="green">${pctGrandT}%</span></div>
-  <div class="row"><span>%Belum:</span><span class="purple">${pctGrandB}%</span></div>
-  </div>
+    <div class="summary-card" style="border:2px solid var(--accent);">
+      <div class="kat">TOTAL KESELURUHAN</div>
+      <div class="total blue">${fmtNum(grandTotalSKU)} SKU</div>
+      <div class="row"><span>%Terpajang:</span><span class="green">${pctGrandT}%</span></div>
+      <div class="row"><span>%Belum:</span><span class="purple">${pctGrandB}%</span></div>
+    </div>
   `;
   summaryReportGrid.innerHTML = totalCard + cards;
-  }
-  
-  async function screenshotReport(){
+}
+
+async function screenshotReport(){
   alert('Lagi bikin gambar... Tunggu 2 detik');
   const canvas = await html2canvas(summaryReportCard, {backgroundColor:'#1e293b', scale:2});
   const link = document.createElement('a');
   link.download = 'NAOS_Rekap_'+ new Date().toISOString().slice(0,10) +'.png';
   link.href = canvas.toDataURL();
   link.click();
-  }
-  
-  function parseCSV_Rusak(text) {
+}
+
+function parseCSV_Rusak(text) {
   const lines = text.trim().split(/\r\n|\n/).filter(l=>l);
   const headerDelim = lines[0].includes(';')? ';' : ',';
   const headers = lines[0].split(headerDelim).map(h=>h.replace(/"/g,'').trim());
   const headerMap = {};
   headers.forEach(h => { headerMap[h.toLowerCase()] = h; });
   return lines.slice(1).map(line => {
-  const dataDelim = (line.match(/,/g)||[]).length > (line.match(/;/g)||[]).length? ',' : ';';
-  const values = line.split(dataDelim).map(v=>v.replace(/"/g,'').trim());
-  let obj = {};
-  headers.forEach((h, i) => obj[h] = values[i] || '');
-  obj._map = headerMap;
-  return obj;
+    const dataDelim = (line.match(/,/g)||[]).length > (line.match(/;/g)||[]).length? ',' : ';';
+    const values = line.split(dataDelim).map(v=>v.replace(/"/g,'').trim());
+    let obj = {};
+    headers.forEach((h, i) => obj[h] = values[i] || '');
+    obj._map = headerMap;
+    return obj;
   });
-  }
-  const toNum = v => parseFloat(String(v).replace(/[^0-9.-]/g,'')) || 0;
-  function getVal(r, key){ const h = r._map[key.toLowerCase()]; return h? r[h] : ''; }
-  const fmtNum = n => n.toLocaleString('id-ID');
-  
-  function initData(data, saveData=true){
+}
+const toNum = v => parseFloat(String(v).replace(/[^0-9.-]/g,'')) || 0;
+function getVal(r, key){ const h = r._map[key.toLowerCase()]; return h? r[h] : ''; }
+const fmtNum = n => n.toLocaleString('id-ID');
+
+function initData(data, saveData=true){
   const savedChecks = JSON.parse(localStorage.getItem(LS_CHECKS) || '{}');
   
   // Helper biar ga ribet nyari nama kolom
   const findCol = (r, keywords) => {
-  const headers = Object.keys(r._map).map(k => r._map[k]);
-  for(let key of keywords){
-  const found = headers.find(h => h.toLowerCase().replace(/[\s\._]+/g, '') === key);
-  if(found) return r[found];
-  }
-  return '';
+    const headers = Object.keys(r._map).map(k => r._map[k]);
+    for(let key of keywords){
+      const found = headers.find(h => h.toLowerCase().replace(/[\s\._]+/g, '') === key);
+      if(found) return r[found];
+    }
+    return '';
   };
-  
+
   rawData = data.map(r => {
-  const id = findCol(r, ['articlecode', 'node']);
-  return {
-  id: id,
-  node: findCol(r, ['node']), 
-  article: findCol(r, ['articlecode']), 
-  desc: findCol(r, ['sudescription', 'description']),
-  replen: toNum(findCol(r, ['replenqty', 'replen. qty', 'stok', 'stock'])), 
-  qoo: toNum(findCol(r, ['quantityonorder', 'qoo'])),
-  sales: toNum(findCol(r, ['sales'])), 
-  sales_ly: toNum(findCol(r, ['salesly'])), 
-  sales_to: toNum(findCol(r, ['salesto'])),
-  sales_to_ly: toNum(findCol(r, ['salestoly'])), 
-  skp: toNum(findCol(r, ['skp'])),
-  area_chk: savedChecks[id]?.area || false,
-  gudang_chk: savedChecks[id]?.gudang || false
-  }
+    const id = findCol(r, ['articlecode', 'node']);
+    return {
+      id: id,
+      node: findCol(r, ['node']), 
+      article: findCol(r, ['articlecode']), 
+      desc: findCol(r, ['sudescription', 'description']),
+      replen: toNum(findCol(r, ['replenqty', 'replen. qty', 'stok', 'stock'])), 
+      qoo: toNum(findCol(r, ['quantityonorder', 'qoo'])),
+      sales: toNum(findCol(r, ['sales'])), 
+      sales_ly: toNum(findCol(r, ['salesly'])), 
+      sales_to: toNum(findCol(r, ['salesto'])),
+      sales_to_ly: toNum(findCol(r, ['salestoly'])), 
+      skp: toNum(findCol(r, ['skp'])),
+      area_chk: savedChecks[id]?.area || false,
+      gudang_chk: savedChecks[id]?.gudang || false
+    }
   }).filter(r=>r.node);
   
   dataNAOS = rawData.filter(r=> r.replen > 1 && r.sales === 0);
   dataOOS = rawData.filter(r=> r.replen === 0 && r.sales === 0);
-  if(saveData){ localStorage.setItem(LS_DATA, JSON.stringify(rawData)); }
+  if(saveData){ localStorage.setItem(LS
+                                     stringify(rawData)); }
   buildNodeDropdown();
   updateNodeBtnText();
   updateModalCheckbox();
   renderAll();
   renderSummary();
-  }
-  
-  function toggleCheck(id, type, val){
+}
+
+function toggleCheck(id, type, val){
   const item = rawData.find(r=>r.id===id);
   if(item){ item[type] = val; }
   const saveObj = {};
   rawData.forEach(r=>{ saveObj[r.id] = {area:r.area_chk, gudang:r.gudang_chk}; });
   localStorage.setItem(LS_CHECKS, JSON.stringify(saveObj));
   renderAll();
-  }
-  
-  function updateModalCheckbox(){
+}
+
+function updateModalCheckbox(){
   colList.innerHTML = Object.keys(ALL_COLS).map(k=>`
-  <label><input type="checkbox" value="${k}" ${visibleCols.includes(k)?'checked':''} onchange="toggleCol('${k}',this.checked)"> ${ALL_COLS[k]}</label>
+    <label><input type="checkbox" value="${k}" ${visibleCols.includes(k)?'checked':''} onchange="toggleCol('${k}',this.checked)"> ${ALL_COLS[k]}</label>
   `).join('');
-  }
-  function toggleCol(k,on){
+}
+function toggleCol(k,on){
   visibleCols = on? [...visibleCols,k] : visibleCols.filter(x=>x!==k);
   if(visibleCols.length===0) visibleCols=['node'];
   renderAll();
-  }
-  function sortData(arr){ if(!currentSort) return arr; const [k,d]=currentSort.split('_'); return [...arr].sort((a,b)=> typeof a[k]==='number'? d==='asc'?a[k]-b[k]:b[k]-a[k] : d==='asc'?String(a[k]).localeCompare(b[k]):String(b[k]).localeCompare(a[k])); }
-  function showTab(tab){ currentTab=tab; page=1; renderAll(); }
-  function openModal(){ updateModalCheckbox(); colModal.style.display='block'; }
-  function closeModal(){ colModal.style.display='none'; }
-  window.onclick = e => { if(e.target==colModal) closeModal(); }
-  
-  function toggleSummary(){
+}
+function sortData(arr){ if(!currentSort) return arr; const [k,d]=currentSort.split('_'); return [...arr].sort((a,b)=> typeof a[k]==='number'? d==='asc'?a[k]-b[k]:b[k]-a[k] : d==='asc'?String(a[k]).localeCompare(b[k]):String(b[k]).localeCompare(a[k])); }
+function showTab(tab){ currentTab=tab; page=1; renderAll(); }
+function openModal(){ updateModalCheckbox(); colModal.style.display='block'; }
+function closeModal(){ colModal.style.display='none'; }
+window.onclick = e => { if(e.target==colModal) closeModal(); }
+
+function toggleSummary(){
   summaryHidden =!summaryHidden;
   summaryGrid.style.display = summaryHidden? 'none' : 'grid';
   btnHideSummary.innerHTML = summaryHidden? '👁️ Show' : '👁️ Hide';
   localStorage.setItem(LS_HIDE, summaryHidden);
-  }
-  
-  function buildNodeDropdown(){
+}
+
+function buildNodeDropdown(){
   const nodes = [...new Set(rawData.map(r=>r.node))].sort();
   if(nodes.length===0){ dropdownKat.innerHTML='<div style="padding:8px;color:#94a3b8;font-size:12px;">Tarik data dulu</div>'; return; }
   dropdownKat.innerHTML = `
-  <label><input type="checkbox" id="checkAllNode" ${selectedNodes.length===0?'checked':''} onchange="toggleAllNodes(this.checked)"> <b>Semua Kategori</b></label>
-  <hr style="border:0;border-top:1px solid #334155;margin:6px 0;">
-  ${nodes.map(n=>`
-  <label><input type="checkbox" value="${n}" ${selectedNodes.includes(n)?'checked':''} onchange="toggleNode('${n.replace(/'/g,"\\'")}',this.checked)"> ${n}</label>
-  `).join('')}
+    <label><input type="checkbox" id="checkAllNode" ${selectedNodes.length===0?'checked':''} onchange="toggleAllNodes(this.checked)"> <b>Semua Kategori</b></label>
+    <hr style="border:0;border-top:1px solid #334155;margin:6px 0;">
+    ${nodes.map(n=>`
+      <label><input type="checkbox" value="${n}" ${selectedNodes.includes(n)?'checked':''} onchange="toggleNode('${n.replace(/'/g,"\\'")}',this.checked)"> ${n}</label>
+    `).join('')}
   `;
-  }
-  function toggleAllNodes(checked){
+}
+function toggleAllNodes(checked){
   selectedNodes = checked? [] : [];
   buildNodeDropdown();
   updateNodeBtnText();
   localStorage.setItem(LS_NODES, JSON.stringify(selectedNodes));
   page=1; renderAll(); renderSummary();
-  }
-  function toggleNode(node, checked){
+}
+function toggleNode(node, checked){
   if(checked){
-  if(!selectedNodes.includes(node)) selectedNode
-  s.push(node);
+    if(!selectedNodes.includes(node)) selectedNodes.push(node);
   } else {
-  selectedNodes = selectedNodes.filter(n=>n!==node);
+    selectedNodes = selectedNodes.filter(n=>n!==node);
   }
   updateNodeBtnText();
   localStorage.setItem(LS_NODES, JSON.stringify(selectedNodes));
   page=1; renderAll(); renderSummary();
-  }
-  function toggleDropdown(){
+}
+function toggleDropdown(){
   if(rawData.length===0){ alert('Tarik data dulu bang'); return; }
   dropdownKat.style.display = dropdownKat.style.display==='block'? 'none' : 'block';
-  }
-  function updateNodeBtnText(){
+}
+function updateNodeBtnText(){
   if(selectedNodes.length===0){ btnFilterKat.innerHTML = '📂 Semua ▼'; }
   else if(selectedNodes.length===1){ btnFilterKat.innerHTML = `📂 ${selectedNodes[0]} ▼`; }
   else { btnFilterKat.innerHTML = `📂 ${selectedNodes.length} ▼`; }
-  }
-  
-  async function screenshotSummary(){
+}
+
+async function screenshotSummary(){
   if(summaryHidden){ alert('Buka dulu Summary nya bang 👁️'); return; }
   alert('Lagi bikin gambar... Tunggu 2 detik');
   const canvas = await html2canvas(summaryCard, {backgroundColor:'#1e293b', scale:2});
@@ -2183,71 +2190,72 @@ function showMinus(key){
   link.download = 'NAOS_Summary_'+ new Date().toISOString().slice(0,10) +'.png';
   link.href = canvas.toDataURL();
   link.click();
-  }
-  
-  function exportExcel(){
+}
+
+function exportExcel(){
   let baseData = sortData(rawData);
   if(selectedNodes.length > 0){ baseData = baseData.filter(r => selectedNodes.includes(r.node)); }
   let filteredData = baseData;
   if(currentCheck === 'area'){ filteredData = baseData.filter(r => r.area_chk === true); }
   else if(currentCheck === 'gudang'){ filteredData = baseData.filter(r => r.gudang_chk === true); }
   let arr = currentTab==='naos'? filteredData.filter(r=> r.replen > 1 && r.sales === 0)
-  : currentTab==='oos'? filteredData.filter(r=> r.replen === 0 && r.sales === 0)
-  : filteredData;
+            : currentTab==='oos'? filteredData.filter(r=> r.replen === 0 && r.sales === 0)
+            : filteredData;
   if(arr.length===0){ alert('Data kosong, ga bisa export'); return; }
   const wsData = arr.map(r => {
-  let obj = {};
-  visibleCols.forEach(k => { obj[ALL_COLS[k]] = r[k]; });
-  obj['Area'] = r.area_chk? '☑️' : '';
-  obj['Gudang'] = r.gudang_chk? '☑️' : '';
-  return obj;
+    let obj = {};
+    visibleCols.forEach(k => { obj[ALL_COLS[k]] = r[k]; });
+    obj['Area'] = r.area_chk? '☑️' : '';
+    obj['Gudang'] = r.gudang_chk? '☑️' : '';
+    return obj;
   });
   const ws = XLSX.utils.json_to_sheet(wsData);
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, "NAOS Data");
   XLSX.writeFile(wb, "NAOS_Export_"+ new Date().toISOString().slice(0,10) +".xlsx");
-  }
-  
-  function renderSummary(){
+}
+
+function renderSummary(){
   if(rawData.length===0){ summaryCard.style.display='none'; return; }
   summaryCard.style.display='block';
   if(!summaryHidden){ summaryGrid.style.display='grid'; }
   const grouped = new Map();
   rawData.forEach(r=>{
-  const node = r.node || 'Tanpa Node';
-  if(!grouped.has(node)){ grouped.set(node, {count:0, naos:0, oos:0, terpajang:0, belum:0}); }
-  const g = grouped.get(node);
-  g.count++;
-  if(r.replen > 1 && r.sales === 0) g.naos++;
-  if(r.replen === 0 && r.sales === 0) g.oos++;
-  if(r.area_chk) g.terpajang++;
-  if(r.gudang_chk) g.belum++;
+    const node = r.node || 'Tanpa Node';
+    if(!grouped.has(node)){ grouped.set(node, {count:0, naos:0, oos:0, terpajang:0, belum:0}); }
+    const g = grouped.get(node);
+    g.count++;
+    if(r.replen > 1 && r.sales === 0) g.naos++;
+    if(r.replen === 0 && r.sales === 0) g.oos++;
+    if(r.area_chk) g.terpajang++;
+    if(r.gudang_chk) g.belum++;
   });
   const cards = Array.from(grouped.keys()).sort().map(node=>{
-  const g = grouped.get(node);
-  const pctNaos = g.count > 0? (g.naos/g.count*100) : 0;
-  const pctOos = g.count > 0? (g.oos/g.count*100) : 0;
-  return `
-  <div class="summary-card">
-  <div class="kat">${node}</div>
-  <div class="total blue">${fmtNum(g.count)}</div>
-  <div class="row"><span>%NAOS:</span><span class="red">${pctNaos.toFixed(1)}%</span></div>
-  <div class="row"><span>NAOS:</span><span class="red">${fmtNum(g.naos)}</span></div>
-  <div class="row"><span>%OOS:</span><span class="red">${pctOos.toFixed(1)}%</span></div>
-  <div class="row"><span>Terpajang:</span><span class="green">${fmtNum(g.terpajang)}</span></div>
-  <div class="row"><span>Belum:</span><span class="purple">${fmtNum(g.belum)}</span></div>
-  </div>
-  `;
+    const g = grouped.get(node);
+    const pctNaos = g.count > 0? (g.naos/g.count*100) : 0;
+    const pctOos = g.count > 0? (g.oos/g.count*100) : 0;
+    return `
+      <div class="summary-card">
+        <div class="kat">${node}</div>
+        <div class="total blue">${fmtNum(g.count)}</div>
+        <div class="row"><span>%NAOS:</span><span class="red">${pctNaos.toFixed(1)}%</span></div>
+        <div class="row"><span>NAOS:</span><span class="red">${fmtNum(g.naos)}</span></div>
+        <div class="row"><span>%OOS:</span><span class="red">${pctOos.toFixed(1)}%</span></div>
+        <div class="row"><span>Terpajang:</span><span class="green">${fmtNum(g.terpajang)}</span></div>
+        <div class="row"><span>Belum:</span><span class="purple">${fmtNum(g.belum)}</span></div>
+      </div>
+    `;
   }).join('');
   summaryGrid.innerHTML = cards;
-  }
-  
-  function renderAll(){
+}
+
+function renderAll(){
   let baseData = sortData(rawData);
   if(selectedNodes.length > 0){
-  baseData = baseData.filter(r => selectedNodes.includes(r.node));
+    baseData = baseData.filter(r => selectedNodes.includes(r.node));
   }
-  let filteredData = baseData;
+  let filteredData = base
+    Data;
   if(currentCheck === 'area'){ filteredData = baseData.filter(r => r.area_chk === true); }
   else if(currentCheck === 'gudang'){ filteredData = baseData.filter(r => r.gudang_chk === true); }
   const totalTerpajang = rawData.filter(r => r.area_chk).length;
@@ -2260,34 +2268,37 @@ function showMinus(key){
   totalTerpajang.textContent = fmtNum(totalTerpajang);
   totalBelum.textContent = fmtNum(totalBelum);
   totalData.textContent = filteredData.length.toLocaleString('id');
-  
+
   let arr = currentTab==='naos'? filteredData.filter(r=> r.replen > 1 && r.sales === 0)
-  : currentTab==='oos'? filteredData.filter(r=> r.replen === 0 && r.sales === 0)
-  : filteredData;
-  
+            : currentTab==='oos'? filteredData.filter(r=> r.replen === 0 && r.sales === 0)
+            : filteredData;
+
   const tp=Math.ceil(arr.length/PAGE_SIZE), p=page, st=(p-1)*PAGE_SIZE, d=arr.slice(st,st+PAGE_SIZE);
   infoHlm.textContent = `Hlm ${p}/${tp} | ${st+1}-${Math.min(st+PAGE_SIZE,arr.length)}/${arr.length}`;
-  
+
   const head = '<tr>' +
-  visibleCols.map(k=>`<th class="${k==='desc'?'text-left':''}">${ALL_COLS[k]}</th>`).join('') +
-  '<th>A</th><th>G</th>' +
-  '</tr>';
-  
+    visibleCols.map(k=>`<th class="${k==='desc'?'text-left':''}">${ALL_COLS[k]}</th>`).join('') +
+    '<th>A</th><th>G</th>' +
+    '</tr>';
+
   const body = d.map(r=>{
-  let cls = '';
-  if(r.replen===0&&r.sales===0) cls = 'oos-row';
-  else if(r.replen>1&&r.sales===0) cls = 'naos-row';
-  return `<tr class="${cls}">` +
-  visibleCols.map(k=>`<td class="${k==='desc'?'text-left':''}">${r[k]}</td>`).join('') +
-  `<td><input type="checkbox" ${r.area_chk?'checked':''} onchange="toggleCheck('${r.id}','area_chk',this.checked)"></td>` +
-  `<td><input type="checkbox" ${r.gudang_chk?'checked':''} onchange="toggleCheck('${r.id}','gudang_chk',this.checked)"></td>` +
-  '</tr>';
+    let cls = '';
+    if(r.replen===0&&r.sales===0) cls = 'oos-row';
+    else if(r.replen>1&&r.sales===0) cls = 'naos-row';
+    return `<tr class="${cls}">` +
+      visibleCols.map(k=>`<td class="${k==='desc'?'text-left':''}">${r[k]}</td>`).join('') +
+      `<td><input type="checkbox" ${r.area_chk?'checked':''} onchange="toggleCheck('${r.id}','area_chk',this.checked)"></td>` +
+      `<td><input type="checkbox" ${r.gudang_chk?'checked':''} onchange="toggleCheck('${r.id}','gudang_chk',this.checked)"></td>` +
+      '</tr>';
   }).join('');
   tblMain.innerHTML = head + body;
   pagerMain.innerHTML = `<button ${p<=1?'disabled':''} onclick="go(${p-1})">⬅️500</button><span>${p}/${tp}</span><button ${p>=tp?'disabled':''} onclick="go(${p+1})">500➡️</button>`;
-  }
-  function go(p){page=p;renderAll();}
-  /* ====== SCRIPT KODE 2 SELESAI ====== */
-  </script>
-  </body>
-  </html>
+}
+function go(p){page=p;renderAll();}
+/* ====== SCRIPT KODE 2 SELESAI ====== */
+</script>
+<script>
+(function(){ var _origSwitchMainTab = window.switchMainTab; window.switchMainTab = function(tab){ if(tab==='isc'){ document.querySelectorAll('.main-tab-btn').forEach(function(b){b.classList.remove('active')}); document.querySelectorAll('.tab-page').forEach(function(p){p.classList.remove('active')}); document.querySelector('.main-tab-btn:nth-child(4)').classList.add('active'); document.getElementById('iscPage').classList.add('active'); return; } return _origSwitchMainTab(tab); }; })();
+</script>
+</body>
+</html>
