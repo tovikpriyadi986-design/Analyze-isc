@@ -14,7 +14,7 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f7fa;color:#333;padd
 .header{background:linear-gradient(135deg,#6a11cb,#2575fc);color:white;padding:15px;border-radius:12px;margin-bottom:15px;box-shadow:0 4px 15px rgba(106,17,203,0.3)}
 .header h1{font-size:18px;margin-bottom:5px}
 .header p{font-size:11px;opacity:0.9}
-.main-tab{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:15px}
+.main-tab{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-bottom:15px}
 .main-tab-btn{padding:12px;background:white;border:2px solid #e0e0e0;border-radius:10px;font-weight:700;cursor:pointer;font-size:13px;transition:all 0.2s}
 .main-tab-btn.active{background:linear-gradient(135deg,#6a11cb,#2575fc);color:white;border-color:#6a11cb}
 .tab-page{display:none}
@@ -78,8 +78,7 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f7fa;color:#333;padd
 .checkbox-grid{display:grid;gap:10px;margin-bottom:15px}
 .checkbox-grid label{display:flex;align-items:center;padding:8px;background:#f8f9fa;border-radius:6px;cursor:pointer}
 .checkbox-grid input[type=checkbox]{margin-right:8px;width:18px;height:18px}
-.template
-    -item{display:flex;gap:8px;margin-bottom:8px;align-items:center}
+.template-item{display:flex;gap:8px;margin-bottom:8px;align-items:center}
 .template-input{flex:1;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px}
 .template-del{background:#dc3545;color:white;border:none;border-radius:6px;padding:8px 12px;cursor:pointer}
 .add-template-btn{width:100%;padding:10px;background:#28a745;color:white;border:none;border-radius:6px;font-weight:600;margin-top:10px;cursor:pointer}
@@ -121,7 +120,8 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f7fa;color:#333;padd
 /* ====== CSS KODE 2 MULAI - GA GUA UBAH ====== */
 :root { --bg:#0f172a; --card:#1e293b; --text:#e2e8f0; --accent:#38bdf8; --green:#22c55e; --red:#ef4444; --blue:#3b82f6; --purple:#a855f7; --yellow:#eab308;}
 #tab-monitor { font-family: Inter, sans-serif; background:var(--bg); color:var(--text); padding:10px; margin:0; font-size:12px; }
-#tab-monitor h1 { text-align:center; color:var(--accent); font-size:18px; margin:0 0 10px 0; }
+#tab-monitor h1 { text-align:
+    center; color:var(--accent); font-size:18px; margin:0 0 10px 0; }
 #tab-monitor .card { background:var(--card); padding:10px; border-radius:12px; margin-bottom:10px; box-shadow:0 4px 6px #0002; }
 #tab-monitor table { width:100%; border-collapse:collapse; font-size:10px; }
 #tab-monitor th, #tab-monitor td { border:1px solid #334155; padding:4px 3px; white-space:nowrap; text-align:center; line-height:1.2; vertical-align:top; }
@@ -153,8 +153,7 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f7fa;color:#333;padd
 #tab-monitor .btn-save { background:#0ea5e9; color:#fff; font-weight:800; }
 #tab-monitor .info-hlm { text-align:center; color:var(--accent); font-weight:700; margin:8px 0; font-size:12px; }
 #tab-monitor #tblWrapper { overflow:auto; max-height:75vh; border-radius:10px; }
-#tab-monitor .loading { text-align:center; padding:20px; color:var(-
-    -accent); font-weight:700; font-size:14px; }
+#tab-monitor .loading { text-align:center; padding:20px; color:var(--accent); font-weight:700; font-size:14px; }
 #tab-monitor .modal { display:none; position:fixed; z-index:99; left:0; top:0; width:100%; height:100%; background:#000a; }
 #tab-monitor .modal-content { background:var(--card); margin:5% auto; padding:14px; border-radius:12px; width:95%; max-width:500px; max-height:80vh; overflow:auto; font-size:12px; }
 #tab-monitor .modal-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
@@ -193,7 +192,7 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f7fa;color:#333;padd
 <div class="container">
     <div class="header">
         <h1>📈 QUICK ANALYZE SALES FOOD YCJ</h1>
-        <p>QUICK ANALYZE + FIND PLU + NAOS V51 + ISC</p>
+        <p>QUICK ANALYZE + FIND PLU + NAOS V51</p>
     </div>
 
     <div class="main-tab">
@@ -202,331 +201,6 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f7fa;color:#333;padd
         <button class="main-tab-btn" onclick="switchMainTab('naos')">📋 NAOS V51</button>
         <button class="main-tab-btn" onclick="switchMainTab('isc')">📊 ISC</button>
     </div>
-    <div class="tab-page" id="iscPage"><iframe id="iscFrame" srcdoc="<!DOCTYPE html>
-<html lang=&quot;id&quot;>
-<head>
-<meta charset=&quot;UTF-8&quot;>
-<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>
-<title>YOGYA CIANJUR - V16.13 SELISIH MERAH</title>
-<script src=&quot;https://cdn.tailwindcss.com&quot;></script>
-<script src=&quot;https://cdn.jsdelivr.net/npm/chart.js&quot;></script>
-<style>
-.responsive-table{width:100% !important; min-width:0 !important; table-layout:auto;}
-.responsive-table th, .responsive-table td{white-space:nowrap;}
-@media (max-width:768px){
-  .responsive-table{font-size:13px !important;}
-  .overflow-x-auto{overflow-x:auto !important; -webkit-overflow-scrolling:touch;}
-  .col-no{position:sticky; left:0; background:#00B0F0; z-index:1;}
-  td.col-no{position:sticky; left:0; background:white; z-index:1;}
-}
-</style>
-</head>
-<body class=&quot;bg-gray-100&quot;>
-<header class=&quot;bg-white shadow p-3 sticky top-0 z-20&quot;>
-<h1 class=&quot;font-extrabold text-sm&quot;>📊INDIVIDUAL SALES CONTRIBUTION - YCJ</h1>
-<p class=&quot;text-[11px] text-green-600 font-bold&quot;>FOOD - SUPERMARKET - YOGYA CIANJUR</p>
-</header>
-<main class=&quot;p-2 max-w-7xl mx-auto&quot;>
-<div class=&quot;bg-white rounded-xl p-3 shadow-sm mb-3&quot;>
-<div class=&quot;flex gap-2&quot;>
-<button onclick=&quot;load(true)&quot; class=&quot;bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-bold flex-1&quot;>🔄 Sync dari Google Sheet</button>
-<button onclick=&quot;document.getElementById('colBox').classList.toggle('hidden')&quot; class=&quot;bg-gray-100 border px-3 py-2 rounded-lg text-xs font-bold&quot;>📊 Kolom ▼</button>
-</div>
-<div id=&quot;status&quot; class=&quot;text-[11px] font-bold mt-2 p-2 bg-yellow-50 border border-yellow-200 rounded&quot;>⏳ Auto syncing...</div>
-<div class=&quot;grid grid-cols-2 gap-2 mt-2&quot;>
-  <div class=&quot;bg-white border-2 border-blue-200 rounded-xl p-2&quot;>
-    <p class=&quot;text-[9px] font-extrabold text-gray-500&quot;>🎯 TARGET</p>
-    <input id=&quot;targetInput&quot; type=&quot;number&quot; inputmode=&quot;numeric&quot; placeholder=&quot;Contoh: 1500000000&quot; class=&quot;w-full text-[13px] font-extrabold border-b-2 border-blue-300 focus:border-blue-600 focus:outline-none py-1.5 bg-transparent&quot; oninput=&quot;hitungAchv()&quot;>
-    <p class=&quot;text-[8px] text-gray-400 mt-1&quot;>Ketik tanpa titik</p>
-  </div>
-  <div class=&quot;bg-gradient-to-br from-blue-600 to-blue-500 border-2 border-blue-600 rounded-xl p-2 text-center text-white shadow-sm&quot;>
-    <p class=&quot;text-[9px] font-extrabold opacity-90&quot;>📈 ACHIEVEMENT</p>
-    <p id=&quot;achvText&quot; class=&quot;font-extrabo
-                                           ld text-[18px] leading-none mt-1&quot;>0%</p>
-    <p id=&quot;achvDetail&quot; class=&quot;text-[8px] opacity-80 mt-1 truncate&quot;>TO / Target</p>
-  </div>
-</div>
-<div id=&quot;colBox&quot; class=&quot;grid grid-cols-2 gap-2 text-[11px] p-3 bg-gray-50 rounded-xl border mt-3 hidden&quot;>
-<label class=&quot;p-2 bg-white border rounded-lg flex gap-2 items-center&quot;><input type=&quot;checkbox&quot; checked id=&quot;cNama&quot; onchange=&quot;render()&quot;> NAMA</label>
-<label class=&quot;p-2 bg-white border rounded-lg flex gap-2 items-center&quot;><input type=&quot;checkbox&quot; checked id=&quot;cBrand&quot; onchange=&quot;render()&quot;> BRAND</label>
-<label class=&quot;p-2 bg-white border rounded-lg flex gap-2 items-center&quot;><input type=&quot;checkbox&quot; checked id=&quot;cHari&quot; onchange=&quot;render()&quot;> JADWAL VISIT</label>
-<label class=&quot;p-2 bg-white border rounded-lg flex gap-2 items-center&quot;><input type=&quot;checkbox&quot; checked id=&quot;cTo&quot; onchange=&quot;render()&quot;> SALES TO</label>
-<label class=&quot;p-2 bg-white border rounded-lg flex gap-2 items-center&quot;><input type=&quot;checkbox&quot; checked id=&quot;cToLy&quot; onchange=&quot;render()&quot;> TO LY</label>
-<label class=&quot;p-2 bg-white border rounded-lg flex gap-2 items-center&quot;><input type=&quot;checkbox&quot; checked id=&quot;cGrowth&quot; onchange=&quot;render()&quot;> GROWTH</label>
-<label class=&quot;p-2 bg-white border rounded-lg flex gap-2 items-center&quot;><input type=&quot;checkbox&quot; checked id=&quot;cKont&quot; onchange=&quot;render()&quot;> KONTRIBUSI</label>
-</div>
-</div>
-<div class=&quot;bg-white rounded-xl p-3 shadow-sm mb-3&quot;>
-<input id=&quot;q&quot; onkeyup=&quot;render()&quot; placeholder=&quot;Cari NAMA / BRAND / HARI VISIT...&quot; class=&quot;w-full px-3 py-3 border-2 border-blue-100 rounded-xl text-sm&quot;>
-<div class=&quot;flex gap-2 mt-3&quot;>
-<button id=&quot;btnAll&quot; onclick=&quot;setGrowthFilter('all')&quot; class=&quot;flex-1 bg-blue-600 text-white px-2 py-2 rounded-lg text-[11px] font-bold&quot;>Tampilkan Semua</button>
-<button id=&quot;btnMinus&quot; onclick=&quot;setGrowthFilter('minus')&quot; class=&quot;flex-1 bg-white border border-red-300 text-red-600 px-2 py-2 rounded-lg text-[11px] font-bold&quot;>📉 MINUS</button>
-<button id=&quot;btnPlus&quot; onclick=&quot;setGrowthFilter('plus')&quot; class=&quot;flex-1 bg-white border border-green-300 text-green-600 px-2 py-2 rounded-lg text-[11px] font-bold&quot;>📈 PLUS</button>
-</div>
-</div>
-<div class=&quot;grid grid-cols-3 gap-2 mb-3&quot;>
-<div class=&quot;bg-white p-3 rounded-xl shadow-sm text-center&quot;><p class=&quot;text-[10px] text-gray-500 font-bold&quot;>TOTAL NAMA</p><p id=&quot;totNama&quot; class=&quot;font-extrabold&quot;>0</p></div>
-<div class=&quot;bg-white p-3 rounded-xl shadow-sm text-center&quot;><p class=&quot;text-[10px] text-gray-500 font-bold&quot;>TOTAL SALES TO</p><p id=&quot;totTo&quot; class=&quot;font-extrabold text-xs&quot;>0</p></div>
-<div class=&quot;bg-white p-3 rounded-xl shadow-sm text-center&quot;><p class=&quot;text-[10px] text-gray-500 font-bold&quot;>TOTAL BRAND</p><p id=&quot;totBrand&quot; class=&quot;font-extrabold&quot;>0</p></div>
-</div>
-<div class=&quot;bg-white rounded-xl shadow-sm overflow-hidden mb-3&quot;>
-<div class=&quot;overflow-x-auto&quot;>
-<table class=&quot;w-full text-[12px] responsive-table&quot;>
-<thead class=&quot;bg-[#00B0F0] font-bold&quot;><tr>
-<th class=&quot;p-2 w-[40px] col-no&quot;>No</th>
-<th class=&quot;p-2 text-left col-NAMA cursor-pointer&quot; onclick=&quot;sortBy('nama')&quot;>NAMA <span id=&quot;arr-nama&quot;>▼</span></th>
-<th class=&quot;p-2 text-left col-BRAND cursor-pointer&quot; onclick=&quot;sortBy('brand')&quot;>BRAND <span id=&quot;arr-brand&quot;></span></th>
-<th class=&quot;p-2 text-left col-HARI cursor-pointer&quot; onclick=&quot;sortBy('hari')&quot;>JADWAL VISIT <span id=&quot;arr-hari&quot;></span></th>
-<th class=&quot;p-2 text-right col-TO cursor-pointer&quot; onclick=&quot;sortBy('salesTo')&quot;>SALES TO <span id=&quot;arr-salesTo&quot;>▼</span></th>
-<th class=&quot;p-2 text-right col-TOLY cursor-pointer&quot; onclick=&quot;sortBy('salesToLy')&quot;>TO LY <span id=&quot;arr-salesToLy&quot;></span></th>
-<th class=&quot;p-2 text-center col-GROWTH cursor-pointer&quot; onclick=&quot;sortBy('growth')&quot;>GROWTH <span id=&quot;arr-growth&quot;></span></th>
-<th class=&quot;p-2 text-center col-KONT cursor-pointer&quot; onclick=&quot;sortBy('kontribusi')&quot;>KONTRIBUSI <span id=&quot;arr-kontribusi&quot;></span></th>
-</tr></thead>
-<tbody id=&quot;tbody&quot;><tr><td colspan=&quot;8&quot; class=&quot;p-8 text-center text-gray-400&quot;>⏳ Loading...</td></tr></tbody>
-</table>
-</div>
-</div>
-<div class=&quot;grid md:grid-cols-2 gap-3&quot;>
-<div id=&quot;boxKont&quot; class=&quot;bg-white rounded-xl p-3 shadow-sm&quot;>
-<div class=&quot;flex justify-between items-center mb-2&quot;><h4 class=&quot;font-bold text-xs&quot;>📊 Kontribusi per PIC</h4><button onclick=&quot;downloadChart('chartKont')&quot; class=&quot;text-[10px] bg-blue-600 text-white px-2 py-1 rounded&quot;>📥 PNG</button></div>
-<canvas id=&quot;chartKont&quot; height=&quot;200&quot;></canvas><div id=&quot;summaryKont&quot; class=&quot;text-[11px] mt-3&quot;></div>
-</div>
-<div id=&quot;boxGrowth&quot; class=&quot;bg-white rounded-xl p-3 shadow-sm&quot;>
-<div class=&quot;flex justify-between items-center mb-2&quot;><h4 class=&quot;font-bold text-xs&quot;>📈 Growth per PIC</h4><button onclick=&quot;downloadChart('chartGrowth')&quot; class=&quot;text-[10px] bg-green-600 text-white px-2 py-1 rounded&quot;>📥 PNG</button></div>
-<canvas id=&quot;chartGrowth&quot; height=&quot;200&quot;></canvas><div id=&quot;summaryGrowth&quot; class=&quot;text-[11px] mt-3&quot;></div>
-</div>
-</div>
-</main>
-<div id=&quot;modalDetail&quot; class=&quot;hidden fixed inset-0 bg-black/50 z-[100] flex justify-center items-start pt-10 p-3&quot;>
-  <div class=&quot;bg-white w-full max-w-md rounded-2xl shadow-2xl overflow-hidden&quot;>
-    <div class=&quot;bg-[#00B0F0] text-white p-3 flex justify-between items-center&quot;>
-      <div><p id=&quot;modalTitle&quot; class=&quot;font-extrabold text-sm&quot;>Detail Produk Minus</p><p class=&quot;text-[11px] opacity-90&quot;>SU Description + NODE + STOK + SELISIH + % | (TO-LY)/LY</p></div>
-      <button onclick=&quot;closeModal()&quot; class=&quot;bg-white text-black rounded-full w-8 h-8 font-bold&quot;>×</button>
-    </div
-                                           >
-    <div id=&quot;modalBody&quot; class=&quot;p-3 max-h-[70vh] overflow-y-auto text-[12px]&quot;></div>
-  </div>
-</div>
-<script>
-let grouped={}; let totalSalesTo=0;
-let chartKontInstance=null, chartGrowthInstance=null;
-let currentSort={field:'salesTo', dir:'desc'};
-let growthFilter='all';
-const CSV_URL=&quot;https://docs.google.com/spreadsheets/d/e/2PACX-1vQcw_VWQ9-Z2JU87wyKKSruf5p6ZDZgfk3IDTFjt0p-r_NI0h9zcOjx8IQDy9c-UlLUN5JmTm-ggKDi/pub?output=csv&quot;;
-function parseCSV(t){const rows=[];let row=[],cur='',inQ=false;for(let i=0;i<t.length;i++){let c=t[i];if(c=='&quot;'){if(t[i+1]=='&quot;'){cur+='&quot;';i++;}else inQ=!inQ;}else if(c==','&amp;&amp;!inQ){row.push(cur);cur='';}else if((c=='\n'||c=='\r')&amp;&amp;!inQ){if(cur!==''||row.length>0){row.push(cur);rows.push(row);row=[];cur='';}}else cur+=c;}if(cur!==''||row.length>0){row.push(cur);rows.push(row);}return rows;}
-function downloadChart(id){const c=document.getElementById(id);const a=document.createElement('a');a.download=id+'.png';a.href=c.toDataURL('image/png');a.click();}
-function load(isManual){
- const statusEl=document.getElementById('status');
- statusEl.innerHTML=isManual?'🔄 Manual sync...':'⏳ Auto syncing...';
- fetch(CSV_URL,{mode:'cors'}).then(r=>r.text()).then(proses).catch(e1=>{
-   fetch('https://api.allorigins.win/raw?url='+encodeURIComponent(CSV_URL)).then(r=>r.text()).then(proses).catch(e2=>{
-     fetch('https://corsproxy.io/?'+encodeURIComponent(CSV_URL)).then(r=>r.text()).then(proses);
-   });
- });
-}
-function proses(txt){
- const rows=parseCSV(txt);
- if(!rows || rows.length<2){ document.getElementById('status').innerHTML='❌ CSV kosong'; return; }
- const header=rows[0].map(h=>h.toLowerCase().trim());
- let idxNode = 0; let idxCode = 1; let idxSu = 2; let idxTo = 7; let idxToLy = 8; let idxNama = 11; let idxBrand = 12; let idxHari = 13;
- let idxStock = 3;
- let a=header.indexOf('sales to'); if(a!==-1) idxTo=a;
- let b=header.indexOf('sales to ly'); if(b!==-1) idxToLy=b;
- let c=header.indexOf('nama'); if(c!==-1) idxNama=c;
- let d=header.indexOf('brand'); if(d!==-1) idxBrand=d;
- let e=header.findIndex(h=>h.includes('hari')||h.includes('visit')); if(e!==-1) idxHari=e;
- let f=header.indexOf('su description'); if(f!==-1) idxSu=f;
- let g=header.indexOf('node'); if(g!==-1) idxNode=g;
- let h=header.indexOf('article code'); if(h!==-1) idxCode=h;
- let s=header.findIndex(h=>h.includes('replen')); if(s!==-1) idxStock=s;
- grouped={}; totalSalesTo=0;
- for(let i=1;i<rows.length;i++){
-  const r=rows[i]; if(!r||r.length<=idxNama) continue;
-  let nama=(r[idxNama]||'').replace(/&quot;/g,'').trim().toUpperCase(); if(!nama||nama==='NAMA') continue;
-  let brand=(r[idxBrand]||'').replace(/&quot;/g,'').trim().toUpperCase();
-  let hari=(r[idxHari]||'').replace(/&quot;/g,'').trim();
-  let su=(r[idxSu]||'').replace(/&quot;/g,'').trim();
-  let node=(r[idxNode]||'').replace(/&quot;/g,'').trim();
-  let code=(r[idxCode]||'').replace(/&quot;/g,'').trim();
-  let stockRaw=(r[idxStock]||'0').toString().replace(/&quot;/g,'').trim();
-  let stockNum=parseFloat(stockRaw.replace(/[^0-9.-]/g,''))||0;
-  let to=parseFloat((r[idxTo]||'0').toString().replace(/[^0-9.-]/g,''))||0;
-  let toLy=parseFloat((r[idxToLy]||'0').toString().replace(/[^0-9.-]/g,''))||0;
-  let key=nama+'|'+brand;
-  if(!grouped[key]) grouped[key]={nama,brand,hariSet:new Set(),salesTo:0,salesToLy:0, products:{}};
-  grouped[key].salesTo+=to; grouped[key].salesToLy+=toLy;
-  if(hari) grouped[key].hariSet.add(hari);
-  let prodKey=code+'|'+su+'|'+node+'|'+i;
-  if(!grouped[key].products[prodKey]) grouped[key].products[prodKey]={code,su,node,salesTo:0,salesToLy:0,stockRaw:stockRaw,stock:stockNum};
-  grouped[key].products[prodKey].salesTo+=to;
-  grouped[key].products[prodKey].salesToLy+=toLy;
-  if(stockNum>0) grouped[key].products[prodKey].stock=stockNum;
-  if(stockRaw) grouped[key].products[prodKey].stockRaw=stockRaw;
-  totalSalesTo+=to;
- }
- document.getElementById('status').innerHTML='✅ Berhasil sync REAL CSV: '+Object.keys(grouped).length+' manpower | Total TO: '+totalSalesTo.toLocaleString()+'<br><small>Stok Col: '+header[idxStock]+'('+idxStock+') | Rows: '+(rows.length-1)+'</small>';
- hitungAchv();
- render();
-}
-function sortBy(field){
-  if(currentSort.field===field){ currentSort.dir = currentSort.dir==='desc' ? 'asc' : 'desc'; }else{ currentSort.field=field; if(field==='nama'||field==='brand'||field==='hari') currentSort.dir='asc'; else currentSort.dir='desc'; }
-  document.querySelectorAll('[id^=arr-]').forEach(e=>e.innerText='');
-  let arrow = currentSort.dir==='asc' ? '▲' : '▼';
-  let el=document.getElementById('arr-'+field); if(el) el.innerText=arrow;
-  render();
-}
-function setGrowthFilter(type){ growthFilter=type; render(); }
-function closeModal(){ document.getElementById('modalDetail').classList.add('hidden'); }
-let currentMinusAll=[]; let currentStokFilter='all'; let currentSortBy='selisih'; let currentSortDir='besar';
-function getStokCat(p){ if(p.stock<=0) return 'merah'; return 'hijau'; }
-function filterStok(cat){
-  currentStokFilter=cat;
-  document.querySelectorAll('.btn-stok').forEach(b=>{ b.classList.remove('ring-2','ring-offset-1','ring-black'); b.classList.add('opacity-60'); });
-  let active=document.getElementById('btn-'+cat); if(active){ active.classList.remove('opacity-60'); active.classList.add('ring-2','ring-offset-1','ring-black'); }
-  renderMinusList();
-}
-function sortData(by, dir){
-  currentSortBy=by; currentSortDir=dir;
-  document.querySelectorAll('.btn-sort').forEach(b=>{ b.classList.remove('bg-blue-600','text-white'); b.classList.add('bg-white','border','text-gray-600'); });
-  let id='btn-sort-'+by+'-'+dir;
-  let active=document.getElementById(id); if(active){ active.classList.remove('bg-white','border','text-gray-600'); active.classList.add('bg-blue-600','text-white'); }
-  renderMinusList();
-}
-function renderMinusList(){
-  let list=currentMinusAll.slice();
-  if(currentStokFilter!=='all') list=list.filter(p=>getStokCat(p)===currentStokFilter);
-  if(currentSortBy==='selisih'){
-    if(currentSortDir==='besar') list.sort((a,b)=> (a.selisih - b.selisih));
-    else list.sort((a,b)=> (b.selisih - a.selisih));
-  } else {
-    if(currentSortDir==='besar') list.sort((a,b)=> (a.persen - b.persen));
-    else list.sort((a,b)=> (b.persen - a.persen));
-  }
-  if(list.length===0){ document.getElementById('minusList').innerHTML='<div class=&quot;text-center py-8 text-gray-400 text-[12px]&quot;>Tidak ada stok '+currentStokFilter+'</div>'; document.getElementById('countInfo').innerText='
-                                           0 / '+currentMinusAll.length+' produk'; return; }
-  let html=list.map(p=>{
-    let stokColor = (p.stock<=0) ? 'bg-red-600 text-white' : 'bg-green-100 text-green-700 border border-green-200';
-    let selisihColor = p.selisih<0 ? 'text-red-600' : 'text-green-600';
-    return '<div class=&quot;flex justify-between items-center py-2 border-b&quot;><div class=&quot;flex-1 pr-2&quot;><p class=&quot;font-bold text-[12px]&quot;>'+(p.su||p.code||'-')+'</p><p class=&quot;text-[10px] text-gray-500&quot;>'+(p.node||'-')+' | TO:'+p.salesTo.toLocaleString()+' vs LY:'+p.salesToLy.toLocaleString()+'</p><p class=&quot;text-[10px] mt-1 flex gap-1 items-center flex-wrap&quot;><span class=&quot;px-2 py-0.5 rounded-full font-bold '+stokColor+'&quot;>Stok: '+(p.stockRaw||p.stock)+'</span><span class=&quot;px-2 py-0.5 rounded-full bg-gray-100 font-bold '+selisihColor+'&quot;>Selisih: '+(p.selisih>0?'+':'')+p.selisih.toLocaleString()+'</span></p></div><div><span class=&quot;bg-red-100 text-red-700 px-2 py-1 rounded-full font-extrabold text-[11px]&quot;>'+p.persen.toFixed(1)+'%</span></div></div>';
-  }).join('');
-  document.getElementById('minusList').innerHTML=html;
-  document.getElementById('countInfo').innerText=list.length+' / '+currentMinusAll.length+' produk | Filter: '+currentStokFilter.toUpperCase()+' | Sort: '+currentSortBy+'-'+currentSortDir;
-}
-function showMinus(key){
-  let g=grouped[key]; if(!g) return;
-  document.getElementById('modalDetail').classList.remove('hidden');
-  document.getElementById('modalTitle').innerText='Detail Minus - '+g.nama+' | '+g.brand;
-  let prods=Object.values(g.products);
-  let minus=prods.filter(p=> p.salesToLy>0 &amp;&amp; p.salesTo < p.salesToLy);
-  minus=minus.map(p=>{ let persen = p.salesToLy===0?0:((p.salesTo - p.salesToLy)/p.salesToLy*100); let selisih = p.salesTo - p.salesToLy; return {...p, persen, selisih}; });
-  if(minus.length===0){ document.getElementById('modalBody').innerHTML='<div class=&quot;text-center py-8&quot;><p class=&quot;font-bold text-green-600&quot;>Nggak ada produk minus!</p></div>'; return; }
-  currentMinusAll=minus; currentStokFilter='all'; currentSortBy='selisih'; currentSortDir='besar';
-  let cMerah=minus.filter(p=>getStokCat(p)==='merah').length;
-  let cHijau=minus.filter(p=>getStokCat(p)==='hijau').length;
-  let html = '<div class=&quot;sticky top-0 bg-white pb-2 z-10 border-b mb-2&quot;>';
-  html += '<div class=&quot;flex gap-1 mb-1.5&quot;>';
-  html += '<button id=&quot;btn-all&quot; onclick=&quot;filterStok(\'all\')&quot; class=&quot;btn-stok flex-1 bg-gray-700 text-white px-2 py-1.5 rounded-full text-[10px] font-bold ring-2 ring-offset-1 ring-black&quot;>SEMUA ('+minus.length+')</button>';
-  html += '<button id=&quot;btn-merah&quot; onclick=&quot;filterStok(\'merah\')&quot; class=&quot;btn-stok flex-1 bg-red-600 text-white px-2 py-1.5 rounded-full text-[10px] font-bold opacity-60&quot;>🔴 '+cMerah+'</button>';
-  html += '<button id=&quot;btn-hijau&quot; onclick=&quot;filterStok(\'hijau\')&quot; class=&quot;btn-stok flex-1 bg-green-100 text-green-700 border border-green-300 px-2 py-1.5 rounded-full text-[10px] font-bold opacity-60&quot;>🟢 '+cHijau+'</button>';
-  html += '</div>';
-  html += '<div class=&quot;grid grid-cols-2 gap-1 mb-1&quot;>';
-  html += '<button id=&quot;btn-sort-selisih-besar&quot; onclick=&quot;sortData(\'selisih\',\'besar\')&quot; class=&quot;btn-sort bg-blue-600 text-white px-2 py-1 rounded-full text-[9px] font-bold&quot;>🔽 Rp BESAR</button>';
-  html += '<button id=&quot;btn-sort-selisih-kecil&quot; onclick=&quot;sortData(\'selisih\',\'kecil\')&quot; class=&quot;btn-sort bg-white border text-gray-600 px-2 py-1 rounded-full text-[9px] font-bold&quot;>🔼 Rp KECIL</button>';
-  html += '<button id=&quot;btn-sort-persen-besar&quot; onclick=&quot;sortData(\'persen\',\'besar\')&quot; class=&quot;btn-sort bg-white border text-gray-600 px-2 py-1 rounded-full text-[9px] font-bold&quot;>📉 % BESAR (-100%)</button>';
-  html += '<button id=&quot;btn-sort-persen-kecil&quot; onclick=&quot;sortData(\'persen\',\'kecil\')&quot; class=&quot;btn-sort bg-white border text-gray-600 px-2 py-1 rounded-full text-[9px] font-bold&quot;>📈 % KECIL (-9%)</button>';
-  html += '</div>';
-  html += '<div id=&quot;countInfo&quot; class=&quot;text-[10px] text-gray-500 font-bold&quot;>'+minus.length+' produk MINUS</div>';
-  html += '</div>';
-  html += '<div id=&quot;minusList&quot;></div>';
-  document.getElementById('modalBody').innerHTML=html;
-  renderMinusList();
-}
-function hitungAchv(){
-  let targetEl=document.getElementById('targetInput');
-  let achvEl=document.getElementById('achvText');
-  let detailEl=document.getElementById('achvDetail');
-  if(!targetEl||!achvEl) return;
-  let target=parseFloat((targetEl.value||'').toString().replace(/[^0-9]/g,''))||0;
-  if(target<=0){
-    achvEl.innerText='0%';
-    if(detailEl) detailEl.innerText='Masukkan target';
-    return;
-  }
-  let persen = totalSalesTo / target * 100;
-  achvEl.innerText=persen.toFixed(2)+'%';
-  if(detailEl) detailEl.innerText= totalSalesTo.toLocaleString()+' / '+target.toLocaleString();
-  try{ localStorage.setItem('ycj_target', target); }catch(e){}
-}
-function render(){
- const q=document.getElementById('q').value.toLowerCase();
- const show={ NAMA: document.getElementById('cNama').checked, BRAND: document.getElementById('cBrand').checked, HARI: document.getElementById('cHari').checked, TO: document.getElementById('cTo').checked, TOLY: document.getElementById('cToLy').checked, GROWTH: document.getElementById('cGrowth').checked, KONT: document.getElementById('cKont').checked };
- document.querySelectorAll('.col-NAMA').forEach(e=>e.classList.toggle('hidden',!show.NAMA));
- document.querySelectorAll('.col-BRAND').forEach(e=>e.classList.toggle('hidden',!show.BRAND));
- document.querySelectorAll('.col-HARI').forEach(e=>e.classList.toggle('hidden',!show.HARI));
- document.querySelectorAll('.col-TO').forEach(e=>e.classList.toggle('hidden',!show.TO));
- document.querySelectorAll('.col-TOLY').forEach(e=>e.classList.toggle('hidden',!show.TOLY));
- document.querySelectorAll('.col-GROWTH').forEach(e=>e.classList.toggle('hidden',!show.GROWTH));
- document.querySelectorAll('.col-KONT').forEach(e=>e.classList.toggle('hidden',!show.KONT));
- document.getElementById('boxKont').classList.toggle('hidden',!show.KONT);
- document.getElementById('boxGrowth').classList.toggle('hidden',!show.GROWTH);
- let list=Object.values(grouped).map(g=>({key:g.nama+'|'+g.brand, nama:g.nama,brand:g.brand,hari:Array.from(g.hariSet).j
-                                           oin(', '),salesTo:g.salesTo,salesToLy:g.salesToLy, growth: g.salesToLy===0?0:((g.salesTo-g.salesToLy)/g.salesToLy*100), kontribusi: totalSalesTo===0?0:(g.salesTo/totalSalesTo*100) }));
- list=list.filter(d=>!q||d.nama.toLowerCase().includes(q)||d.brand.toLowerCase().includes(q)||d.hari.toLowerCase().includes(q));
- if(growthFilter==='minus') list=list.filter(d=>d.growth<0);
- if(growthFilter==='plus') list=list.filter(d=>d.growth>=0);
- list.sort((a,b)=>{
-  let field=currentSort.field; let dir = currentSort.dir==='asc'?1:-1;
-  if(field==='nama') return a.nama.localeCompare(b.nama)*dir;
-  if(field==='brand') return a.brand.localeCompare(b.brand)*dir;
-  if(field==='hari') return a.hari.localeCompare(b.hari)*dir;
-  if(field==='salesTo') return (a.salesTo-b.salesTo)*dir;
-  if(field==='salesToLy') return (a.salesToLy-b.salesToLy)*dir;
-  if(field==='growth') return (a.growth-b.growth)*dir;
-  if(field==='kontribusi') return (a.kontribusi-b.kontribusi)*dir;
-  return 0;
- });
- document.getElementById('totNama').innerText=new Set(list.map(x=>x.nama)).size;
- document.getElementById('totBrand').innerText=new Set(list.map(x=>x.brand)).size;
- document.getElementById('totTo').innerText=list.reduce((s,x)=>s+x.salesTo,0).toLocaleString();
- if(list.length===0){
-   document.getElementById('tbody').innerHTML='<tr><td colspan=&quot;8&quot; class=&quot;p-8 text-center text-gray-500&quot;>Data kosong</td></tr>';
- } else {
-   document.getElementById('tbody').innerHTML=list.map((d,i)=>{
-    const growth=d.growth; const kont=d.kontribusi;
-    let hNama = show.NAMA ? '' : ' hidden';
-    let hBrand = show.BRAND ? '' : ' hidden';
-    let hHari = show.HARI ? '' : ' hidden';
-    let hTo = show.TO ? '' : ' hidden';
-    let hToLy = show.TOLY ? '' : ' hidden';
-    let hGrowth = show.GROWTH ? '' : ' hidden';
-    let hKont = show.KONT ? '' : ' hidden';
-    return '<tr class=&quot;border-b hover:bg-blue-50&quot;><td class=&quot;p-2 col-no'+'&quot;>'+(i+1)+'</td><td class=&quot;p-2 font-bold col-NAMA text-blue-600 underline cursor-pointer'+hNama+'&quot; onclick=&quot;showMinus(\''+d.key+'\')&quot;>'+d.nama+'</td><td class=&quot;p-2 col-BRAND'+hBrand+'&quot;><span class=&quot;bg-gray-100 px-2 py-1 rounded-full text-[11px]&quot;>'+(d.brand||'-')+'</span></td><td class=&quot;p-2 col-HARI text-[11px]'+hHari+'&quot;>'+(d.hari||'-')+'</td><td class=&quot;p-2 text-right col-TO'+hTo+'&quot;>'+d.salesTo.toLocaleString()+'</td><td class=&quot;p-2 text-right col-TOLY text-gray-500'+hToLy+'&quot;>'+d.salesToLy.toLocaleString()+'</td><td class=&quot;p-2 text-center col-GROWTH font-bold '+(growth>=0?'text-green-600':'text-red-600')+hGrowth+'&quot;>'+growth.toFixed(2)+'%</td><td class=&quot;p-2 text-center col-KONT font-bold text-blue-600'+hKont+'&quot;>'+kont.toFixed(2)+'%</td></tr>';
-   }).join('');
- }
- const labels=list.map(d=>d.nama+' ('+d.brand+')');
- const dataKont=list.map(d=>d.kontribusi);
- const dataGrowth=list.map(d=>d.growth);
- if(show.KONT){
-  const ctxKont=document.getElementById('chartKont').getContext('2d');
-  if(chartKontInstance) chartKontInstance.destroy();
-  chartKontInstance=new Chart(ctxKont,{ type:'pie', data:{labels:labels, datasets:[{data:dataKont}]}, options:{plugins:{legend:{position:'bottom',labels:{font:{size:11}}}}}});
-  let akum=0; document.getElementById('summaryKont').innerHTML=list.map((d,i)=>{ const kont=dataKont[i]; akum+=kont; return '<div class=&quot;flex justify-between py-1 border-b&quot;><span><b>'+d.nama+'</b> ('+d.salesTo.toLocaleString()+')</span><span class=&quot;text-blue-600 font-bold&quot;>'+kont.toFixed(1)+'% (Akum '+akum.toFixed(1)+'%)</span></div>'; }).join('');
- }
- if(show.GROWTH){
-  const ctxGrowth=document.getElementById('chartGrowth').getContext('2d');
-  if(chartGrowthInstance) chartGrowthInstance.destroy();
-  chartGrowthInstance=new Chart(ctxGrowth,{ type:'bar', data:{labels:labels, datasets:[{label:'Growth %',data:dataGrowth}]}, options:{plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>v+'%'}}}}});
-  // === UBAHAN SESUAI REQUEST: MERAH JADI SELISIH TO - TOLY ===
-  document.getElementById('summaryGrowth').innerHTML=list.map((d,i)=>{ const growth=dataGrowth[i]; const selisih = d.salesTo - d.salesToLy; const selisihTxt = (selisih>0?'+':'')+selisih.toLocaleString(); return '<div class=&quot;flex justify-between py-1 border-b&quot;><span><b>'+d.nama+'</b></span><span class=&quot;'+(growth>=0?'text-green-600':'text-red-600')+' font-bold&quot;>'+growth.toFixed(1)+'% | '+selisihTxt+'</span></div>'; }).join('');
- }
-}
-document.addEventListener('DOMContentLoaded', ()=>{ try{ let saved=localStorage.getItem('ycj_target'); if(saved){ document.getElementById('targetInput').value=saved; } }catch(e){} setTimeout(()=>load(false), 500); });
-</script>
-<script>
-(function(){ var _origSwitchMainTab = window.switchMainTab; window.switchMainTab = function(tab){ if(tab==='isc'){ document.querySelectorAll('.main-tab-btn').forEach(function(b){b.classList.remove('active')}); document.querySelectorAll('.tab-page').forEach(function(p){p.classList.remove('active')}); document.querySelector('.main-tab-btn:nth-child(4)').classList.add('active'); document.getElementById('iscPage').classList.add('active'); return; } return _origSwitchMainTab(tab); }; })();
-</script>
-</body>
-</html>" style="width:100%;height:85vh;border:0;border-radius:12px;background:#fff"></iframe></div>
     <div class="tab-page active" id="analyzePage">
         <div class="upload-section">
             <div class="file-input-wrapper">
@@ -543,7 +217,7 @@ document.addEventListener('DOMContentLoaded', ()=>{ try{ let saved=localStorage.
                 <button class="btn template-btn" onclick="openTemplateModal()">⚡ Template</button>
                 <button class="btn belum-pajang-btn" onclick="resetSemuaPajang()">🔄 Reset Pajang</button>
             </div>
-    </div>
+        </div>
 
         <div class="card">
             <div class="card-title">🔗 Import Langsung dari Google Sheet</div>
@@ -664,8 +338,7 @@ document.addEventListener('DOMContentLoaded', ()=>{ try{ let saved=localStorage.
         </div>
 
         <div class="card" id="pluSearchCard" style="display:none">
-
-               <input type="text" class="search-box" id="pluSearchBox" placeholder="🔍 Ketik nama barang...">
+            <input type="text" class="search-box" id="pluSearchBox" placeholder="🔍 Ketik nama barang...">
             <div class="stats">
                 <span>Hasil: <strong id="pluRowCount">0</strong></span>
                 <span>Tap card buat copy PLU</span>
@@ -739,7 +412,7 @@ document.addEventListener('DOMContentLoaded', ()=>{ try{ let saved=localStorage.
         </div>
         <div id="colModal" class="modal">
           <div class="modal-content">
-            <div class="modal-header"><h3>Atur Kolom</h3><span class="modal-close" onclick="closeModal()">&times;</span></div>
+            <div class="modal-header"><h3>Atur Kolom</h3><span class="modal-close" onclick="closeModal()">×</span></div>
             <div class="col-list" id="colList"></div>
           </div>
         </div>
@@ -754,7 +427,8 @@ document.addEventListener('DOMContentLoaded', ()=>{ try{ let saved=localStorage.
             </div>
             <div class="controls-2" style="margin-top:8px;">
               <button class="btn-save" onclick="saveReport()">💾 Simpan Laporan Hari Ini</button>
-              <button class="btn-export" onclick="loadReport()">
+              <button class="btn-export" onclick="loadR
+                  eport()">
 Lihat Akumulasi</button>
             </div>
           </div>
@@ -773,6 +447,327 @@ Lihat Akumulasi</button>
 
       </div>
     </div>
+<div class="tab-page" id="iscPage"><iframe id="iscFrame" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;id&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;YOGYA CIANJUR - V16.13 SELISIH MERAH&lt;/title&gt;
+&lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/chart.js&quot;&gt;&lt;/script&gt;
+&lt;style&gt;
+.responsive-table{width:100% !important; min-width:0 !important; table-layout:auto;}
+.responsive-table th, .responsive-table td{white-space:nowrap;}
+@media (max-width:768px){
+  .responsive-table{font-size:13px !important;}
+  .overflow-x-auto{overflow-x:auto !important; -webkit-overflow-scrolling:touch;}
+  .col-no{position:sticky; left:0; background:#00B0F0; z-index:1;}
+  td.col-no{position:sticky; left:0; background:white; z-index:1;}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-gray-100&quot;&gt;
+&lt;header class=&quot;bg-white shadow p-3 sticky top-0 z-20&quot;&gt;
+&lt;h1 class=&quot;font-extrabold text-sm&quot;&gt;📊INDIVIDUAL SALES CONTRIBUTION - YCJ&lt;/h1&gt;
+&lt;p class=&quot;text-[11px] text-green-600 font-bold&quot;&gt;FOOD - SUPERMARKET - YOGYA CIANJUR&lt;/p&gt;
+&lt;/header&gt;
+&lt;main class=&quot;p-2 max-w-7xl mx-auto&quot;&gt;
+&lt;div class=&quot;bg-white rounded-xl p-3 shadow-sm mb-3&quot;&gt;
+&lt;div class=&quot;flex gap-2&quot;&gt;
+&lt;button onclick=&quot;load(true)&quot; class=&quot;bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-bold flex-1&quot;&gt;🔄 Sync dari Google Sheet&lt;/button&gt;
+&lt;button onclick=&quot;document.getElementById('colBox').classList.toggle('hidden')&quot; class=&quot;bg-gray-100 border px-3 py-2 rounded-lg text-xs font-bold&quot;&gt;📊 Kolom ▼&lt;/button&gt;
+&lt;/div&gt;
+&lt;div id=&quot;status&quot; class=&quot;text-[11px] font-bold mt-2 p-2 bg-yellow-50 border border-yellow-200 rounded&quot;&gt;⏳ Auto syncing...&lt;/div&gt;
+&lt;div class=&quot;grid grid-cols-2 gap-2 mt-2&quot;&gt;
+  &lt;div class=&quot;bg-white border-2 border-blue-200 rounded-xl p-2&quot;&gt;
+    &lt;p class=&quot;text-[9px] font-extrabold text-gray-500&quot;&gt;🎯 TARGET&lt;/p&gt;
+    &lt;input id=&quot;targetInput&quot; type=&quot;number&quot; inputmode=&quot;numeric&quot; placeholder=&quot;Contoh: 1500000000&quot; class=&quot;w-full text-[13px] font-extrabold border-b-2 border-blue-300 focus:border-blue-600 focus:outline-none py-1.5 bg-transparent&quot; oninput=&quot;hitungAchv()&quot;&gt;
+    &lt;p class=&quot;text-[8px] text-gray-400 mt-1&quot;&gt;Ketik tanpa titik&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;bg-gradient-to-br from-blue-600 to-blue-500 border-2 border-blue-600 rounded-xl p-2 text-center text-white shadow-sm&quot;&gt;
+    &lt;p class=&quot;text-[9px] font-extrabold opacity-90&quot;&gt;📈 ACHIEVEMENT&lt;/p&gt;
+    &lt;p id=&quot;achvText&quot; class=&quot;font-extrabold text-[18px] leading-none mt-1&quot;&gt;0%&lt;/p&gt;
+    &lt;p id=&quot;achvDetail&quot; class=&quot;text-[8px] opacity-80 mt-1 truncate&quot;&gt;TO / Target&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;colBox&quot; class=&quot;grid grid-cols-2 gap-2 text-[11px] p-3 bg-gray-50 rounded-xl border mt-3 hidden&quot;&gt;
+&lt;label class=&quot;p-2 bg-white border rounded-lg flex gap-2 items-center&quot;&gt;&lt;input type=&quot;checkbox&quot; checked id=&quot;cNama&quot; onchange=&quot;render()&quot;&gt; NAMA&lt;/label&gt;
+&lt;label class=&quot;p-2 bg-white border rounded-lg flex gap-2 items-center&quot;&gt;&lt;input type=&quot;checkbox&quot; checked id=&quot;cBrand&quot; onchange=&quot;render()&quot;&gt; BRAND&lt;/label&gt;
+&lt;label class=&quot;p-2 bg-white border rounded-lg flex gap-2 items-center&quot;&gt;&lt;input type=&quot;checkbox&quot; checked id=&quot;cHari&quot; onchange=&quot;render()&quot;&gt; JADWAL VISIT&lt;/label&gt;
+&lt;label class=&quot;p-2 bg-white border rounded-lg flex gap-2 items-center&quot;&gt;&lt;input type=&quot;checkbox&quot; checked id=&quot;cTo&quot; onchange=&quot;render()&quot;&gt; SALES TO&lt;/label&gt;
+&lt;label class=&quot;p-2 bg-white border rounded-lg flex gap-2 items-center&quot;&gt;&lt;input type=&quot;checkbox&quot; checked id=&quot;cToLy&quot; onchange=&quot;render()&quot;&gt; TO LY&lt;/label&gt;
+&lt;label class=&quot;p-2 bg-white border rounded-lg flex gap-2 items-center&quot;&gt;&lt;input type=&quot;checkbox&quot; checked id=&quot;cGrowth&quot; onchange=&quot;render()&quot;&gt; GROWTH&lt;/label&gt;
+&lt;label class=&quot;p-2 bg-white border rounded-lg flex gap-2 items-center&quot;&gt;&lt;input type=&quot;checkbox&quot; checked id=&quot;cKont&quot; onchange=&quot;render()&quot;&gt; KONTRIBUSI&lt;/label&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;bg-white rounded-xl p-3 shadow-sm mb-3&quot;&gt;
+&lt;input id=&quot;q&quot; onkeyup=&quot;render()&quot; placeholder=&quot;Cari NAMA / BRAND / HARI VISIT...&quot; class=&quot;w-full px-3 py-3 border-2 border-blue-100 rounded-xl text-sm&quot;&gt;
+&lt;div class=&quot;flex gap-2 mt-3&quot;&gt;
+&lt;button id=&quot;btnAll&quot; onclick=&quot;setGrowthFilter('all')&quot; class=&quot;flex-1 bg-blue-600 text-white px-2 py-2 rounded-lg text-[11px] font-bold&quot;&gt;Tampilkan Semua&lt;/button&gt;
+&lt;button id=&quot;btnMinus&quot; onclick=&quot;setGrowthFilter('minus')&quot; class=&quot;flex-1 bg-white border border-red-300 text-red-600 px-2 py-2 rounded-lg text-[11px] font-bold&quot;&gt;📉 MINUS&lt;/button&gt;
+&lt;button id=&quot;btnPlus&quot; onclick=&quot;setGrowthFilter('plus')&quot; class=&quot;flex-1 bg-white border border-green-300 text-green-600 px-2 py-2 rounded-lg text-[11px] font-bold&quot;&gt;📈 PLUS&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;grid grid-cols-3 gap-2 mb-3&quot;&gt;
+&lt;div class=&quot;bg-white p-3 rounded-xl shadow-sm text-center&quot;&gt;&lt;p class=&quot;text-[10px] text-gray-500 font-bold&quot;&gt;TOTAL NAMA&lt;/p&gt;&lt;p id=&quot;totNama&quot; class=&quot;font-extrabold&quot;&gt;0&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;bg-white p-3 rounded-xl shadow-sm text-center&quot;&gt;&lt;p class=&quot;text-[10px] text-gray-500 font-bold&quot;&gt;TOTAL SALES TO&lt;/p&gt;&lt;p id=&quot;totTo&quot; class=&quot;font-extrabold text-xs&quot;&gt;0&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;bg-white p-3 rounded-xl shadow-sm text-center&quot;&gt;&lt;p class=&quot;text-[10px] text-gray-500 font-bold&quot;&gt;TOTAL BRAND&lt;/p&gt;&lt;p id=&quot;totBrand&quot; class=&quot;font-extrabold&quot;&gt;0&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;bg-white rounded-xl shadow-sm overflow-hidden mb-3&quot;&gt;
+&lt;div class=&quot;overflow-x-auto&quot;&gt;
+&lt;table class=&quot;w-full text-[12px] responsive-table&quot;&gt;
+&lt;thead class=&quot;bg-[#00B0F0] font-bold&quot;&gt;&lt;tr&gt;
+&lt;th class=&quot;p-2 w-[40px] col-no&quot;&gt;No&lt;/th&gt;
+&lt;th class=&quot;p-2 text-left col-NAMA cursor-pointer&quot; onclick=&quot;sortBy('nama')&quot;&gt;NAMA &lt;span id=&quot;arr-nama&quot;&gt;▼&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;p-2 text-left col-BRAND cursor-pointer&quot; onclick=&quot;sortBy('brand')&quot;&gt;BRAND &lt;span id=&quot;arr-brand&quot;&gt;&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;p-2 text-left col-HARI cursor-pointer&quot; onclick=&quot;sortBy('hari')&quot;&gt;JADWAL VISIT &lt;span id=&quot;arr-hari&quot;&gt;&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;p-2 text-right col-TO cursor-pointer&quot; onclick=&quot;sortBy('salesTo')&quot;&gt;SALES TO &lt;span id=&quot;arr-salesTo&quot;&gt;▼&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;p-2 text-right col-TOLY cursor-pointer&quot; onclick=&quot;sortBy('salesToLy')&quot;&gt;TO LY &lt;span id=&quot;arr-salesToLy&quot;&gt;&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;p-2 text-center col-GROWTH cursor-pointer&quot; onclick=&quot;sortBy('growth')&quot;&gt;GROWTH &lt;span id=&quot;arr-growth&quot;&gt;&lt;/span&gt;&lt;/th&gt;
+&lt;th class=&quot;p-2 text-center col-KONT cursor-pointer&quot; onclick=&quot;sortBy('kontribusi')&quot;&gt;KONTRIBUSI &lt;span id=&quot;arr-kontribusi&quot;&gt;&lt;/span&gt;&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody id=&quot;tbody&quot;&gt;&lt;tr&gt;&lt;td colspan=&quot;8&quot; class=&quot;p-8 text-center text-gray-400&quot;&gt;⏳ Loading...&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;grid md:grid-cols-2 gap-3&quot;&gt;
+&lt;div id=&quot;boxKont&quot; class=&quot;bg-white rounded-xl p-3 shadow-sm&quot;&gt;
+&lt;div class=&quot;flex justify-between items-center mb-2&quot;&gt;&lt;h4 class=&quot;font-bold text-xs&quot;&gt;📊 Kontribusi per PIC&lt;/h4&gt;&lt;button onclick=&quot;downloadChart('chartKont')&quot; class=&quot;text-[10px] bg-blue-600 text-white px-2 py-1 rounded&quot;&gt;📥 PNG&lt;/button&gt;&lt;/div&gt;
+&lt;canvas id
+                                       =&quot;chartKont&quot; height=&quot;200&quot;&gt;&lt;/canvas&gt;&lt;div id=&quot;summaryKont&quot; class=&quot;text-[11px] mt-3&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;boxGrowth&quot; class=&quot;bg-white rounded-xl p-3 shadow-sm&quot;&gt;
+&lt;div class=&quot;flex justify-between items-center mb-2&quot;&gt;&lt;h4 class=&quot;font-bold text-xs&quot;&gt;📈 Growth per PIC&lt;/h4&gt;&lt;button onclick=&quot;downloadChart('chartGrowth')&quot; class=&quot;text-[10px] bg-green-600 text-white px-2 py-1 rounded&quot;&gt;📥 PNG&lt;/button&gt;&lt;/div&gt;
+&lt;canvas id=&quot;chartGrowth&quot; height=&quot;200&quot;&gt;&lt;/canvas&gt;&lt;div id=&quot;summaryGrowth&quot; class=&quot;text-[11px] mt-3&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/main&gt;
+&lt;div id=&quot;modalDetail&quot; class=&quot;hidden fixed inset-0 bg-black/50 z-[100] flex justify-center items-start pt-10 p-3&quot;&gt;
+  &lt;div class=&quot;bg-white w-full max-w-md rounded-2xl shadow-2xl overflow-hidden&quot;&gt;
+    &lt;div class=&quot;bg-[#00B0F0] text-white p-3 flex justify-between items-center&quot;&gt;
+      &lt;div&gt;&lt;p id=&quot;modalTitle&quot; class=&quot;font-extrabold text-sm&quot;&gt;Detail Produk Minus&lt;/p&gt;&lt;p class=&quot;text-[11px] opacity-90&quot;&gt;SU Description + NODE + STOK + SELISIH + % | (TO-LY)/LY&lt;/p&gt;&lt;/div&gt;
+      &lt;button onclick=&quot;closeModal()&quot; class=&quot;bg-white text-black rounded-full w-8 h-8 font-bold&quot;&gt;×&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;modalBody&quot; class=&quot;p-3 max-h-[70vh] overflow-y-auto text-[12px]&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+let grouped={}; let totalSalesTo=0;
+let chartKontInstance=null, chartGrowthInstance=null;
+let currentSort={field:'salesTo', dir:'desc'};
+let growthFilter='all';
+const CSV_URL=&quot;https://docs.google.com/spreadsheets/d/e/2PACX-1vQcw_VWQ9-Z2JU87wyKKSruf5p6ZDZgfk3IDTFjt0p-r_NI0h9zcOjx8IQDy9c-UlLUN5JmTm-ggKDi/pub?output=csv&quot;;
+function parseCSV(t){const rows=[];let row=[],cur='',inQ=false;for(let i=0;i&lt;t.length;i++){let c=t[i];if(c=='&quot;'){if(t[i+1]=='&quot;'){cur+='&quot;';i++;}else inQ=!inQ;}else if(c==','&amp;&amp;!inQ){row.push(cur);cur='';}else if((c=='\n'||c=='\r')&amp;&amp;!inQ){if(cur!==''||row.length&gt;0){row.push(cur);rows.push(row);row=[];cur='';}}else cur+=c;}if(cur!==''||row.length&gt;0){row.push(cur);rows.push(row);}return rows;}
+function downloadChart(id){const c=document.getElementById(id);const a=document.createElement('a');a.download=id+'.png';a.href=c.toDataURL('image/png');a.click();}
+function load(isManual){
+ const statusEl=document.getElementById('status');
+ statusEl.innerHTML=isManual?'🔄 Manual sync...':'⏳ Auto syncing...';
+ fetch(CSV_URL,{mode:'cors'}).then(r=&gt;r.text()).then(proses).catch(e1=&gt;{
+   fetch('https://api.allorigins.win/raw?url='+encodeURIComponent(CSV_URL)).then(r=&gt;r.text()).then(proses).catch(e2=&gt;{
+     fetch('https://corsproxy.io/?'+encodeURIComponent(CSV_URL)).then(r=&gt;r.text()).then(proses);
+   });
+ });
+}
+function proses(txt){
+ const rows=parseCSV(txt);
+ if(!rows || rows.length&lt;2){ document.getElementById('status').innerHTML='❌ CSV kosong'; return; }
+ const header=rows[0].map(h=&gt;h.toLowerCase().trim());
+ let idxNode = 0; let idxCode = 1; let idxSu = 2; let idxTo = 7; let idxToLy = 8; let idxNama = 11; let idxBrand = 12; let idxHari = 13;
+ let idxStock = 3;
+ let a=header.indexOf('sales to'); if(a!==-1) idxTo=a;
+ let b=header.indexOf('sales to ly'); if(b!==-1) idxToLy=b;
+ let c=header.indexOf('nama'); if(c!==-1) idxNama=c;
+ let d=header.indexOf('brand'); if(d!==-1) idxBrand=d;
+ let e=header.findIndex(h=&gt;h.includes('hari')||h.includes('visit')); if(e!==-1) idxHari=e;
+ let f=header.indexOf('su description'); if(f!==-1) idxSu=f;
+ let g=header.indexOf('node'); if(g!==-1) idxNode=g;
+ let h=header.indexOf('article code'); if(h!==-1) idxCode=h;
+ let s=header.findIndex(h=&gt;h.includes('replen')); if(s!==-1) idxStock=s;
+ grouped={}; totalSalesTo=0;
+ for(let i=1;i&lt;rows.length;i++){
+  const r=rows[i]; if(!r||r.length&lt;=idxNama) continue;
+  let nama=(r[idxNama]||'').replace(/&quot;/g,'').trim().toUpperCase(); if(!nama||nama==='NAMA') continue;
+  let brand=(r[idxBrand]||'').replace(/&quot;/g,'').trim().toUpperCase();
+  let hari=(r[idxHari]||'').replace(/&quot;/g,'').trim();
+  let su=(r[idxSu]||'').replace(/&quot;/g,'').trim();
+  let node=(r[idxNode]||'').replace(/&quot;/g,'').trim();
+  let code=(r[idxCode]||'').replace(/&quot;/g,'').trim();
+  let stockRaw=(r[idxStock]||'0').toString().replace(/&quot;/g,'').trim();
+  let stockNum=parseFloat(stockRaw.replace(/[^0-9.-]/g,''))||0;
+  let to=parseFloat((r[idxTo]||'0').toString().replace(/[^0-9.-]/g,''))||0;
+  let toLy=parseFloat((r[idxToLy]||'0').toString().replace(/[^0-9.-]/g,''))||0;
+  let key=nama+'|'+brand;
+  if(!grouped[key]) grouped[key]={nama,brand,hariSet:new Set(),salesTo:0,salesToLy:0, products:{}};
+  grouped[key].salesTo+=to; grouped[key].salesToLy+=toLy;
+  if(hari) grouped[key].hariSet.add(hari);
+  let prodKey=code+'|'+su+'|'+node+'|'+i;
+  if(!grouped[key].products[prodKey]) grouped[key].products[prodKey]={code,su,node,salesTo:0,salesToLy:0,stockRaw:stockRaw,stock:stockNum};
+  grouped[key].products[prodKey].salesTo+=to;
+  grouped[key].products[prodKey].salesToLy+=toLy;
+  if(stockNum&gt;0) grouped[key].products[prodKey].stock=stockNum;
+  if(stockRaw) grouped[key].products[prodKey].stockRaw=stockRaw;
+  totalSalesTo+=to;
+ }
+ document.getElementById('status').innerHTML='✅ Berhasil sync REAL CSV: '+Object.keys(grouped).length+' manpower | Total TO: '+totalSalesTo.toLocaleString()+'&lt;br&gt;&lt;small&gt;Stok Col: '+header[idxStock]+'('+idxStock+') | Rows: '+(rows.length-1)+'&lt;/small&gt;';
+ hitungAchv();
+ render();
+}
+function sortBy(field){
+  if(currentSort.field===field){ currentSort.dir = currentSort.dir==='desc' ? 'asc' : 'desc'; }else{ currentSort.field=field; if(field==='nama'||field==='brand'||field==='hari') currentSort.dir='asc'; else currentSort.dir='desc'; }
+  document.querySelectorAll('[id^=arr-]').forEach(e=&gt;e.innerText='');
+  let arrow = currentSort.dir==='asc' ? '▲' : '▼';
+  let el=document.getElementById('arr-'+field); if(el) el.innerText=arrow;
+  render();
+}
+function setGrowthFilter(type){ growthFilter=type; render(); }
+function closeModal(){ document.getElementById('modalDetail').classList.add('hidden'); }
+let currentMinusAll=[]; let currentStokFilter='all'; let currentSortBy='selisih'; let currentSortDir='besar';
+function getStokCat(p){ if(p.stock&lt;=0) return 'merah'; return 'hijau'; }
+function filterStok(cat){
+  currentStokFilter=cat;
+  document.querySelectorAll('.btn-stok').forEach(b=&gt;{ b.classList.remove('ring-2','ring-offset-1','ring-black'); b.classList.add('opacity-60'); });
+  let active=document.getElementById('btn-'+cat); if(active){ active.classList.remove('opacity-60'); active.classList.add('ring-2','ring-offset-1','ring-black'); }
+  renderMinusList();
+}
+function sortData(by, dir){
+  currentSortBy=by; currentSortDir=dir;
+  document.querySelectorAll('.btn-sort').forEach(b=&gt;{ b.classList.remove('bg-blue-600','text-white'); b.classList.add('bg-white','border','text-gray-600'); });
+  let id='btn-sort-'+by+'-'+dir;
+  let active=document.getElementById(id); if(active){ active.classList.remove('bg-white','border','text-gray-600'); active.classList.add('bg-blue-600','text-white'); }
+  renderMinusList();
+}
+function renderMinusList(){
+  let list=currentMinusAll.slice();
+  if(currentStokFilter!=='all') list=list.filter(p=&gt;getStokCat(p)===currentStokFilter);
+  if(currentSortBy==='selisih'){
+    if(currentSortDir==='besar') list.sort((a,b)=&gt; (a.selisih - b.selisih));
+    else list.sort((a,b)=&gt; (b.selisih - a.selisih));
+  } else {
+    if(currentSortDir==='besar') list.sort((a,b)=&gt; (a.persen - b.persen));
+    else list.sort((a,b)=&gt; (b.persen - a.persen));
+  }
+  if(list.length===0){ document.getElementById('minusList').innerHTML='&lt;div class=&quot;text-center py-8 text-gray-400 text-[12px]&quot;&gt;Tidak ada stok '+currentStokFilter+'&lt;/div&gt;'; document.getElementById('countInfo').innerText='0 / '+currentMinusAll.length+' produk'; return; }
+  let html=list.map(p=&gt;{
+    let stokColor = (p.stock&lt;=0) ? 'bg-red-600 text-white' : 'bg-green-100 text-green-700 border border-green-200';
+    let selisihColor = p.selisih&lt;0 ? 'text-red-600' : 'text-green-600';
+    return '&lt;div class=&quot;flex justify-between items-center py-2 border-b&quot;&gt;&lt;div class=&quot;flex-1 pr-2&quot;&gt;&lt;p class=&quot;font-bold text-[12px]&quot;&gt;'+(p.su||p.code||'-')+'&lt;/p&gt;&lt;p class=&quot;text-[10px] text-gray-500&quot;&gt;'+(p.node||'-')+' | TO:'+p.salesTo.toLocaleString()+' vs LY:'+p.salesToLy.toLocaleString()+'&lt;/p&gt;&lt;p class=&quot;text-[10px] mt-1 flex gap-1 items-center flex-wrap&quot;&gt;&lt;span class=&quot;px-2 py-0.5 rounded-full font-bold '+stokColor+'&quot;&gt;Stok: '+(p.stockRaw||p.stock)+'&lt;/span&gt;&lt;span class=&quot;px-2 py-0.5 rounded-full bg-gray-100 font-bold '+selisihColor+'&quot;&gt;Selisih: '+(p.selisih&gt;0?'+':'')+p.selisih.toLocaleString()+'&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;div&gt;&lt;span class=&quot;bg-red-100 text-red-700 px-2 py-1 rounded-full font-extrabold text-[11px]&quot;&gt;'+p.persen.toFixed(1)+'%&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;';
+  }).join('');
+  document.getElementById('minusList').innerHTML=html;
+  document.getElementById('countInfo').innerText=list.length+' / '+currentMinusAll.
+                                       length+' produk | Filter: '+currentStokFilter.toUpperCase()+' | Sort: '+currentSortBy+'-'+currentSortDir;
+}
+function showMinus(key){
+  let g=grouped[key]; if(!g) return;
+  document.getElementById('modalDetail').classList.remove('hidden');
+  document.getElementById('modalTitle').innerText='Detail Minus - '+g.nama+' | '+g.brand;
+  let prods=Object.values(g.products);
+  let minus=prods.filter(p=&gt; p.salesToLy&gt;0 &amp;&amp; p.salesTo &lt; p.salesToLy);
+  minus=minus.map(p=&gt;{ let persen = p.salesToLy===0?0:((p.salesTo - p.salesToLy)/p.salesToLy*100); let selisih = p.salesTo - p.salesToLy; return {...p, persen, selisih}; });
+  if(minus.length===0){ document.getElementById('modalBody').innerHTML='&lt;div class=&quot;text-center py-8&quot;&gt;&lt;p class=&quot;font-bold text-green-600&quot;&gt;Nggak ada produk minus!&lt;/p&gt;&lt;/div&gt;'; return; }
+  currentMinusAll=minus; currentStokFilter='all'; currentSortBy='selisih'; currentSortDir='besar';
+  let cMerah=minus.filter(p=&gt;getStokCat(p)==='merah').length;
+  let cHijau=minus.filter(p=&gt;getStokCat(p)==='hijau').length;
+  let html = '&lt;div class=&quot;sticky top-0 bg-white pb-2 z-10 border-b mb-2&quot;&gt;';
+  html += '&lt;div class=&quot;flex gap-1 mb-1.5&quot;&gt;';
+  html += '&lt;button id=&quot;btn-all&quot; onclick=&quot;filterStok(\'all\')&quot; class=&quot;btn-stok flex-1 bg-gray-700 text-white px-2 py-1.5 rounded-full text-[10px] font-bold ring-2 ring-offset-1 ring-black&quot;&gt;SEMUA ('+minus.length+')&lt;/button&gt;';
+  html += '&lt;button id=&quot;btn-merah&quot; onclick=&quot;filterStok(\'merah\')&quot; class=&quot;btn-stok flex-1 bg-red-600 text-white px-2 py-1.5 rounded-full text-[10px] font-bold opacity-60&quot;&gt;🔴 '+cMerah+'&lt;/button&gt;';
+  html += '&lt;button id=&quot;btn-hijau&quot; onclick=&quot;filterStok(\'hijau\')&quot; class=&quot;btn-stok flex-1 bg-green-100 text-green-700 border border-green-300 px-2 py-1.5 rounded-full text-[10px] font-bold opacity-60&quot;&gt;🟢 '+cHijau+'&lt;/button&gt;';
+  html += '&lt;/div&gt;';
+  html += '&lt;div class=&quot;grid grid-cols-2 gap-1 mb-1&quot;&gt;';
+  html += '&lt;button id=&quot;btn-sort-selisih-besar&quot; onclick=&quot;sortData(\'selisih\',\'besar\')&quot; class=&quot;btn-sort bg-blue-600 text-white px-2 py-1 rounded-full text-[9px] font-bold&quot;&gt;🔽 Rp BESAR&lt;/button&gt;';
+  html += '&lt;button id=&quot;btn-sort-selisih-kecil&quot; onclick=&quot;sortData(\'selisih\',\'kecil\')&quot; class=&quot;btn-sort bg-white border text-gray-600 px-2 py-1 rounded-full text-[9px] font-bold&quot;&gt;🔼 Rp KECIL&lt;/button&gt;';
+  html += '&lt;button id=&quot;btn-sort-persen-besar&quot; onclick=&quot;sortData(\'persen\',\'besar\')&quot; class=&quot;btn-sort bg-white border text-gray-600 px-2 py-1 rounded-full text-[9px] font-bold&quot;&gt;📉 % BESAR (-100%)&lt;/button&gt;';
+  html += '&lt;button id=&quot;btn-sort-persen-kecil&quot; onclick=&quot;sortData(\'persen\',\'kecil\')&quot; class=&quot;btn-sort bg-white border text-gray-600 px-2 py-1 rounded-full text-[9px] font-bold&quot;&gt;📈 % KECIL (-9%)&lt;/button&gt;';
+  html += '&lt;/div&gt;';
+  html += '&lt;div id=&quot;countInfo&quot; class=&quot;text-[10px] text-gray-500 font-bold&quot;&gt;'+minus.length+' produk MINUS&lt;/div&gt;';
+  html += '&lt;/div&gt;';
+  html += '&lt;div id=&quot;minusList&quot;&gt;&lt;/div&gt;';
+  document.getElementById('modalBody').innerHTML=html;
+  renderMinusList();
+}
+function hitungAchv(){
+  let targetEl=document.getElementById('targetInput');
+  let achvEl=document.getElementById('achvText');
+  let detailEl=document.getElementById('achvDetail');
+  if(!targetEl||!achvEl) return;
+  let target=parseFloat((targetEl.value||'').toString().replace(/[^0-9]/g,''))||0;
+  if(target&lt;=0){
+    achvEl.innerText='0%';
+    if(detailEl) detailEl.innerText='Masukkan target';
+    return;
+  }
+  let persen = totalSalesTo / target * 100;
+  achvEl.innerText=persen.toFixed(2)+'%';
+  if(detailEl) detailEl.innerText= totalSalesTo.toLocaleString()+' / '+target.toLocaleString();
+  try{ localStorage.setItem('ycj_target', target); }catch(e){}
+}
+function render(){
+ const q=document.getElementById('q').value.toLowerCase();
+ const show={ NAMA: document.getElementById('cNama').checked, BRAND: document.getElementById('cBrand').checked, HARI: document.getElementById('cHari').checked, TO: document.getElementById('cTo').checked, TOLY: document.getElementById('cToLy').checked, GROWTH: document.getElementById('cGrowth').checked, KONT: document.getElementById('cKont').checked };
+ document.querySelectorAll('.col-NAMA').forEach(e=&gt;e.classList.toggle('hidden',!show.NAMA));
+ document.querySelectorAll('.col-BRAND').forEach(e=&gt;e.classList.toggle('hidden',!show.BRAND));
+ document.querySelectorAll('.col-HARI').forEach(e=&gt;e.classList.toggle('hidden',!show.HARI));
+ document.querySelectorAll('.col-TO').forEach(e=&gt;e.classList.toggle('hidden',!show.TO));
+ document.querySelectorAll('.col-TOLY').forEach(e=&gt;e.classList.toggle('hidden',!show.TOLY));
+ document.querySelectorAll('.col-GROWTH').forEach(e=&gt;e.classList.toggle('hidden',!show.GROWTH));
+ document.querySelectorAll('.col-KONT').forEach(e=&gt;e.classList.toggle('hidden',!show.KONT));
+ document.getElementById('boxKont').classList.toggle('hidden',!show.KONT);
+ document.getElementById('boxGrowth').classList.toggle('hidden',!show.GROWTH);
+ let list=Object.values(grouped).map(g=&gt;({key:g.nama+'|'+g.brand, nama:g.nama,brand:g.brand,hari:Array.from(g.hariSet).join(', '),salesTo:g.salesTo,salesToLy:g.salesToLy, growth: g.salesToLy===0?0:((g.salesTo-g.salesToLy)/g.salesToLy*100), kontribusi: totalSalesTo===0?0:(g.salesTo/totalSalesTo*100) }));
+ list=list.filter(d=&gt;!q||d.nama.toLowerCase().includes(q)||d.brand.toLowerCase().includes(q)||d.hari.toLowerCase().includes(q));
+ if(growthFilter==='minus') list=list.filter(d=&gt;d.growth&lt;0);
+ if(growthFilter==='plus') list=list.filter(d=&gt;d.growth&gt;=0);
+ list.sort((a,b)=&gt;{
+  let field=currentSort.field; let dir = currentSort.dir==='asc'?1:-1;
+  if(field==='nama') return a.nama.localeCompare(b.nama)*dir;
+  if(field==='brand') return a.brand.localeCompare(b.brand)*dir;
+  if(field==='hari') return a.hari.localeCompare(b.hari)*dir;
+  if(field==='salesTo') return (a.salesTo-b.salesTo)*dir;
+  if(field==='salesToLy') return (a.salesToLy-b.salesToLy)*dir;
+  if(field==='growth') return (a.growth-b.growth)*dir;
+  if(field==='kontribusi') return (a.kontribusi-b.kontribusi)*dir;
+  return 0;
+ });
+ document.getElementById('totNama').innerText=new Set(list.map(x=&gt;x.nama)).size;
+ document.getElementById('totBrand').innerText=new Set(list.map(x=&gt;x.brand)).size;
+ document.getElementById('totTo').innerText=list.reduce((s,x)=&gt;s+x.salesTo,0).toLocaleString();
+ if(list.length===0){
+   document.getElementById('tbody').innerHTML='&lt;tr&gt;&lt;td colspan=&quot;8&quot; class=&quot;p-8 text-center text-gray-500&quot;&gt;Data kosong&lt;/td&gt;&lt;/tr&gt;';
+ } else {
+   document.getElementById('tbody').innerHTML=list.map((d,i)=&gt;{
+    const growth=d.growth; const kont=d.kontribusi;
+    let hNama = show.NAMA ? '' : ' hidden';
+    let hBrand = show.BRAND ? '' : ' hidden';
+    let hHari = show.HARI ? '' : ' hidden';
+    let hTo = show.TO ? '' : ' hidden';
+    let hToLy = show.TOLY ? '' : ' hidden';
+    let hGrowth = show.GROWTH ? '' : ' hidden';
+    let hKont = show.KONT ? '' : ' hidden';
+    return '&lt;tr class=&quot;border-b hover:bg-blue-50&quot;&gt;&lt;td class=&quot;p-2 col-no'+'&quot;&gt;'+(i+1)+'&lt;/td&gt;&lt;td class=&quot;p-2 font-bold col-NAMA text-blue-600 underline cursor-pointer'+hNama+'&quot; onclick=&quot;showMinus(\''+d.key+'\')&quot;&gt;'+d.nama+'&lt;/td&gt;&lt;td class=&quot;p-2 col-BRAND'+hBrand+'&quot;&gt;&lt;span class=&quot;bg-gray-100 px-2 py-1 rounded-full text-[11px]&quot;&gt;'+(d.brand||'-')+'&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;p-2 col-HARI text-[11px]'+hHari+'&quot;&gt;'+(d.hari||'-')+'&lt;/td&gt;&lt;td class=&quot;p-2 text-right col-TO'+hTo+'&quot;&gt;'+d.salesTo.toLocaleString()+'&lt;/td&gt;&lt;td class=&quot;p-2 text-right col-TOLY text-gray-500'+hToLy+'&quot;&gt;'+d.salesToLy.toLocaleString()+'&lt;/td&gt;&lt;td class=&quot;p-2 text-center col-GROWTH font-bold '+(growth&gt;=0?'text-green-600':'text-red-600')+hGrowth+'&quot;&gt;'+growth.toFixed(2)+'%&lt;/td&gt;&lt;td class=&quot;p-2 text-center col-KONT font-bold text-blue-600'+hKont+'&quot;&gt;'+kont.toFixed(2)+'%&lt;/td&gt;&lt;/tr&gt;';
+   }).join('');
+ }
+ const labels=list.map(d=&gt;d.nama+' ('+d.brand+')');
+ const dataKont=list.map(d=&gt;d.kontribusi);
+ const dataGrowth=list.map(d=&gt;d.growth);
+ if(show.KONT){
+  const ctxKont=document.getElementById('chartKont').getContext('2d');
+  if(chartKontInstance) chartKontInstance.destroy();
+  chartKontInstance=new Chart(ctxKont,{ type:'pie', data:{labels:labels, datasets:[{data:dataKont}]}, options:{plugins:{legend:{position:'bottom',labels:{font:{size:11}}}}}});
+  let akum=0; document.getElementById('summaryKont').innerHTML=list.map((d,i)=&gt;{ const kont=dataKont[i]; akum+=kont; return '&lt;div class=&quot;flex justify-between py-1 border-b&quot;&gt;&lt;span&gt;&lt;b&gt;'+d.nama+'&lt;/b&gt; ('+d.salesTo.toLocaleString()+')&lt;/span&gt;&lt;span class=&quot;text-blue-600 font-bold&quot;&gt;'+kont.toFixed(1)+'% (Akum '+akum.toFixed(1)+'%)&lt;/span&gt;&lt;/div&gt;'; }).join('');
+ }
+ if(show.GROWTH){
+  const ctxGrowth=document.getElementById('chartGrowth').getContext('2d');
+  if(chartGrowthInstance) chartGrowthInstance.destroy();
+  chartGrowthInstanc
+                                       e=new Chart(ctxGrowth,{ type:'bar', data:{labels:labels, datasets:[{label:'Growth %',data:dataGrowth}]}, options:{plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=&gt;v+'%'}}}});
+  // === UBAHAN SESUAI REQUEST: MERAH JADI SELISIH TO - TOLY ===
+  document.getElementById('summaryGrowth').innerHTML=list.map((d,i)=&gt;{ const growth=dataGrowth[i]; const selisih = d.salesTo - d.salesToLy; const selisihTxt = (selisih&gt;0?'+':'')+selisih.toLocaleString(); return '&lt;div class=&quot;flex justify-between py-1 border-b&quot;&gt;&lt;span&gt;&lt;b&gt;'+d.nama+'&lt;/b&gt;&lt;/span&gt;&lt;span class=&quot;'+(growth&gt;=0?'text-green-600':'text-red-600')+' font-bold&quot;&gt;'+growth.toFixed(1)+'% | '+selisihTxt+'&lt;/span&gt;&lt;/div&gt;'; }).join('');
+ }
+}
+document.addEventListener('DOMContentLoaded', ()=&gt;{ try{ let saved=localStorage.getItem('ycj_target'); if(saved){ document.getElementById('targetInput').value=saved; } }catch(e){} setTimeout(()=&gt;load(false), 500); });
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;" style="width:100%;height:calc(100vh - 140px);min-height:700px;border:0;border-radius:12px;background:#fff;"></iframe></div>
 </div>
 
 <div class="modal" id="columnModal">
@@ -803,8 +798,7 @@ Lihat Akumulasi</button>
 /* ====== SCRIPT KODE 1 MULAI - GA GUA UBAH ====== */
 const MASTER_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQcw_VWQ9-Z2JU87wyKKSruf5p6ZDZgfk3IDTFjt0p-r_NI0h9zcOjx8IQDy9c-UlLUN5JmTm-ggKDi/pub?output=csv';
 const ROWS_PER_PAGE = 500;
-con
-    st DB_NAME = 'YogyaToolsDB_v32';
+const DB_NAME = 'YogyaToolsDB_v32';
 const STORE_NAME = 'excelData';
 const KOMENTAR_STORE = 'komentarData';
 const TEMPLATE_STORE = 'templateData';
@@ -834,6 +828,9 @@ function switchMainTab(tab) {
     } else if (tab === 'plu') {
         document.querySelector('.main-tab-btn:nth-child(2)').classList.add('active');
         document.getElementById('findpluPage').classList.add('active');
+    } else if (tab === 'isc') {
+        document.querySelector('.main-tab-btn:nth-child(4)').classList.add('active');
+        document.getElementById('iscPage').classList.add('active');
     } else {
         document.querySelector('.main-tab-btn:nth-child(3)').classList.add('active');
         document.getElementById('naosPage').classList.add('active');
@@ -914,7 +911,7 @@ async function initDB() {
     return new Promise((resolve, reject) => {
         const req = indexedDB.open(DB_NAME, 7);
         req.onerror = () => reject(req.error);
-        req.onsuccess = () => { db = req.result; resolve(db); }
+        req.onsuccess = () => { db = req.result; resolve(db); };
         req.onupgradeneeded = (e) => {
             db = e.target.result;
             if (!db.objectStoreNames.contains(STORE_NAME)) db.createObjectStore(STORE_NAME, {keyPath: 'id'});
@@ -947,8 +944,7 @@ function toggleSummaryKategori() {
         summaryDiv.style.display = 'grid';
         btn.textContent = '👁️ Hide';
     } else {
-        summaryDiv.style.display = 'none'
-        ;
+        summaryDiv.style.display = 'none';
         btn.textContent = '👁️ Unhide';
     }
 }
@@ -960,7 +956,8 @@ function populateKategoriDropdown() {
         return nh === 'node' || nh === 'kategori' || nh === 'category';
     });
     if (!katCol) return;
-    const kategoriSet = new Set();
+    const kategoriSet = new Set
+    ();
     allData.forEach(row => {
         const kat = String(row[katCol] || '').trim();
         if (kat) kategoriSet.add(kat.toUpperCase());
@@ -1079,8 +1076,7 @@ async function importFromSheet() {
         if (visibleColumns.length === 0) {
             let defaultCols = headers.filter(h => normalizeHeader(h)!== 'komentar').slice(0, 3);
             defaultCols.push(REPLEN_QTY_COLUMN, SALES_LY_COLUMN, SELISIH_COLUMN, SKP_COLUMN, STATUS_COLUMN, KOMENTAR_COLUMN_NAME);
-            visibleColumns = [...new Set(de
-                                         faultCols.filter(Boolean))];
+            visibleColumns = [...new Set(defaultCols.filter(Boolean))];
         }
         await saveToDB('Google Sheet Live');
         document.getElementById('sheetInfo').textContent = `✅ Berhasil tarik ${allData.length} data`;
@@ -1150,7 +1146,8 @@ async function handlePLUFile(e) {
             const data = new Uint8Array(e.target.result);
             const workbook = XLSX.read(data, {type: 'array'});
             const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
-            const jsonData = XLSX.utils.sheet_to_json(firstSheet);
+            const js
+            onData = XLSX.utils.sheet_to_json(firstSheet);
             if (jsonData.length === 0) throw new Error('File kosong');
             const headers = Object.keys(jsonData[0]);
             pluColMap.plu = findColumn(headers, ['plu', 'kode', 'kodebarang', 'article', 'sku', 'barcode']);
@@ -1214,8 +1211,7 @@ document.getElementById('pluSearchBox').addEventListener('input', function(e) {
     } else {
         let html = '';
         results.forEach(row => {
-            const plu = row[pluColMap.plu
-                ];
+            const plu = row[pluColMap.plu];
             html += `<div class="plu-result-card" onclick="copyPLU('${plu}')">
                 <div class="plu">PLU: ${plu}</div>
                 <div class="nama">${row[pluColMap.nama]}</div>
@@ -1362,9 +1358,9 @@ function updateSummary() {
     const totalSalesToLY = filteredData.reduce((sum, row) => sum + getSalesToLY(row), 0);
     const salesGrowth = totalSalesToLY === 0? 0 : ((totalSalesTo - totalSalesToLY) / totalSalesToLY * 100);
     document.getElementById('totalItem').textContent = filteredData.length.toLocaleString('id-ID');
-    document.getElementById('totalSales').textContent = totalSales.toLocaleString('id-ID', {minimumFractionDigits: 0, maximumFractionDigits: 2});
-    document.getElementById('totalOOS').textContent = totalOOS.toLocaleString('i
-                                                                              d-ID');
+    document.getElementById('totalSales').textContent = totalSales.toLocaleString('id-ID', {minimumFractionDig
+                                                                                            its: 0, maximumFractionDigits: 2});
+    document.getElementById('totalOOS').textContent = totalOOS.toLocaleString('id-ID');
     document.getElementById('totalNAOS').textContent = totalNAOS.toLocaleString('id-ID');
     document.getElementById('totalSalesLY').textContent = totalSalesLY.toLocaleString('id-ID', {minimumFractionDigits: 0, maximumFractionDigits: 2});
     const persenEl = document.getElementById('totalPersenSelisih');
@@ -1493,8 +1489,7 @@ function handleSort() {
     } else if (sortType === 'nama_az') filteredData.sort((a, b) => getNamaBarang(a).localeCompare(getNamaBarang(b)));
     else if (sortType === 'nama_za') filteredData.sort((a, b) => getNamaBarang(b).localeCompare(getNamaBarang(a)));
     else if (sortType === 'stok_besar') filteredData.sort((a, b) => getStok(b) - getStok(a));
-    else if (sortType === 'stok_kecil'
-             ) filteredData.sort((a, b) => getStok(a) - getStok(b));
+    else if (sortType === 'stok_kecil') filteredData.sort((a, b) => getStok(a) - getStok(b));
     else if (sortType === 'skp_besar') filteredData.sort((a, b) => parseFloat(getSKP(b)) - parseFloat(getSKP(a)));
     else if (sortType === 'skp_kecil') filteredData.sort((a, b) => parseFloat(getSKP(a)) - parseFloat(getSKP(b)));
     else if (sortType === 'sales_besar') filteredData.sort((a, b) => getSales(b) - getSales(a));
@@ -1561,7 +1556,8 @@ function renderTable() {
         updatePaginationControls();
         return;
     }
-    const displayColumns = [...visibleColumns];
+    c
+    onst displayColumns = [...visibleColumns];
     const colCount = displayColumns.length;
     const gridTemplate = getGridTemplate(colCount);
     const dataToShow = getPaginatedData();
@@ -1620,8 +1616,7 @@ function renderTable() {
                 } else if (h === SELISIH_COLUMN) {
                     val = getSelisihSales(row).toLocaleString('id-ID');
                 } else if (h === SELISIH_TO_COLUMN) {
-                    val = getSelisihTo(row).t
-                    oLocaleString('id-ID');
+                    val = getSelisihTo(row).toLocaleString('id-ID');
                 } else if (h === SKP_COLUMN) {
                     val = getSKP(row);
                 } else if (h === STATUS_COLUMN) {
@@ -1741,7 +1736,8 @@ function exportToExcel() {
             }
         });
         if (visibleColumns.includes(TERPAJANG_COLUMN_NAME)) {
-            newRow[TERPAJANG_COLUMN_NAME] = terpajangData[getItemKey(row)]? 'Ya' : 'Tidak';
+            newRow[TERPAJANG_COLUMN_NAME
+                ] = terpajangData[getItemKey(row)]? 'Ya' : 'Tidak';
         }
         return newRow;
     });
@@ -1755,8 +1751,7 @@ async function clearData() {
         if (!db) await initDB();
         const tx = db.transaction([STORE_NAME, KOMENTAR_STORE, TEMPLATE_STORE, TERPAJANG_STORE], 'readwrite');
         tx.objectStore(STORE_NAME).clear();
-        tx
-        .objectStore(KOMENTAR_STORE).clear();
+        tx.objectStore(KOMENTAR_STORE).clear();
         tx.objectStore(TERPAJANG_STORE).clear();
         tx.oncomplete = () => location.reload();
     }
@@ -1944,8 +1939,7 @@ function resetCeklis(){
 function saveReport(){
   if(rawData.length===0){ alert('Tarik data dulu bang'); return; }
   const today = new Date().toISOString().slice(0,10);
-  const reports = JSON.parse(localStorage.getItem(LS_REPORTS) || '{}
-                             ');
+  const reports = JSON.parse(localStorage.getItem(LS_REPORTS) || '{}');
   const total = rawData.length;
   const terpajang = rawData.filter(r => r.area_chk).length;
   const belum = rawData.filter(r => r.gudang_chk).length;
@@ -2007,7 +2001,8 @@ const start = dateStart.value;
     grandTotalT += dayData.total * (dayData.pctTerpajang/100);
     grandTotalB += dayData.total * (dayData.pctBelum/100);
     Object.keys(dayData.nodes).forEach(node => {
-      if(!totalAkumulasi.has(node)){ totalAkumulasi.set(node, {total:0, terpajang:0, belum:0}); }
+      if(!totalAkumulasi.has(node)){ totalAkumulasi.set(node, {total:0, terpajang:0, 
+                                                               belum:0}); }
       const g = totalAkumulasi.get(node);
       g.total += dayData.nodes[node].total;
       g.terpajang += dayData.nodes[node].terpajang;
@@ -2021,7 +2016,7 @@ const start = dateStart.value;
     const pctB = g.total > 0? (g.belum/g.total*100).toFixed(1) : 0;
     return `
       <div class="summary-card">
-        <div class="kat">${node}</div>
+        <div class="kat">Per Node</div>
         <div class="total blue">${fmtNum(g.total)} SKU</div>
         <div class="row"><span>%Terpajang:</span><span class="green">${pctT}%</span></div>
         <div class="row"><span>%Belum:</span><span class="purple">${pctB}%</span></div>
@@ -2103,8 +2098,7 @@ function initData(data, saveData=true){
   
   dataNAOS = rawData.filter(r=> r.replen > 1 && r.sales === 0);
   dataOOS = rawData.filter(r=> r.replen === 0 && r.sales === 0);
-  if(saveData){ localStorage.setItem(LS
-                                     stringify(rawData)); }
+  if(saveData){ localStorage.setItem(LS_DATA, JSON.stringify(rawData)); }
   buildNodeDropdown();
   updateNodeBtnText();
   updateModalCheckbox();
@@ -2228,7 +2222,8 @@ function renderSummary(){
     if(r.replen > 1 && r.sales === 0) g.naos++;
     if(r.replen === 0 && r.sales === 0) g.oos++;
     if(r.area_chk) g.terpajang++;
-    if(r.gudang_chk) g.belum++;
+    if(r.gudang_chk) 
+      g.belum++;
   });
   const cards = Array.from(grouped.keys()).sort().map(node=>{
     const g = grouped.get(node);
@@ -2254,8 +2249,7 @@ function renderAll(){
   if(selectedNodes.length > 0){
     baseData = baseData.filter(r => selectedNodes.includes(r.node));
   }
-  let filteredData = base
-    Data;
+  let filteredData = baseData;
   if(currentCheck === 'area'){ filteredData = baseData.filter(r => r.area_chk === true); }
   else if(currentCheck === 'gudang'){ filteredData = baseData.filter(r => r.gudang_chk === true); }
   const totalTerpajang = rawData.filter(r => r.area_chk).length;
@@ -2296,9 +2290,6 @@ function renderAll(){
 }
 function go(p){page=p;renderAll();}
 /* ====== SCRIPT KODE 2 SELESAI ====== */
-</script>
-<script>
-(function(){ var _origSwitchMainTab = window.switchMainTab; window.switchMainTab = function(tab){ if(tab==='isc'){ document.querySelectorAll('.main-tab-btn').forEach(function(b){b.classList.remove('active')}); document.querySelectorAll('.tab-page').forEach(function(p){p.classList.remove('active')}); document.querySelector('.main-tab-btn:nth-child(4)').classList.add('active'); document.getElementById('iscPage').classList.add('active'); return; } return _origSwitchMainTab(tab); }; })();
 </script>
 </body>
 </html>
