@@ -36,17 +36,6 @@
   td:first-child{background:#fff;font-weight:600}
   tr.total td{background:#fef9c3;font-weight:800}
   tr.total td:first-child{background:#fef9c3}
-  /* === FREEZE 3 KOLOM === */
-  th.col-kat, td.col-kat{position:sticky;left:0;z-index:6;min-width:150px;max-width:210px;text-align:left;overflow:hidden;text-overflow:ellipsis}
-  th.col-kat{background:#0f172a;z-index:20}
-  td.col-kat{background:#fff;font-weight:600;box-shadow:2px 0 0 #e2e8f0}
-  tr.total td.col-kat{background:#fef9c3}
-  th.col-target, td.col-target{position:sticky;right:0;z-index:6;background:#fef3c7;min-width:110px;box-shadow:-2px 0 0 #e2e8f0}
-  th.col-target{background:#b45309;z-index:20}
-  tr.total td.col-target{background:#fef9c3}
-  th.col-totly, td.col-totly{position:sticky;right:110px;z-index:6;background:#e0e7ff;min-width:110px;box-shadow:-2px 0 0 #e2e8f0}
-  th.col-totly{background:#3730a3;z-index:20}
-  tr.total td.col-totly{background:#fef9c3}
 </style>
 </head>
 <body>
@@ -74,18 +63,20 @@
         <button onclick="hapusSemua()" style="background:#e2e8f0">Hapus Semua</button>
         <button onclick="pilih123()" style="background:#e2e8f0">Pilih 1,2,3 Saja</button>
         <button onclick="loadData()" style="background:#16a34a;color:#fff">🔄 Refresh Data</button>
+        <button onclick="resetSemua()" style="background:#dc2626;color:#fff">🗑️ Reset</button>
       </div>
     </div>
   </div>
   <div class="table-wrap" style="padding:10px">
     <div class="table-head"><b>Tabel Target</b><button class="dl-btn" onclick="downloadExcel()">⬇️ Download Excel</button></div>
-    <table><thead><tr id="headRow"><th class="col-kat">KATEGORI</th></tr></thead><tbody id="bodyRow"></tbody></table>
+    <table><thead><tr id="headRow"><th>KATEGORI</th></tr></thead><tbody id="bodyRow"></tbody></table>
   </div>
 </div>
 <script>
 window.onerror = function(msg){ var e=document.getElementById("errBox"); e.style.display="block"; e.textContent="ERROR: "+msg; };
 const PUB_ID = "2PACX-1vTpzRDynmPCu-45xxUm--KXetDnU3DE3Dvb3nv2A4plqHPPItNWO9bjIvzcTyPuifcMIbDWOWGreb2t";
 const CSV1 = "https://docs.google.com/spreadsheets/d/e/" + PUB_ID + "/pub?gid=0&single=true&output=csv";
+// PROXY JADI JALUR UTAMA BIAR TEMBUS
 const CSV_PROXY = "https://api.allorigins.win/raw?url=" + encodeURIComponent(CSV1);
 const URLS = [CSV_PROXY, CSV1];
 let DATA=[], TOTAL_PER_TGL=[], AH24=0;
@@ -109,6 +100,7 @@ function loadCache(){
 }
 function saveUp(){ try{ localStorage.setItem("tf_up",document.getElementById("upTarget").value); }catch(e){} }
 function saveSelected(){ try{ localStorage.setItem("tf_selected",JSON.stringify([...selected])); }catch(e){} }
+function resetSemua(){ try{ localStorage.clear(); }catch(e){} location.reload(); }
 function parseCSV(text){
   const rows=[]; let row=[], val="", inQ=false;
   for(let i=0;i<text.length;i++){ const c=text[i], n=text[i+1];
@@ -191,12 +183,12 @@ function hitung(){
   const up=parseFloat(document.getElementById("upTarget").value)||0; const tgls=[...selected].sort((a,b)=>a-b);
   let ly=0; tgls.forEach(d=> ly+=TOTAL_PER_TGL[d-1]||0); const target=ly*(1+up/100);
   document.getElementById("lyVal").textContent=fmt(ly); document.getElementById("targetVal").textContent=fmt(target);
-  const head=document.getElementById("headRow"); head.innerHTML="<th class='col-kat'>KATEGORI</th>"; tgls.forEach(d=> head.innerHTML+="<th>"+d+"</th>"); head.innerHTML+="<th class='col-totly'>TOTAL LY</th><th class='col-target'>TARGET</th>";
+  const head=document.getElementById("headRow"); head.innerHTML="<th>KATEGORI</th>"; tgls.forEach(d=> head.innerHTML+="<th>"+d+"</th>"); head.innerHTML+="<th>TOTAL LY</th><th>TARGET</th>";
   const body=document.getElementById("bodyRow"); body.innerHTML="";
   DATA.forEach(function(item){ const nama=item[0], arr=item[1]; let sum=0; tgls.forEach(d=> sum+=arr[d-1]||0); const tgt=sum*(1+up/100);
-    let row="<tr><td class='col-kat'>"+nama+"</td>"; tgls.forEach(d=> row+="<td>"+(arr[d-1]||0).toLocaleString("id-ID")+"</td>"); row+="<td class='col-totly'><b>"+sum.toLocaleString("id-ID")+"</b></td><td class='col-target'><b>"+Math.round(tgt).toLocaleString("id-ID")+"</b></td></tr>"; body.innerHTML+=row; });
-  let rowTotal="<tr class='total'><td class='col-kat'>TOTAL ALL CATEGORY</td>"; tgls.forEach(d=> rowTotal+="<td>"+(TOTAL_PER_TGL[d-1]||0).toLocaleString("id-ID")+"</td>"); rowTotal+="<td class='col-totly'>"+ly.toLocaleString("id-ID")+"</td><td class='col-target'>"+Math.round(target).toLocaleString("id-ID")+"</td></tr>"; body.innerHTML+=rowTotal;
-  body.innerHTML+="<tr><td class='col-kat'>AH24 - TOTAL SEBULAN (1-31)</td><td colspan='"+tgls.length+"' style='text-align:center'>Full sebulan</td><td class='col-totly'>"+AH24.toLocaleString("id-ID")+"</td><td class='col-target'>"+Math.round(AH24*(1+up/100)).toLocaleString("id-ID")+"</td></tr>";
+    let row="<tr><td>"+nama+"</td>"; tgls.forEach(d=> row+="<td>"+(arr[d-1]||0).toLocaleString("id-ID")+"</td>"); row+="<td><b>"+sum.toLocaleString("id-ID")+"</b></td><td><b>"+Math.round(tgt).toLocaleString("id-ID")+"</b></td></tr>"; body.innerHTML+=row; });
+  let rowTotal="<tr class='total'><td>TOTAL ALL CATEGORY</td>"; tgls.forEach(d=> rowTotal+="<td>"+(TOTAL_PER_TGL[d-1]||0).toLocaleString("id-ID")+"</td>"); rowTotal+="<td>"+ly.toLocaleString("id-ID")+"</td><td>"+Math.round(target).toLocaleString("id-ID")+"</td></tr>"; body.innerHTML+=rowTotal;
+  body.innerHTML+="<tr><td>AH24 - TOTAL SEBULAN (1-31)</td><td colspan='"+tgls.length+"' style='text-align:center'>Full sebulan</td><td>"+AH24.toLocaleString("id-ID")+"</td><td>"+Math.round(AH24*(1+up/100)).toLocaleString("id-ID")+"</td></tr>";
 }
 loadCache();
 loadData();
