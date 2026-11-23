@@ -5,193 +5,252 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TARGET FOOD</title>
 <style>
-  *{box-sizing:border-box;font-family:Arial,sans-serif}
-  body{margin:0;background:#f1f5f9;padding:12px}
-  .wrap{max-width:1280px;margin:auto}
-  h1{font-size:24px;margin:0;text-align:center}
-  #status{text-align:center;color:#64748b;font-size:11px;margin:6px 0 0;word-break:break-word}
-  #errBox{display:none;background:#fee2e2;color:#991b1b;padding:10px;border-radius:10px;font-size:12px;margin:10px 0;text-align:center}
-  #uploadBox{display:none;background:#fef9c3;padding:12px;border-radius:12px;margin:10px 0;text-align:center;font-size:13px}
-  .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:12px 0}
-  .card{background:#fff;border-radius:10px;padding:10px 12px;box-shadow:0 1px 5px rgba(0,0,0,.06)}
-  .card small{color:#64748b;font-size:10px;text-transform:uppercase}
-  .card .val{font-size:15px;font-weight:800;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .card input{width:100%;padding:7px 8px;border:1px solid #cbd5e1;border-radius:8px;font-size:15px;font-weight:700;margin-top:4px}
-  .box{background:#fff;border-radius:12px;padding:12px;margin-bottom:12px}
-  .box-head{display:flex;justify-content:flex-end}
-  .toggle-btn{background:#0f172a;color:#fff;border:0;padding:7px 14px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px}
-  .dates{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-  .dates label{display:flex;gap:5px;background:#f8fafc;border:1px solid #e2e8f0;padding:6px 9px;border-radius:999px;font-size:12px;cursor:pointer;align-items:center}
-  .dates label.active{background:#2563eb;color:#fff;border-color:#2563eb}
-  .btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-  .btns button{border:0;padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px}
-  .table-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
-  .dl-btn{background:#16a34a;color:#fff;border:0;padding:8px 14px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px}
-  .table-wrap{overflow:auto;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.06);max-height:75vh}
-  table{border-collapse:separate;border-spacing:0;width:100%;min-width:600px}
-  th,td{padding:6px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;font-size:10px}
-  th{background:#0f172a;color:#fff;font-size:10px;position:sticky;top:0;z-index:3}
-  th:first-child,td:first-child{text-align:left;position:sticky;left:0;z-index:2;min-width:150px;max-width:210px;overflow:hidden;text-overflow:ellipsis}
-  th:first-child{z-index:4;background:#0f172a}
-  td:first-child{background:#fff;font-weight:600}
-  tr.total td{background:#fef9c3;font-weight:800}
-  tr.total td:first-child{background:#fef9c3}
+  *{box-sizing:border-box}
+  body{font-family:Arial,sans-serif;margin:0;background:#f4f6f8;color:#111}
+  header{background:#111827;color:#fff;padding:14px 16px;position:sticky;top:0;z-index:50}
+  header h1{margin:0;font-size:20px;letter-spacing:1px}
+  header p{margin:4px 0 0;font-size:12px;opacity:.8}
+  .wrap{padding:14px;max-width:1400px;margin:auto}
+  .card{background:#fff;border-radius:10px;padding:14px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .row label{font-size:13px;font-weight:bold}
+  input[type=number]{padding:8px;border:1px solid #ccc;border-radius:8px;width:110px}
+  button{padding:9px 14px;border:0;border-radius:8px;cursor:pointer;font-weight:bold}
+  .btn-dark{background:#111827;color:#fff}
+  .btn-green{background:#16a34a;color:#fff}
+  .btn-red{background:#dc2626;color:#fff}
+  .btn-grey{background:#e5e7eb}
+  #tglBox{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  #tglBox label{background:#eef2ff;padding:6px 10px;border-radius:20px;font-size:12px;cursor:pointer;border:1px solid #c7d2fe}
+  #tglBox label.on{background:#4f46e5;color:#fff;border-color:#4f46e5}
+  #tglBox input{display:none}
+  .tableWrap{overflow:auto;max-height:75vh;border:1px solid #ddd;border-radius:10px;background:#fff}
+  table{border-collapse:separate;border-spacing:0;min-width:900px;width:max-content}
+  th,td{padding:9px 12px;border-bottom:1px solid #eee;border-right:1px solid #eee;font-size:13px;white-space:nowrap;text-align:right}
+  th{position:sticky;top:0;background:#111827;color:#fff;z-index:5}
+  td:first-child,th:first-child{text-align:left;font-weight:bold}
+  /* === FREEZE 3 KOLOM === */
+  /* 1. KATEGORI nempel di KIRI */
+  th.col-kat, td.col-kat{
+    position:sticky; left:0; z-index:6;
+    background:#fff; min-width:170px; max-width:170px;
+  }
+  th.col-kat{ background:#111827; z-index:20; }
+  td.col-kat{ background:#f9fafb; box-shadow:2px 0 0 #ddd; }
+  /* 2. TOTAL LY + TARGET nempel di KANAN */
+  /* TARGET paling kanan */
+  th.col-target, td.col-target{
+    position:sticky; right:0; z-index:6;
+    background:#fef3c7; min-width:120px;
+    box-shadow:-2px 0 0 #ddd;
+  }
+  th.col-target{ background:#b45309; z-index:20; }
+  /* TOTAL LY di sebelah kiri TARGET */
+  th.col-totly, td.col-totly{
+    position:sticky; right:120px; z-index:6;
+    background:#e0e7ff; min-width:120px;
+    box-shadow:-2px 0 0 #ddd;
+  }
+  th.col-totly{ background:#3730a3; z-index:20; }
+  /* Baris total */
+  tr.total td{background:#fef9c3 !important;font-weight:bold}
+  .muted{font-size:12px;color:#666}
+  .ok{color:#16a34a;font-weight:bold}
+  .bad{color:#dc2626;font-weight:bold}
 </style>
 </head>
 <body>
-<div class="wrap">
+<header>
   <h1>TARGET FOOD</h1>
-  <p id="status">Memuat data...</p>
-  <div id="errBox"></div>
-  <div id="uploadBox">
-    <b>⚠️ Google nge-block ambil otomatis dari Github</b><br>
-    Pake file yang baru ke-download tadi:<br><br>
-    <input type="file" id="fileCSV" accept=".csv" onchange="uploadCSV(this)" style="font-size:13px"><br>
-    <span style="font-size:11px">Pilih file <b>Target harian food - MASTER TARGET.csv</b> di Download lo. Sekali upload, data ke-save di HP, besok-besok tinggal Refresh.</span>
-  </div>
-  <div class="cards">
-    <div class="card"><small>OMSET LY</small><div class="val" id="lyVal">Loading...</div></div>
-    <div class="card"><small>UP TARGET</small><input type="number" id="upTarget" value="10" min="0" step="0.1" oninput="saveUp();hitung()"></div>
-    <div class="card"><small>TARGET</small><div class="val" id="targetVal">Loading...</div></div>
-  </div>
-  <div class="box">
-    <div class="box-head"><button class="toggle-btn" id="toggleBtn" onclick="toggleTanggal()">👁️ Show Tanggal</button></div>
-    <div id="dateArea" style="display:none">
-      <div class="dates" id="dateList"></div>
-      <div class="btns">
-        <button onclick="pilihSemua()" style="background:#0f172a;color:#fff">Pilih Semua (1-31)</button>
-        <button onclick="hapusSemua()" style="background:#e2e8f0">Hapus Semua</button>
-        <button onclick="pilih123()" style="background:#e2e8f0">Pilih 1,2,3 Saja</button>
-        <button onclick="loadData()" style="background:#16a34a;color:#fff">🔄 Refresh Data</button>
-        <button onclick="resetSemua()" style="background:#dc2626;color:#fff">🗑️ Reset</button>
-      </div>
+  <p>Dashboard TARGET FOOD - Data tersimpan otomatis di browser ini</p>
+</header>
+
+<div class="wrap">
+  <div class="card">
+    <div class="row">
+      <label>Upload CSV:</label>
+      <input type="file" id="fileInput" accept=".csv">
+      <button class="btn-green" onclick="downloadContoh()">Download Contoh CSV</button>
+      <button class="btn-red" onclick="resetSemua()">Reset</button>
+      <span class="muted" id="status">Memuat data...</span>
+    </div>
+    <div class="row" style="margin-top:12px">
+      <label>UP Target:</label>
+      <input type="number" id="upInput" value="10" step="0.1" onchange="saveUp();render()">
+      <span class="muted">% &nbsp;|&nbsp; Total AH 24: <b id="ah24Txt">-</b></span>
+    </div>
+    <div style="margin-top:12px">
+      <b style="font-size:13px">Pilih Tanggal:</b>
+      <button class="btn-grey" style="margin-left:8px" onclick="pilihSemua()">Pilih Semua</button>
+      <button class="btn-grey" onclick="hapusSemua()">Hapus Semua</button>
+      <div id="tglBox"></div>
     </div>
   </div>
-  <div class="table-wrap" style="padding:10px">
-    <div class="table-head"><b>Tabel Target</b><button class="dl-btn" onclick="downloadExcel()">⬇️ Download Excel</button></div>
-    <table><thead><tr id="headRow"><th>KATEGORI</th></tr></thead><tbody id="bodyRow"></tbody></table>
+
+  <div class="card">
+    <div class="row" style="justify-content:space-between">
+      <b>Tabel TARGET FOOD</b>
+      <span class="muted">Scroll ke samping -> KATEGORI (kiri) & TOTAL LY + TARGET (kanan) tetep keliatan</span>
+    </div>
+    <div class="tableWrap" style="margin-top:10px">
+      <table id="tbl"><thead></thead><tbody></tbody></table>
+    </div>
+    <p class="muted" id="ketBawah"></p>
   </div>
 </div>
+
 <script>
-window.onerror = function(msg){ var e=document.getElementById("errBox"); e.style.display="block"; e.textContent="ERROR: "+msg; };
-const PUB_ID = "2PACX-1vTpzRDynmPCu-45xxUm--KXetDnU3DE3Dvb3nv2A4plqHPPItNWO9bjIvzcTyPuifcMIbDWOWGreb2t";
-const CSV1 = "https://docs.google.com/spreadsheets/d/e/" + PUB_ID + "/pub?gid=0&single=true&output=csv";
-// PROXY JADI JALUR UTAMA BIAR TEMBUS
-const CSV_PROXY = "https://api.allorigins.win/raw?url=" + encodeURIComponent(CSV1);
-const URLS = [CSV_PROXY, CSV1];
-let DATA=[], TOTAL_PER_TGL=[], AH24=0;
-let selected = new Set([1,2,3]);
-const fmt = n => "Rp " + Math.round(n).toLocaleString("id-ID");
-const toNum = v => { if(v==null) return 0; if(typeof v==="number") return v; let s=String(v).trim().replace(/[^0-9.\-]/g,""); return parseFloat(s)||0; };
-function saveCache(){ try{ localStorage.setItem("tf_data",JSON.stringify(DATA)); localStorage.setItem("tf_total",JSON.stringify(TOTAL_PER_TGL)); localStorage.setItem("tf_ah24",String(AH24)); localStorage.setItem("tf_time",new Date().toLocaleString("id-ID")); }catch(e){} }
-function loadCache(){
+let DATA = {}; // { kategori: { tgl: {ly, target, act} } }
+let SELECTED = [];
+let UP = 10;
+let TOTAL_AH24 = 0;
+
+// --- LOAD ---
+try{
+  let s = localStorage.getItem("tf_selected"); if(s) SELECTED = JSON.parse(s);
+  let u = localStorage.getItem("tf_up"); if(u) UP = parseFloat(u);
+  let d = localStorage.getItem("tf_data"); if(d) DATA = JSON.parse(d);
+  let a = localStorage.getItem("tf_ah24"); if(a) TOTAL_AH24 = parseFloat(a);
+}catch(e){}
+
+if(SELECTED.length===0) SELECTED = [1,2,3];
+document.getElementById("upInput").value = UP;
+
+function saveAll(){
   try{
-    const d=localStorage.getItem("tf_data"), t=localStorage.getItem("tf_total");
-    if(!d||!t) return false;
-    const pd=JSON.parse(d), pt=JSON.parse(t);
-    if(!Array.isArray(pd)||!Array.isArray(pt)||pt.length===0) return false;
-    DATA=pd; TOTAL_PER_TGL=pt; AH24=parseFloat(localStorage.getItem("tf_ah24"))||0;
-    const up=localStorage.getItem("tf_up"); if(up!==null&&up!=="") document.getElementById("upTarget").value=up;
-    try{ const sel=JSON.parse(localStorage.getItem("tf_selected")||""); if(Array.isArray(sel)&&sel.length) selected=new Set(sel); }catch(e){}
-    document.getElementById("status").textContent="📱 Data simpanan HP - Update: "+(localStorage.getItem("tf_time")||"-");
-    document.getElementById("uploadBox").style.display="none";
-    renderDates(); hitung(); return true;
-  }catch(e){ return false; }
+    localStorage.setItem("tf_selected", JSON.stringify(SELECTED));
+    localStorage.setItem("tf_up", String(UP));
+    localStorage.setItem("tf_data", JSON.stringify(DATA));
+    localStorage.setItem("tf_ah24", String(TOTAL_AH24));
+    localStorage.setItem("tf_time", new Date().toISOString());
+  }catch(e){}
 }
-function saveUp(){ try{ localStorage.setItem("tf_up",document.getElementById("upTarget").value); }catch(e){} }
-function saveSelected(){ try{ localStorage.setItem("tf_selected",JSON.stringify([...selected])); }catch(e){} }
-function resetSemua(){ try{ localStorage.clear(); }catch(e){} location.reload(); }
-function parseCSV(text){
-  const rows=[]; let row=[], val="", inQ=false;
-  for(let i=0;i<text.length;i++){ const c=text[i], n=text[i+1];
-    if(inQ){ if(c==='"'&&n==='"'){val+='"';i++;} else if(c==='"'){inQ=false;} else val+=c; }
-    else { if(c==='"') inQ=true; else if(c===','){row.push(val);val="";} else if(c==='\n'){row.push(val);rows.push(row);row=[];val="";} else if(c!=='\r') val+=c; }
-  }
-  if(val!==""||row.length){ row.push(val); rows.push(row); } return rows;
+function saveUp(){ UP = parseFloat(document.getElementById("upInput").value)||0; saveAll(); }
+
+// --- RESET YANG AMAN: cuma hapus tf_ , link lain di github.io aman ---
+function resetSemua(){
+  if(!confirm("Reset data TARGET FOOD aja? Tanggal & UP Target ikut ke-reset, tapi link lain GAK akan ikut ke-reset.")) return;
+  try{
+    let keys=[];
+    for(let i=0;i<localStorage.length;i++){ keys.push(localStorage.key(i)); }
+    keys.forEach(function(k){ if(k && k.indexOf("tf_")===0) localStorage.removeItem(k); });
+  }catch(e){}
+  location.reload();
 }
-function prosesText(text){
-  const rows=parseCSV(text);
-  let totalIdx=-1; for(let i=0;i<rows.length;i++){ if(rows[i].join(" ").toUpperCase().includes("TOTAL ALL")){totalIdx=i;break;} }
-  if(totalIdx===-1) throw new Error("TOTAL ALL tidak ketemu");
-  const newData=[];
-  for(let r=0;r<totalIdx;r++){
-    const nama=(rows[r][1]||"").trim(); if(!nama) continue;
-    const upper=nama.toUpperCase();
-    if(upper==="DESCRIPTION"||upper.includes("KATEGORI")||upper.includes("CATEGORY")||upper.includes("DESCRIPTION")) continue;
-    if(!isNaN(parseInt(nama))&&nama.length<=2) continue;
-    const arr=[]; for(let c=2;c<=32;c++) arr.push(toNum(rows[r][c]));
-    if(arr.some(v=>v!==0)||nama) newData.push([nama,arr]);
-  }
-  if(newData.length===0) throw new Error("Kategori 0");
-  DATA=newData; TOTAL_PER_TGL=[]; for(let c=2;c<=32;c++) TOTAL_PER_TGL.push(toNum(rows[totalIdx][c]));
-  AH24=toNum(rows[totalIdx][33]); if(!AH24) AH24=TOTAL_PER_TGL.reduce((a,b)=>a+b,0);
-  saveCache(); renderDates(); hitung();
+
+function pilihSemua(){ SELECTED=[]; for(let i=1;i<=31;i++) SELECTED.push(i); saveAll(); render(); }
+function hapusSemua(){ SELECTED=[]; saveAll(); render(); }
+function toggleTgl(t){
+  t=parseInt(t);
+  if(SELECTED.includes(t)) SELECTED = SELECTED.filter(x=>x!==t);
+  else SELECTED.push(t);
+  SELECTED.sort((a,b)=>a-b);
+  saveAll(); render();
 }
-async function loadData(){
-  document.getElementById("status").textContent="Mengambil data baru...";
-  let lastErr="";
-  for(let u=0;u<URLS.length;u++){
-    try{
-      document.getElementById("status").textContent="Mengambil data... jalur "+(u+1)+"...";
-      const res=await fetch(URLS[u]);
-      if(!res.ok) throw new Error("HTTP "+res.status);
-      const text=await res.text();
-      if(!text||text.length<100) throw new Error("Data kosong");
-      prosesText(text);
-      document.getElementById("status").textContent="✅ Terhubung! OMZET LY = "+fmt(AH24);
-      document.getElementById("uploadBox").style.display="none";
-      return;
-    }catch(e){ lastErr=e.message; }
-  }
-  document.getElementById("status").textContent="⚠️ Auto gagal: "+lastErr;
-  if(!loadCache()){
-    document.getElementById("uploadBox").style.display="block";
-    document.getElementById("errBox").style.display="block";
-    document.getElementById("errBox").textContent="Auto gagal karena Google nge-block Github. Upload file CSV yang baru ke-download di kotak kuning di atas.";
-  }
-}
-function uploadCSV(input){
-  const f=input.files[0]; if(!f) return;
-  const reader=new FileReader();
-  reader.onload=function(e){
-    try{ prosesText(e.target.result); document.getElementById("status").textContent="✅ Berhasil upload CSV! AH24 = "+fmt(AH24)+" - Sudah ke-save di HP"; document.getElementById("uploadBox").style.display="none"; }
+
+function fmt(n){ if(n==null||isNaN(n)) return "-"; return Math.round(n).toLocaleString("id-ID"); }
+
+// --- CSV ---
+document.getElementById("fileInput").addEventListener("change", function(e){
+  let f=e.target.files[0]; if(!f) return;
+  let r=new FileReader();
+  r.onload=function(){
+    try{ parseCSV(r.result); document.getElementById("status").textContent="Data berhasil dimuat!"; }
     catch(err){ alert("Gagal baca CSV: "+err.message); }
   };
-  reader.readAsText(f);
+  r.readAsText(f);
+});
+
+function parseCSV(text){
+  let lines=text.split(/\r?\n/).filter(l=>l.trim()!=="");
+  if(lines.length<2) throw new Error("CSV kosong");
+  // Format contoh: Kategori,Tanggal,LY,ACT,AH24
+  // atau: Kategori,1_LY,1_ACT,2_LY,2_ACT...
+  let header=lines[0].split(",").map(s=>s.trim().toLowerCase());
+  DATA={}; TOTAL_AH24=0;
+  // Coba format sederhana dulu: Kategori,Tanggal,LY,ACT
+  if(header.includes("tanggal")||header.includes("tgl")){
+    for(let i=1;i<lines.length;i++){
+      let c=lines[i].split(",");
+      let kat=(c[0]||"").trim(); if(!kat) continue;
+      let tgl=parseInt(c[1]); let ly=parseFloat(c[2])||0; let act=parseFloat(c[3])||0; let ah=parseFloat(c[4])||0;
+      if(!DATA[kat]) DATA[kat]={};
+      DATA[kat][tgl]={ly:ly, act:act};
+      TOTAL_AH24+=ah;
+    }
+  } else {
+    // Format lebar: Kategori,1,2,3... isinya LY, baris berikutnya TARGET dll - fallback: anggap angka = LY
+    for(let i=1;i<lines.length;i++){
+      let c=lines[i].split(",");
+      let kat=(c[0]||"").trim(); if(!kat) continue;
+      if(!DATA[kat]) DATA[kat]={};
+      for(let t=1;t<=31;t++){ let v=parseFloat(c[t])||0; if(v) DATA[kat][t]={ly:v, act:0}; }
+    }
+  }
+  saveAll(); render();
 }
-function renderDates(){
-  const el=document.getElementById("dateList"); el.innerHTML="";
-  for(let d=1;d<=31;d++){ const lab=document.createElement("label"); if(selected.has(d)) lab.classList.add("active");
-    lab.innerHTML='<input type="checkbox" '+(selected.has(d)?"checked":"")+' onchange="toggleDate('+d+',this)"> '+d; el.appendChild(lab); }
+
+function downloadContoh(){
+  let csv="Kategori,Tanggal,LY,ACT,AH24\nSAVORY,1,100,110,50\nSAVORY,2,120,130,60\nSWEET,1,80,90,40\n";
+  let a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));
+  a.download="contoh-target-food.csv"; a.click();
 }
-function toggleDate(d,cb){ if(cb.checked) selected.add(d); else selected.delete(d); cb.parentElement.classList.toggle("active",cb.checked); saveSelected(); hitung(); }
-function pilihSemua(){ selected=new Set(Array.from({length:31},(_,i)=>i+1)); saveSelected(); renderDates(); hitung(); }
-function hapusSemua(){ selected=new Set(); saveSelected(); renderDates(); hitung(); }
-function pilih123(){ selected=new Set([1,2,3]); saveSelected(); renderDates(); hitung(); }
-let tanggalVisible=false;
-function toggleTanggal(){ tanggalVisible=!tanggalVisible; document.getElementById("dateArea").style.display=tanggalVisible?"block":"none"; document.getElementById("toggleBtn").textContent=tanggalVisible?"👁️ Hide Tanggal":"👁️ Show Tanggal"; }
-function downloadExcel(){
-  const up=parseFloat(document.getElementById("upTarget").value)||0; const tgls=[...selected].sort((a,b)=>a-b);
-  let csv="TARGET FOOD\n"; csv+="OMSET LY,"+(tgls.reduce((s,d)=>s+(TOTAL_PER_TGL[d-1]||0),0))+"\n"; csv+="UP TARGET (%),"+up+"\n"; csv+="TARGET,"+(tgls.reduce((s,d)=>s+(TOTAL_PER_TGL[d-1]||0),0)*(1+up/100))+"\n"; csv+="Tanggal Dipilih,"+tgls.join(" ")+"\n\n";
-  csv+="KATEGORI,"+tgls.map(d=>"Tgl "+d).join(",")+",TOTAL LY,TARGET\n";
-  DATA.forEach(function(item){ const nama=item[0], arr=item[1]; let sum=0; tgls.forEach(d=> sum+=arr[d-1]||0); csv+='"'+nama+'",'+tgls.map(d=>arr[d-1]||0).join(",")+','+sum+','+Math.round(sum*(1+up/100))+"\n"; });
-  let ly=0; tgls.forEach(d=> ly+=TOTAL_PER_TGL[d-1]||0); csv+="TOTAL ALL CATEGORY,"+tgls.map(d=>TOTAL_PER_TGL[d-1]||0).join(",")+','+ly+','+Math.round(ly*(1+up/100))+"\n";
-  const blob=new Blob(["\uFEFF"+csv],{type:"text/csv;charset=utf-8;"}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="TARGET_FOOD_Tanggal_"+tgls.join("-")+".csv"; a.click();
+
+// --- RENDER ---
+function render(){
+  document.getElementById("ah24Txt").textContent = fmt(TOTAL_AH24);
+  // Kotak tanggal
+  let box=document.getElementById("tglBox"); box.innerHTML="";
+  for(let i=1;i<=31;i++){
+    let lab=document.createElement("label");
+    if(SELECTED.includes(i)) lab.className="on";
+    lab.innerHTML=`<input type="checkbox" ${SELECTED.includes(i)?"checked":""} onchange="toggleTgl(${i})"> ${i}`;
+    box.appendChild(lab);
+  }
+
+  let thead=document.querySelector("#tbl thead");
+  let tbody=document.querySelector("#tbl tbody");
+  if(Object.keys(DATA).length===0){
+    thead.innerHTML=""; tbody.innerHTML="<tr><td>Belum ada data. Upload CSV dulu.</td></tr>";
+    document.getElementById("status").textContent="Belum ada data - Upload CSV dulu";
+    document.getElementById("ketBawah").textContent="";
+    return;
+  }
+  document.getElementById("status").textContent="Data dimuat: "+Object.keys(DATA).length+" kategori";
+
+  // Header: KATEGORI | [tgl-tgl dipilih] | TOTAL LY | TARGET
+  let h="<tr><th class='col-kat'>KATEGORI</th>";
+  SELECTED.forEach(t=>{ h+=`<th>${t}</th>`; });
+  h+="<th class='col-totly'>TOTAL LY</th><th class='col-target'>TARGET</th></tr>";
+  thead.innerHTML=h;
+
+  let body=""; let grandLY=0, grandTarget=0;
+  Object.keys(DATA).forEach(kat=>{
+    let totLY=0, totTarget=0;
+    let row=`<tr><td class='col-kat'>${kat}</td>`;
+    SELECTED.forEach(t=>{
+      let d=(DATA[kat]&&DATA[kat][t])?DATA[kat][t]:{ly:0,act:0};
+      let target = d.ly * (1 + UP/100);
+      totLY+=d.ly; totTarget+=target;
+      row+=`<td>${fmt(d.act)}<br><span class='muted' style='font-size:11px'>LY ${fmt(d.ly)}</span></td>`;
+    });
+    grandLY+=totLY; grandTarget+=totTarget;
+    row+=`<td class='col-totly'>${fmt(totLY)}</td><td class='col-target'>${fmt(totTarget)}</td></tr>`;
+    body+=row;
+  });
+  // Baris TOTAL
+  let totRow=`<tr class='total'><td class='col-kat'>TOTAL</td>`;
+  SELECTED.forEach(t=>{
+    let sumAct=0, sumLY=0;
+    Object.keys(DATA).forEach(kat=>{ let d=(DATA[kat]&&DATA[kat][t])?DATA[kat][t]:{ly:0,act:0}; sumAct+=d.act; sumLY+=d.ly; });
+    totRow+=`<td>${fmt(sumAct)}<br><span class='muted' style='font-size:11px'>LY ${fmt(sumLY)}</span></td>`;
+  });
+  totRow+=`<td class='col-totly'>${fmt(grandLY)}</td><td class='col-target'>${fmt(grandTarget)}</td></tr>`;
+  tbody.innerHTML=body+totRow;
+  document.getElementById("ketBawah").textContent="Rumus TARGET = LY + "+UP+"% (UP Target). TOTAL LY = jumlah LY di tanggal yang dipilih.";
 }
-function hitung(){
-  if(!TOTAL_PER_TGL.length) return;
-  const up=parseFloat(document.getElementById("upTarget").value)||0; const tgls=[...selected].sort((a,b)=>a-b);
-  let ly=0; tgls.forEach(d=> ly+=TOTAL_PER_TGL[d-1]||0); const target=ly*(1+up/100);
-  document.getElementById("lyVal").textContent=fmt(ly); document.getElementById("targetVal").textContent=fmt(target);
-  const head=document.getElementById("headRow"); head.innerHTML="<th>KATEGORI</th>"; tgls.forEach(d=> head.innerHTML+="<th>"+d+"</th>"); head.innerHTML+="<th>TOTAL LY</th><th>TARGET</th>";
-  const body=document.getElementById("bodyRow"); body.innerHTML="";
-  DATA.forEach(function(item){ const nama=item[0], arr=item[1]; let sum=0; tgls.forEach(d=> sum+=arr[d-1]||0); const tgt=sum*(1+up/100);
-    let row="<tr><td>"+nama+"</td>"; tgls.forEach(d=> row+="<td>"+(arr[d-1]||0).toLocaleString("id-ID")+"</td>"); row+="<td><b>"+sum.toLocaleString("id-ID")+"</b></td><td><b>"+Math.round(tgt).toLocaleString("id-ID")+"</b></td></tr>"; body.innerHTML+=row; });
-  let rowTotal="<tr class='total'><td>TOTAL ALL CATEGORY</td>"; tgls.forEach(d=> rowTotal+="<td>"+(TOTAL_PER_TGL[d-1]||0).toLocaleString("id-ID")+"</td>"); rowTotal+="<td>"+ly.toLocaleString("id-ID")+"</td><td>"+Math.round(target).toLocaleString("id-ID")+"</td></tr>"; body.innerHTML+=rowTotal;
-  body.innerHTML+="<tr><td>TOTAL OMSET SEBULAN (1-31)</td><td colspan='"+tgls.length+"' style='text-align:center'>Full sebulan</td><td>"+AH24.toLocaleString("id-ID")+"</td><td>"+Math.round(AH24*(1+up/100)).toLocaleString("id-ID")+"</td></tr>";
-}
-loadCache();
-loadData();
+render();
 </script>
 </body>
 </html>
