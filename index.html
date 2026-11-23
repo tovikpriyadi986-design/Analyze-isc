@@ -3,59 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DASHBOARD OMSET - LIVE GOOGLE SHEET</title>
+<title>TARGET FOOD</title>
 <style>
   *{box-sizing:border-box;font-family:Arial,sans-serif}
   body{margin:0;background:#f1f5f9;padding:16px}
   .wrap{max-width:1280px;margin:auto}
-  h1{font-size:22px;margin:0}
+  h1{font-size:28px;margin:0;text-align:center}
+  #status{text-align:center;color:#64748b;font-size:13px;margin:8px 0 0}
   .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0}
   .card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
-  .card small{color:#64748b;font-size:12px;text-transform:uppercase}
+  .card small{color:#64748b;font-size:12px;text-transform:uppercase;letter-spacing:.5px}
   .card .val{font-size:26px;font-weight:800;margin-top:6px}
   .card input{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:10px;font-size:18px;font-weight:700}
   .box{background:#fff;border-radius:14px;padding:16px;margin-bottom:16px}
-  .dates{display:flex;flex-wrap:wrap;gap:8px}
-  .dates label{display:flex;gap:6px;background:#f8fafc;border:1px solid #e2e8f0;padding:7px 10px;border-radius:999px;font-size:13px;cursor:pointer}
+  .box-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+  .box-head h3{margin:0}
+  .toggle-btn{background:#0f172a;color:#fff;border:0;padding:8px 14px;border-radius:999px;cursor:pointer;font-weight:700;font-size:13px}
+  .dates{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .dates label{display:flex;gap:6px;background:#f8fafc;border:1px solid #e2e8f0;padding:7px 10px;border-radius:999px;font-size:13px;cursor:pointer;align-items:center}
   .dates label.active{background:#2563eb;color:#fff;border-color:#2563eb}
-  button{border:0;padding:9px 14px;border-radius:999px;cursor:pointer;font-weight:700}
+  .btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .btns button{border:0;padding:9px 14px;border-radius:999px;cursor:pointer;font-weight:700}
   .table-wrap{overflow:auto;background:#fff;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
   table{border-collapse:collapse;width:100%;min-width:600px}
   th,td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;font-size:13px}
   th:first-child,td:first-child{text-align:left}
   th{background:#0f172a;color:#fff}
   tr.total td{background:#fef9c3;font-weight:800}
-  @media(max-width:700px){.cards{grid-template-columns:1fr}}
+  @media(max-width:700px){.cards{grid-template-columns:1fr} h1{font-size:24px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>DASHBOARD OMSET - DESEMBER 2025</h1>
-  <p id="status" style="color:#64748b;font-size:13px">Menghubungkan ke Google Sheet lo...</p>
+  <h1>TARGET FOOD</h1>
+  <p id="status">Menghubungkan ke Google Sheet lo...</p>
 
   <div class="cards">
-    <div class="card"><small>1. Omset LY (Tanggal Dipilih)</small><div class="val" id="lyVal">Loading...</div><div id="lyNote" style="font-size:12px;color:#64748b"></div></div>
-    <div class="card"><small>2. Up Target (Isi Manual)</small><input type="number" id="upTarget" value="10" min="0" step="0.1" oninput="hitung()"> <span style="font-size:12px;color:#64748b">% - ketik misal 10, 15, 20</span></div>
-    <div class="card"><small>3. Target = LY + Up Target</small><div class="val" id="targetVal">Loading...</div><div id="targetNote" style="font-size:12px;color:#64748b"></div></div>
+    <div class="card"><small>1. OMSET LY</small><div class="val" id="lyVal">Loading...</div></div>
+    <div class="card"><small>2. UP TARGET</small><input type="number" id="upTarget" value="10" min="0" step="0.1" oninput="hitung()"></div>
+    <div class="card"><small>3. TARGET</small><div class="val" id="targetVal">Loading...</div></div>
   </div>
 
   <div class="box">
-    <h3 style="margin:0 0 10px">4. Pilih Tanggal (Bisa Multi-Pilih)</h3>
-    <div class="dates" id="dateList"></div>
-    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-      <button onclick="pilihSemua()" style="background:#0f172a;color:#fff">Pilih Semua (1-31)</button>
-      <button onclick="hapusSemua()" style="background:#e2e8f0">Hapus Semua</button>
-      <button onclick="pilih123()" style="background:#e2e8f0">Pilih 1,2,3 Saja</button>
-      <button onclick="loadData()" style="background:#16a34a;color:#fff">🔄 Refresh Data</button>
+    <div class="box-head">
+      <h3>4. Pilih Tanggal</h3>
+      <button class="toggle-btn" id="toggleBtn" onclick="toggleTanggal()">👁️ Hide Tanggal</button>
+    </div>
+    <div id="dateArea">
+      <div class="dates" id="dateList"></div>
+      <div class="btns">
+        <button onclick="pilihSemua()" style="background:#0f172a;color:#fff">Pilih Semua (1-31)</button>
+        <button onclick="hapusSemua()" style="background:#e2e8f0">Hapus Semua</button>
+        <button onclick="pilih123()" style="background:#e2e8f0">Pilih 1,2,3 Saja</button>
+        <button onclick="loadData()" style="background:#16a34a;color:#fff">🔄 Refresh Data</button>
+      </div>
     </div>
   </div>
 
   <div class="table-wrap"><table><thead><tr id="headRow"><th>KATEGORI</th></tr></thead><tbody id="bodyRow"></tbody></table></div>
-  <p style="font-size:12px;color:#64748b">Sumber: Google Sheet MASTER TARGET - Publish to web. AH24 = Total Sebulan.</p>
+  <p style="font-size:12px;color:#64748b;text-align:center">Sumber: Google Sheet MASTER TARGET - Publish to web</p>
 </div>
 
 <script>
-// ID Publish dari link yang lo kirim - UDAH GUE ISIIN, JANGAN DIGANTI
 const PUB_ID = "2PACX-1vTpzRDynmPCu-45xxUm--KXetDnU3DE3Dvb3nv2A4plqHPPItNWO9bjIvzcTyPuifcMIbDWOWGreb2t";
 const CSV_URL = `https://docs.google.com/spreadsheets/d/e/${PUB_ID}/pub?gid=0&single=true&output=csv`;
 
@@ -71,7 +80,6 @@ const toNum = v => {
   return parseFloat(s) || 0;
 };
 
-// Parser CSV yang bener, biar angka "19,671,650.00" yang ada komanya gak kepotong
 function parseCSV(text){
   const rows=[]; let row=[], val="", inQ=false;
   for(let i=0;i<text.length;i++){
@@ -97,33 +105,26 @@ async function loadData(){
     const res = await fetch(CSV_URL);
     const text = await res.text();
     const rows = parseCSV(text);
-
-    // Cari baris TOTAL ALL CATEGORY
     let totalIdx = rows.findIndex(r => r.join(" ").toUpperCase().includes("TOTAL ALL"));
     if(totalIdx===-1) totalIdx = rows.length-1;
-
-    // Kategori = baris di atas TOTAL yang kolom B-nya ada isinya, dan bukan baris header tanggal
     DATA = [];
     for(let r=0; r<totalIdx; r++){
       const nama = (rows[r][1]||"").trim();
       if(!nama) continue;
       if(nama.toUpperCase().includes("KATEGORI") || nama.toUpperCase().includes("CATEGORY")) continue;
-      if(!isNaN(parseInt(nama)) && nama.length<=2) continue; // skip baris tanggal
+      if(!isNaN(parseInt(nama)) && nama.length<=2) continue;
       const arr=[];
       for(let c=2;c<=32;c++) arr.push(toNum(rows[r][c]));
-      // hanya simpan kalo ada angka
       if(arr.some(v=>v!==0) || nama) DATA.push([nama, arr]);
     }
-
     TOTAL_PER_TGL = [];
     for(let c=2;c<=32;c++) TOTAL_PER_TGL.push(toNum(rows[totalIdx][c]));
     AH24 = toNum(rows[totalIdx][33]);
     if(!AH24) AH24 = TOTAL_PER_TGL.reduce((a,b)=>a+b,0);
-
-    document.getElementById("status").textContent = "✅ Terhubung! Data live dari Sheet lo. AH24 = " + fmt(AH24) + " | Terakhir update: " + new Date().toLocaleTimeString("id-ID");
+    document.getElementById("status").textContent = "✅ Terhubung! AH24 = " + fmt(AH24);
     renderDates(); hitung();
   }catch(e){
-    document.getElementById("status").textContent = "❌ Gagal ambil data: " + e.message + " - Coba klik Refresh, atau cek Publish to web-nya udah di-OK belum.";
+    document.getElementById("status").textContent = "❌ Gagal ambil data: " + e.message;
   }
 }
 
@@ -141,6 +142,14 @@ function pilihSemua(){ selected=new Set(Array.from({length:31},(_,i)=>i+1)); ren
 function hapusSemua(){ selected=new Set(); renderDates(); hitung(); }
 function pilih123(){ selected=new Set([1,2,3]); renderDates(); hitung(); }
 
+// Hide / Unhide tanggal
+let tanggalVisible = true;
+function toggleTanggal(){
+  tanggalVisible = !tanggalVisible;
+  document.getElementById("dateArea").style.display = tanggalVisible ? "block" : "none";
+  document.getElementById("toggleBtn").textContent = tanggalVisible ? "👁️ Hide Tanggal" : "👁️ Show Tanggal";
+}
+
 function hitung(){
   if(!TOTAL_PER_TGL.length) return;
   const up=parseFloat(document.getElementById("upTarget").value)||0;
@@ -148,9 +157,7 @@ function hitung(){
   let ly=0; tgls.forEach(d=> ly+=TOTAL_PER_TGL[d-1]||0);
   const target=ly*(1+up/100);
   document.getElementById("lyVal").textContent=fmt(ly);
-  document.getElementById("lyNote").textContent=tgls.length?"Tanggal dipilih: "+tgls.join(", "):"Belum ada tanggal dipilih";
   document.getElementById("targetVal").textContent=fmt(target);
-  document.getElementById("targetNote").textContent=`LY + ${up}%`;
 
   const head=document.getElementById("headRow");
   head.innerHTML="<th>KATEGORI</th>";
