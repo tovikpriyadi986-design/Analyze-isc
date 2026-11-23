@@ -14,7 +14,6 @@
   #uploadBox{display:none;background:#fef9c3;padding:12px;border-radius:12px;margin:10px 0;text-align:center;font-size:13px}
   .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:12px 0}
   .card{background:#fff;border-radius:10px;padding:10px 12px;box-shadow:0 1px 5px rgba(0,0,0,.06);border-top:4px solid #ccc}
-  /* WARNA CARD */
   .card:nth-child(1){border-top-color:#2563eb;background:#eff6ff}
   .card:nth-child(1) small{color:#2563eb}
   .card:nth-child(2){border-top-color:#f59e0b;background:#fffbeb}
@@ -37,9 +36,9 @@
   .dl-btn{background:linear-gradient(90deg,#16a34a,#22c55e);color:#fff;border:0;padding:8px 14px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px}
   .table-wrap{overflow:auto;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.06);max-height:75vh}
   table{border-collapse:separate;border-spacing:0;width:100%;min-width:600px}
-  th,td{padding:6px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;font-size:10px}
-  /* WARNA TABEL */
-  th{background:linear-gradient(90deg,#0f172a,#2563eb);color:#fff;font-size:10px;position:sticky;top:0;z-index:3}
+  /* HURUF TABEL DIKECILIN - DARI 10px JADI 8px */
+  th,td{padding:5px 6px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;font-size:8px}
+  th{background:linear-gradient(90deg,#0f172a,#2563eb);color:#fff;font-size:8px;position:sticky;top:0;z-index:3}
   th:first-child,td:first-child{text-align:left;position:sticky;left:0;z-index:2;min-width:150px;max-width:210px;overflow:hidden;text-overflow:ellipsis}
   th:first-child{z-index:4;background:#0f172a}
   td:first-child{background:#eff6ff;font-weight:600;color:#1e3a8a}
@@ -51,7 +50,7 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>🎯TARGET FOOD🎯</h1>
+  <h1>TARGET FOOD</h1>
   <p id="status">Memuat data...</p>
   <div id="errBox"></div>
   <div id="uploadBox">
@@ -86,7 +85,6 @@
 window.onerror = function(msg){ var e=document.getElementById("errBox"); e.style.display="block"; e.textContent="ERROR: "+msg; };
 const PUB_ID = "2PACX-1vTpzRDynmPCu-45xxUm--KXetDnU3DE3Dvb3nv2A4plqHPPItNWO9bjIvzcTyPuifcMIbDWOWGreb2t";
 const CSV1 = "https://docs.google.com/spreadsheets/d/e/" + PUB_ID + "/pub?gid=0&single=true&output=csv";
-// PROXY JADI JALUR UTAMA BIAR TEMBUS
 const CSV_PROXY = "https://api.allorigins.win/raw?url=" + encodeURIComponent(CSV1);
 const URLS = [CSV_PROXY, CSV1];
 let DATA=[], TOTAL_PER_TGL=[], AH24=0;
@@ -147,7 +145,7 @@ async function loadData(){
       const text=await res.text();
       if(!text||text.length<100) throw new Error("Data kosong");
       prosesText(text);
-      document.getElementById("status").textContent="✅ Terhubung! OMSET LY = "+fmt(AH24);
+      document.getElementById("status").textContent="✅ Terhubung! AH24 = "+fmt(AH24);
       document.getElementById("uploadBox").style.display="none";
       return;
     }catch(e){ lastErr=e.message; }
@@ -197,7 +195,7 @@ function hitung(){
   DATA.forEach(function(item){ const nama=item[0], arr=item[1]; let sum=0; tgls.forEach(d=> sum+=arr[d-1]||0); const tgt=sum*(1+up/100);
     let row="<tr><td>"+nama+"</td>"; tgls.forEach(d=> row+="<td>"+(arr[d-1]||0).toLocaleString("id-ID")+"</td>"); row+="<td><b>"+sum.toLocaleString("id-ID")+"</b></td><td><b>"+Math.round(tgt).toLocaleString("id-ID")+"</b></td></tr>"; body.innerHTML+=row; });
   let rowTotal="<tr class='total'><td>TOTAL ALL CATEGORY</td>"; tgls.forEach(d=> rowTotal+="<td>"+(TOTAL_PER_TGL[d-1]||0).toLocaleString("id-ID")+"</td>"); rowTotal+="<td>"+ly.toLocaleString("id-ID")+"</td><td>"+Math.round(target).toLocaleString("id-ID")+"</td></tr>"; body.innerHTML+=rowTotal;
-  body.innerHTML+="<tr><td>TOTAL OMSET SEBULAN (1-31)</td><td colspan='"+tgls.length+"' style='text-align:center'>Full sebulan</td><td>"+AH24.toLocaleString("id-ID")+"</td><td>"+Math.round(AH24*(1+up/100)).toLocaleString("id-ID")+"</td></tr>";
+  body.innerHTML+="<tr><td>AH24 - TOTAL SEBULAN (1-31)</td><td colspan='"+tgls.length+"' style='text-align:center'>Full sebulan</td><td>"+AH24.toLocaleString("id-ID")+"</td><td>"+Math.round(AH24*(1+up/100)).toLocaleString("id-ID")+"</td></tr>";
 }
 loadCache();
 loadData();
