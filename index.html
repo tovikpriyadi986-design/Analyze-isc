@@ -138,7 +138,7 @@ async function loadData(){
       const text=await res.text();
       if(!text||text.length<100) throw new Error("Data kosong");
       prosesText(text);
-      document.getElementById("status").textContent="✅ Terhubung! AH24 = "+fmt(AH24);
+      document.getElementById("status").textContent="✅ Terhubung! OMZET LY = "+fmt(AH24);
       document.getElementById("uploadBox").style.display="none";
       return;
     }catch(e){ lastErr=e.message; }
@@ -188,7 +188,7 @@ function hitung(){
   DATA.forEach(function(item){ const nama=item[0], arr=item[1]; let sum=0; tgls.forEach(d=> sum+=arr[d-1]||0); const tgt=sum*(1+up/100);
     let row="<tr><td>"+nama+"</td>"; tgls.forEach(d=> row+="<td>"+(arr[d-1]||0).toLocaleString("id-ID")+"</td>"); row+="<td><b>"+sum.toLocaleString("id-ID")+"</b></td><td><b>"+Math.round(tgt).toLocaleString("id-ID")+"</b></td></tr>"; body.innerHTML+=row; });
   let rowTotal="<tr class='total'><td>TOTAL ALL CATEGORY</td>"; tgls.forEach(d=> rowTotal+="<td>"+(TOTAL_PER_TGL[d-1]||0).toLocaleString("id-ID")+"</td>"); rowTotal+="<td>"+ly.toLocaleString("id-ID")+"</td><td>"+Math.round(target).toLocaleString("id-ID")+"</td></tr>"; body.innerHTML+=rowTotal;
-  body.innerHTML+="<tr><td>AH24 - TOTAL SEBULAN (1-31)</td><td colspan='"+tgls.length+"' style='text-align:center'>Full sebulan</td><td>"+AH24.toLocaleString("id-ID")+"</td><td>"+Math.round(AH24*(1+up/100)).toLocaleString("id-ID")+"</td></tr>";
+  body.innerHTML+="<tr><td>TOTAL OMSET SEBULAN (1-31)</td><td colspan='"+tgls.length+"' style='text-align:center'>Full sebulan</td><td>"+AH24.toLocaleString("id-ID")+"</td><td>"+Math.round(AH24*(1+up/100)).toLocaleString("id-ID")+"</td></tr>";
 }
 loadCache();
 loadData();
