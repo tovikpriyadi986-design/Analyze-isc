@@ -11,34 +11,41 @@
   h1{font-size:24px;margin:0;text-align:center}
   #status{text-align:center;color:#64748b;font-size:12px;margin:6px 0 0}
 
-  /* === 3 KOTAK ATAS - VERSI KECIL === */
+  /* 3 KOTAK ATAS - KECIL, TANPA NOMOR */
   .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:12px 0}
   .card{background:#fff;border-radius:10px;padding:10px 12px;box-shadow:0 1px 5px rgba(0,0,0,.06)}
   .card small{color:#64748b;font-size:10px;text-transform:uppercase;letter-spacing:.5px}
   .card .val{font-size:15px;font-weight:800;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .card input{width:100%;padding:7px 8px;border:1px solid #cbd5e1;border-radius:8px;font-size:15px;font-weight:700;margin-top:4px}
 
+  /* BOX TANGGAL - CUMA TOMBOL SHOW/HIDE */
   .box{background:#fff;border-radius:12px;padding:12px;margin-bottom:12px}
-  .box-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-  .box-head h3{margin:0;font-size:15px}
-  .toggle-btn{background:#0f172a;color:#fff;border:0;padding:7px 12px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px}
+  .box-head{display:flex;justify-content:flex-end;align-items:center}
+  .toggle-btn{background:#0f172a;color:#fff;border:0;padding:7px 14px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px}
   .dates{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
   .dates label{display:flex;gap:5px;background:#f8fafc;border:1px solid #e2e8f0;padding:6px 9px;border-radius:999px;font-size:12px;cursor:pointer;align-items:center}
   .dates label.active{background:#2563eb;color:#fff;border-color:#2563eb}
   .btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
   .btns button{border:0;padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px}
-  .table-wrap{overflow:auto;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
-  table{border-collapse:collapse;width:100%;min-width:600px}
-  th,td{padding:9px 10px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;font-size:12px}
-  th:first-child,td:first-child{text-align:left}
-  th{background:#0f172a;color:#fff;font-size:12px}
+
+  /* TABEL - TULISAN KECIL + KOLOM PERTAMA FREEZE */
+  .table-wrap{overflow:auto;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.06);max-height:75vh}
+  table{border-collapse:separate;border-spacing:0;width:100%;min-width:600px}
+  th,td{padding:7px 8px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;font-size:11px}
+  th{background:#0f172a;color:#fff;font-size:11px;position:sticky;top:0;z-index:3}
+  /* Freeze kolom pertama */
+  th:first-child,td:first-child{text-align:left;position:sticky;left:0;z-index:2;min-width:160px;max-width:220px;overflow:hidden;text-overflow:ellipsis}
+  th:first-child{z-index:4;background:#0f172a}
+  td:first-child{background:#fff;font-weight:600}
   tr.total td{background:#fef9c3;font-weight:800}
+  tr.total td:first-child{background:#fef9c3}
   @media(max-width:700px){
     .cards{grid-template-columns:1fr 1fr 1fr;gap:6px}
     .card{padding:8px 9px}
     .card .val{font-size:13px}
     .card input{font-size:13px;padding:6px}
     h1{font-size:22px}
+    th:first-child,td:first-child{min-width:130px}
   }
 </style>
 </head>
@@ -48,17 +55,16 @@
   <p id="status">Menghubungkan ke Google Sheet lo...</p>
 
   <div class="cards">
-    <div class="card"><small>1. OMSET LY</small><div class="val" id="lyVal">Loading...</div></div>
-    <div class="card"><small>2. UP TARGET</small><input type="number" id="upTarget" value="10" min="0" step="0.1" oninput="hitung()"></div>
-    <div class="card"><small>3. TARGET</small><div class="val" id="targetVal">Loading...</div></div>
+    <div class="card"><small>OMSET LY</small><div class="val" id="lyVal">Loading...</div></div>
+    <div class="card"><small>UP TARGET</small><input type="number" id="upTarget" value="10" min="0" step="0.1" oninput="hitung()"></div>
+    <div class="card"><small>TARGET</small><div class="val" id="targetVal">Loading...</div></div>
   </div>
 
   <div class="box">
     <div class="box-head">
-      <h3>4. Pilih Tanggal</h3>
-      <button class="toggle-btn" id="toggleBtn" onclick="toggleTanggal()">👁️ Hide Tanggal</button>
+      <button class="toggle-btn" id="toggleBtn" onclick="toggleTanggal()">👁️ Show Tanggal</button>
     </div>
-    <div id="dateArea">
+    <div id="dateArea" style="display:none">
       <div class="dates" id="dateList"></div>
       <div class="btns">
         <button onclick="pilihSemua()" style="background:#0f172a;color:#fff">Pilih Semua (1-31)</button>
@@ -146,7 +152,7 @@ function toggleDate(d,cb){ if(cb.checked) selected.add(d); else selected.delete(
 function pilihSemua(){ selected=new Set(Array.from({length:31},(_,i)=>i+1)); renderDates(); hitung(); }
 function hapusSemua(){ selected=new Set(); renderDates(); hitung(); }
 function pilih123(){ selected=new Set([1,2,3]); renderDates(); hitung(); }
-let tanggalVisible = true;
+let tanggalVisible = false;
 function toggleTanggal(){
   tanggalVisible = !tanggalVisible;
   document.getElementById("dateArea").style.display = tanggalVisible ? "block" : "none";
