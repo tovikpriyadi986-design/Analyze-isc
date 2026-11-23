@@ -6,36 +6,47 @@
 <title>TARGET FOOD</title>
 <style>
   *{box-sizing:border-box;font-family:Arial,sans-serif}
-  body{margin:0;background:#f1f5f9;padding:12px}
+  body{margin:0;background:#eef2ff;padding:12px}
   .wrap{max-width:1280px;margin:auto}
-  h1{font-size:24px;margin:0;text-align:center}
+  h1{font-size:24px;margin:0;text-align:center;color:#1e3a8a}
   #status{text-align:center;color:#64748b;font-size:11px;margin:6px 0 0;word-break:break-word}
   #errBox{display:none;background:#fee2e2;color:#991b1b;padding:10px;border-radius:10px;font-size:12px;margin:10px 0;text-align:center}
   #uploadBox{display:none;background:#fef9c3;padding:12px;border-radius:12px;margin:10px 0;text-align:center;font-size:13px}
   .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:12px 0}
-  .card{background:#fff;border-radius:10px;padding:10px 12px;box-shadow:0 1px 5px rgba(0,0,0,.06)}
-  .card small{color:#64748b;font-size:10px;text-transform:uppercase}
+  .card{background:#fff;border-radius:10px;padding:10px 12px;box-shadow:0 1px 5px rgba(0,0,0,.06);border-top:4px solid #ccc}
+  /* WARNA CARD */
+  .card:nth-child(1){border-top-color:#2563eb;background:#eff6ff}
+  .card:nth-child(1) small{color:#2563eb}
+  .card:nth-child(2){border-top-color:#f59e0b;background:#fffbeb}
+  .card:nth-child(2) small{color:#d97706}
+  .card:nth-child(3){border-top-color:#16a34a;background:#f0fdf4}
+  .card:nth-child(3) small{color:#16a34a}
+  .card small{font-size:10px;text-transform:uppercase;font-weight:800}
   .card .val{font-size:15px;font-weight:800;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .card input{width:100%;padding:7px 8px;border:1px solid #cbd5e1;border-radius:8px;font-size:15px;font-weight:700;margin-top:4px}
-  .box{background:#fff;border-radius:12px;padding:12px;margin-bottom:12px}
+  .card input{width:100%;padding:7px 8px;border:1px solid #fcd34d;border-radius:8px;font-size:15px;font-weight:700;margin-top:4px;background:#fff}
+  .box{background:#fff;border-radius:12px;padding:12px;margin-bottom:12px;border:1px solid #e0e7ff}
   .box-head{display:flex;justify-content:flex-end}
-  .toggle-btn{background:#0f172a;color:#fff;border:0;padding:7px 14px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px}
+  .toggle-btn{background:linear-gradient(90deg,#0f172a,#2563eb);color:#fff;border:0;padding:7px 14px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px}
   .dates{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
   .dates label{display:flex;gap:5px;background:#f8fafc;border:1px solid #e2e8f0;padding:6px 9px;border-radius:999px;font-size:12px;cursor:pointer;align-items:center}
   .dates label.active{background:#2563eb;color:#fff;border-color:#2563eb}
   .btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
   .btns button{border:0;padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px}
   .table-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
-  .dl-btn{background:#16a34a;color:#fff;border:0;padding:8px 14px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px}
+  .table-head b{color:#1e3a8a}
+  .dl-btn{background:linear-gradient(90deg,#16a34a,#22c55e);color:#fff;border:0;padding:8px 14px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px}
   .table-wrap{overflow:auto;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.06);max-height:75vh}
   table{border-collapse:separate;border-spacing:0;width:100%;min-width:600px}
   th,td{padding:6px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;font-size:10px}
-  th{background:#0f172a;color:#fff;font-size:10px;position:sticky;top:0;z-index:3}
+  /* WARNA TABEL */
+  th{background:linear-gradient(90deg,#0f172a,#2563eb);color:#fff;font-size:10px;position:sticky;top:0;z-index:3}
   th:first-child,td:first-child{text-align:left;position:sticky;left:0;z-index:2;min-width:150px;max-width:210px;overflow:hidden;text-overflow:ellipsis}
   th:first-child{z-index:4;background:#0f172a}
-  td:first-child{background:#fff;font-weight:600}
-  tr.total td{background:#fef9c3;font-weight:800}
-  tr.total td:first-child{background:#fef9c3}
+  td:first-child{background:#eff6ff;font-weight:600;color:#1e3a8a}
+  tr:nth-child(even) td{background:#f8fafc}
+  tr:nth-child(even) td:first-child{background:#dbeafe}
+  tr.total td{background:#fef9c3 !important;font-weight:800;color:#854d0e}
+  tr.total td:first-child{background:#fde68a !important}
 </style>
 </head>
 <body>
@@ -59,11 +70,10 @@
     <div id="dateArea" style="display:none">
       <div class="dates" id="dateList"></div>
       <div class="btns">
-        <button onclick="pilihSemua()" style="background:#0f172a;color:#fff">Pilih Semua (1-31)</button>
-        <button onclick="hapusSemua()" style="background:#e2e8f0">Hapus Semua</button>
-        <button onclick="pilih123()" style="background:#e2e8f0">Pilih 1,2,3 Saja</button>
+        <button onclick="pilihSemua()" style="background:#2563eb;color:#fff">Pilih Semua (1-31)</button>
+        <button onclick="hapusSemua()" style="background:#94a3b8;color:#fff">Hapus Semua</button>
+        <button onclick="pilih123()" style="background:#9333ea;color:#fff">Pilih 1,2,3 Saja</button>
         <button onclick="loadData()" style="background:#16a34a;color:#fff">🔄 Refresh Data</button>
-        <button onclick="resetSemua()" style="background:#dc2626;color:#fff">🗑️ Reset</button>
       </div>
     </div>
   </div>
@@ -100,7 +110,6 @@ function loadCache(){
 }
 function saveUp(){ try{ localStorage.setItem("tf_up",document.getElementById("upTarget").value); }catch(e){} }
 function saveSelected(){ try{ localStorage.setItem("tf_selected",JSON.stringify([...selected])); }catch(e){} }
-function resetSemua(){ try{ localStorage.clear(); }catch(e){} location.reload(); }
 function parseCSV(text){
   const rows=[]; let row=[], val="", inQ=false;
   for(let i=0;i<text.length;i++){ const c=text[i], n=text[i+1];
