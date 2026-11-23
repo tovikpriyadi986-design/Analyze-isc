@@ -9,16 +9,12 @@
   body{margin:0;background:#f1f5f9;padding:12px}
   .wrap{max-width:1280px;margin:auto}
   h1{font-size:24px;margin:0;text-align:center}
-  #status{text-align:center;color:#64748b;font-size:12px;margin:6px 0 0}
-
-  /* 3 KOTAK ATAS - KECIL, TANPA NOMOR */
+  #status{text-align:center;color:#64748b;font-size:11px;margin:6px 0 0}
   .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:12px 0}
   .card{background:#fff;border-radius:10px;padding:10px 12px;box-shadow:0 1px 5px rgba(0,0,0,.06)}
   .card small{color:#64748b;font-size:10px;text-transform:uppercase;letter-spacing:.5px}
   .card .val{font-size:15px;font-weight:800;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .card input{width:100%;padding:7px 8px;border:1px solid #cbd5e1;border-radius:8px;font-size:15px;font-weight:700;margin-top:4px}
-
-  /* BOX TANGGAL - CUMA TOMBOL SHOW/HIDE */
   .box{background:#fff;border-radius:12px;padding:12px;margin-bottom:12px}
   .box-head{display:flex;justify-content:flex-end;align-items:center}
   .toggle-btn{background:#0f172a;color:#fff;border:0;padding:7px 14px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px}
@@ -27,14 +23,15 @@
   .dates label.active{background:#2563eb;color:#fff;border-color:#2563eb}
   .btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
   .btns button{border:0;padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px}
-
-  /* TABEL - TULISAN KECIL + KOLOM PERTAMA FREEZE */
+  .table-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+  .table-head b{font-size:13px}
+  .dl-btn{background:#16a34a;color:#fff;border:0;padding:8px 14px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px}
+  /* TABEL - LEBIH KECIL LAGI + FREEZE KOLOM PERTAMA */
   .table-wrap{overflow:auto;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.06);max-height:75vh}
   table{border-collapse:separate;border-spacing:0;width:100%;min-width:600px}
-  th,td{padding:7px 8px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;font-size:11px}
-  th{background:#0f172a;color:#fff;font-size:11px;position:sticky;top:0;z-index:3}
-  /* Freeze kolom pertama */
-  th:first-child,td:first-child{text-align:left;position:sticky;left:0;z-index:2;min-width:160px;max-width:220px;overflow:hidden;text-overflow:ellipsis}
+  th,td{padding:6px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;font-size:10px}
+  th{background:#0f172a;color:#fff;font-size:10px;position:sticky;top:0;z-index:3}
+  th:first-child,td:first-child{text-align:left;position:sticky;left:0;z-index:2;min-width:150px;max-width:210px;overflow:hidden;text-overflow:ellipsis}
   th:first-child{z-index:4;background:#0f172a}
   td:first-child{background:#fff;font-weight:600}
   tr.total td{background:#fef9c3;font-weight:800}
@@ -45,18 +42,18 @@
     .card .val{font-size:13px}
     .card input{font-size:13px;padding:6px}
     h1{font-size:22px}
-    th:first-child,td:first-child{min-width:130px}
+    th:first-child,td:first-child{min-width:125px}
   }
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>TARGET FOOD</h1>
-  <p id="status">Menghubungkan ke Google Sheet lo...</p>
+  <p id="status">Memuat data...</p>
 
   <div class="cards">
     <div class="card"><small>OMSET LY</small><div class="val" id="lyVal">Loading...</div></div>
-    <div class="card"><small>UP TARGET</small><input type="number" id="upTarget" value="10" min="0" step="0.1" oninput="hitung()"></div>
+    <div class="card"><small>UP TARGET</small><input type="number" id="upTarget" value="10" min="0" step="0.1" oninput="saveUp();hitung()"></div>
     <div class="card"><small>TARGET</small><div class="val" id="targetVal">Loading...</div></div>
   </div>
 
@@ -75,8 +72,11 @@
     </div>
   </div>
 
-  <div class="table-wrap"><table><thead><tr id="headRow"><th>KATEGORI</th></tr></thead><tbody id="bodyRow"></tbody></table></div>
-  <p style="font-size:11px;color:#64748b;text-align:center">Sumber: Google Sheet MASTER TARGET - Publish to web</p>
+  <div class="table-wrap" style="padding:10px">
+    <div class="table-head"><b>Tabel Target</b><button class="dl-btn" onclick="downloadExcel()">⬇️ Download Excel</button></div>
+    <table><thead><tr id="headRow"><th>KATEGORI</th></tr></thead><tbody id="bodyRow"></tbody></table>
+  </div>
+  <p style="font-size:11px;color:#64748b;text-align:center">Sumber: Google Sheet MASTER TARGET - Data tersimpan di HP, tetap tampil walau offline / di-refresh</p>
 </div>
 
 <script>
@@ -93,6 +93,37 @@ const toNum = v => {
   let s = String(v).trim().replace(/[^0-9.\-]/g,"");
   return parseFloat(s) || 0;
 };
+
+// ===== SIMPAN DATA BIAR GAK ILANG KALO DI-CLOSE / REFRESH =====
+function saveCache(){
+  try{
+    localStorage.setItem("tf_data", JSON.stringify(DATA));
+    localStorage.setItem("tf_total", JSON.stringify(TOTAL_PER_TGL));
+    localStorage.setItem("tf_ah24", String(AH24));
+    localStorage.setItem("tf_time", new Date().toLocaleString("id-ID"));
+  }catch(e){}
+}
+function loadCache(){
+  try{
+    const d = localStorage.getItem("tf_data");
+    const t = localStorage.getItem("tf_total");
+    const a = localStorage.getItem("tf_ah24");
+    const up = localStorage.getItem("tf_up");
+    const sel = localStorage.getItem("tf_selected");
+    if(d && t){
+      DATA = JSON.parse(d); TOTAL_PER_TGL = JSON.parse(t); AH24 = parseFloat(a)||0;
+      if(up!==null) document.getElementById("upTarget").value = up;
+      if(sel) selected = new Set(JSON.parse(sel));
+      document.getElementById("status").textContent = "📱 Data dari simpanan HP (offline) - Terakhir update: " + (localStorage.getItem("tf_time")||"-");
+      renderDates(); hitung();
+      return true;
+    }
+  }catch(e){}
+  return false;
+}
+function saveUp(){ try{ localStorage.setItem("tf_up", document.getElementById("upTarget").value); }catch(e){} }
+function saveSelected(){ try{ localStorage.setItem("tf_selected", JSON.stringify([...selected])); }catch(e){} }
+
 function parseCSV(text){
   const rows=[]; let row=[], val="", inQ=false;
   for(let i=0;i<text.length;i++){
@@ -112,7 +143,6 @@ function parseCSV(text){
   return rows;
 }
 async function loadData(){
-  document.getElementById("status").textContent = "Mengambil data dari Google Sheet...";
   try{
     const res = await fetch(CSV_URL);
     const text = await res.text();
@@ -123,7 +153,9 @@ async function loadData(){
     for(let r=0; r<totalIdx; r++){
       const nama = (rows[r][1]||"").trim();
       if(!nama) continue;
-      if(nama.toUpperCase().includes("KATEGORI") || nama.toUpperCase().includes("CATEGORY")) continue;
+      const upper = nama.toUpperCase();
+      // HILANGKAN BARIS SAMPAH: Description, KATEGORI, header tanggal
+      if(upper==="DESCRIPTION" || upper.includes("KATEGORI") || upper.includes("CATEGORY") || upper.includes("DESCRIPTION")) continue;
       if(!isNaN(parseInt(nama)) && nama.length<=2) continue;
       const arr=[];
       for(let c=2;c<=32;c++) arr.push(toNum(rows[r][c]));
@@ -133,10 +165,12 @@ async function loadData(){
     for(let c=2;c<=32;c++) TOTAL_PER_TGL.push(toNum(rows[totalIdx][c]));
     AH24 = toNum(rows[totalIdx][33]);
     if(!AH24) AH24 = TOTAL_PER_TGL.reduce((a,b)=>a+b,0);
-    document.getElementById("status").textContent = "✅ Terhubung! AH24 = " + fmt(AH24);
+    document.getElementById("status").textContent = "✅ Terhubung! AH24 = " + fmt(AH24) + " | Disimpan di HP, aman kalo di-close";
+    saveCache();
     renderDates(); hitung();
   }catch(e){
-    document.getElementById("status").textContent = "❌ Gagal ambil data: " + e.message;
+    // Kalo gagal fetch, pakai data simpanan
+    if(!loadCache()) document.getElementById("status").textContent = "❌ Gagal ambil data & belum ada simpanan: " + e.message;
   }
 }
 function renderDates(){
@@ -148,16 +182,42 @@ function renderDates(){
     el.appendChild(lab);
   }
 }
-function toggleDate(d,cb){ if(cb.checked) selected.add(d); else selected.delete(d); cb.parentElement.classList.toggle("active",cb.checked); hitung(); }
-function pilihSemua(){ selected=new Set(Array.from({length:31},(_,i)=>i+1)); renderDates(); hitung(); }
-function hapusSemua(){ selected=new Set(); renderDates(); hitung(); }
-function pilih123(){ selected=new Set([1,2,3]); renderDates(); hitung(); }
+function toggleDate(d,cb){ if(cb.checked) selected.add(d); else selected.delete(d); cb.parentElement.classList.toggle("active",cb.checked); saveSelected(); hitung(); }
+function pilihSemua(){ selected=new Set(Array.from({length:31},(_,i)=>i+1)); saveSelected(); renderDates(); hitung(); }
+function hapusSemua(){ selected=new Set(); saveSelected(); renderDates(); hitung(); }
+function pilih123(){ selected=new Set([1,2,3]); saveSelected(); renderDates(); hitung(); }
 let tanggalVisible = false;
 function toggleTanggal(){
   tanggalVisible = !tanggalVisible;
   document.getElementById("dateArea").style.display = tanggalVisible ? "block" : "none";
   document.getElementById("toggleBtn").textContent = tanggalVisible ? "👁️ Hide Tanggal" : "👁️ Show Tanggal";
 }
+
+// ===== DOWNLOAD EXCEL =====
+function downloadExcel(){
+  const up = parseFloat(document.getElementById("upTarget").value)||0;
+  const tgls=[...selected].sort((a,b)=>a-b);
+  let csv = "TARGET FOOD - DESEMBER 2025\n";
+  csv += "OMSET LY," + (tgls.reduce((s,d)=>s+(TOTAL_PER_TGL[d-1]||0),0)) + "\n";
+  csv += "UP TARGET (%)," + up + "\n";
+  csv += "TARGET," + (tgls.reduce((s,d)=>s+(TOTAL_PER_TGL[d-1]||0),0)*(1+up/100) + "\n";
+  csv += "Tanggal Dipilih," + tgls.join(" ") + "\n\n";
+  csv += "KATEGORI," + tgls.map(d=>"Tgl "+d).join(",") + ",TOTAL LY,TARGET\n";
+  DATA.forEach(([nama,arr])=>{
+    let sum=0; tgls.forEach(d=> sum+=arr[d-1]||0);
+    csv += `"${nama}",` + tgls.map(d=>arr[d-1]||0).join(",") + `,${sum},${Math.round(sum*(1+up/100))}\n`;
+  });
+  let ly=0; tgls.forEach(d=> ly+=TOTAL_PER_TGL[d-1]||0);
+  csv += `TOTAL ALL CATEGORY,` + tgls.map(d=>TOTAL_PER_TGL[d-1]||0).join(",") + `,${ly},${Math.round(ly*(1+up/100))}\n`;
+  csv += `AH24 - TOTAL SEBULAN,,,,${AH24},${Math.round(AH24*(1+up/100))}\n`;
+  const blob = new Blob(["\uFEFF"+csv], {type:"text/csv;charset=utf-8;"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "TARGET_FOOD_Tanggal_" + tgls.join("-") + ".csv";
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
 function hitung(){
   if(!TOTAL_PER_TGL.length) return;
   const up=parseFloat(document.getElementById("upTarget").value)||0;
@@ -185,6 +245,8 @@ function hitung(){
   body.innerHTML+=rowTotal;
   body.innerHTML+=`<tr><td>AH24 - TOTAL SEBULAN (1-31)</td><td colspan="${tgls.length}" style="text-align:center">Full sebulan</td><td>${AH24.toLocaleString("id-ID")}</td><td>${Math.round(AH24*(1+up/100)).toLocaleString("id-ID")}</td></tr>`;
 }
+// Jalanin: tampilkan simpanan dulu biar langsung muncul, baru fetch yang baru
+loadCache();
 loadData();
 </script>
 </body>
